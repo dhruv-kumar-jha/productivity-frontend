@@ -3,7 +3,12 @@
 
 ![ScreenShot](https://s3.ap-south-1.amazonaws.com/productivityapp/screenshot.png?ref=1)
 
-**Demo**: http://productivity.netlify.com.
+**Demo: S3**: http://proapp.s3-website.ap-south-1.amazonaws.com
+
+**Demo: Netlify**: http://productivity.netlify.com *has issues with hard refresh*
+
+*All of the demo deployments use same backend/api so you can use them interchangeably*
+
 
 
 ### Installation
