@@ -1,7 +1,7 @@
 # Productivity Application
 
 
-![Alt text](https://s3.ap-south-1.amazonaws.com/productivityapp/screenshot.png "Productivity Application")
+![ScreenShot](https://s3.ap-south-1.amazonaws.com/productivityapp/screenshot.png)
 
 
 ### Installation
