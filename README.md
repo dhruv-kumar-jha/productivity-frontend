@@ -1,5 +1,8 @@
 # Productivity Application
-Productivity Application - Frontend
+
+
+![Alt text](https://s3.ap-south-1.amazonaws.com/productivityapp/screenshot.png "Productivity Application")
+
 
 ### Installation
 
