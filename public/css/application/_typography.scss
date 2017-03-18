@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+h1 {
+	color: #000;
+	line-height: 100%;
+}
+
+
+h2 {
+	line-height: 100%;
+	span {
+		font-family: $font_family_arial;
+		font-size: 15px;
+		line-height: 15px;
+		color: #AAA;
+		font-weight: 400;
+		margin-left: 10px;
+	}
+}
+
+
+

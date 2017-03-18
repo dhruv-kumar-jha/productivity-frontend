@@ -1,0 +1,98 @@
+@charset "UTF-8";
+/**
+ * Mixins File
+ */
+
+
+
+@mixin transition( $property: all, $duration: 0.3s, $type: ease ) {
+	-webkit-transition: $property $duration $type;
+	-moz-transition: $property $duration $type;
+	transition: $property $duration $type;
+}
+
+@mixin disable_transition() {
+	transition: none !important;
+}
+
+
+@mixin centered() {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin disable_text_selection() {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+
+
+@mixin placeholder( $color: #666 ) {
+	::-webkit-input-placeholder {
+		color: $color;
+	}
+	:-moz-placeholder {
+		color: $color;
+	}
+	::-moz-placeholder {
+		color: $color;
+	}
+	:-ms-input-placeholder {  
+		color: $color;
+	}
+}
+
+
+
+
+
+
+
+@mixin custom_scrollbar() {
+
+	::-webkit-scrollbar {
+		width: 10px;
+	}
+	::-webkit-scrollbar-thumb {
+		background: #666;
+		border-radius: 20px;
+	}
+	::-webkit-scrollbar-track {
+		background: #ddd;
+		border-radius: 20px;
+	}
+
+}
+
+
+
+
+
+/// Slightly lighten a color
+/// @access public
+/// @param {Color} $color - color to tint
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+/// Slightly darken a color
+/// @access public
+/// @param {Color} $color - color to shade
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+
+
+
+

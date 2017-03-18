@@ -1,0 +1,296 @@
+@charset "UTF-8";
+
+
+
+.modal__primary {
+
+	// header styles starts here
+	header {
+		display: flex;
+		i {
+			margin-right: 10px;
+			font-size: 20px;
+			line-height: 28px;
+		}
+		.info {
+			flex: 1;
+		}
+		.title {
+			font-size: 18px;
+			line-height: 20px;
+			color: #4D4D4D;
+			font-weight: 600;
+			padding: 4px 6px;
+			border-radius: 3px;
+			margin-right: 30px;
+			@include transition();
+
+			span {
+				font-weight: 800;
+				color: #000;
+			}
+
+			&.editable {
+				cursor: pointer;
+				&:hover { background: rgba(255,255,255,0.9); }
+				span { font-weight: inherit; color: inherit; }
+			}
+
+		}
+		.list {
+			margin-top: 2px;
+			margin-left: 6px;
+			font-size: 14px;
+			line-height: 14px;
+			color: #8c8c8c;
+			span {
+				text-decoration: underline;
+				cursor: pointer;
+			}
+		}
+
+	}
+	// header styles ends here
+
+
+	// container styles: start
+	.container {
+		margin-left: 36px;
+		margin-right: 36px;
+		margin-top: 20px;
+		overflow: visible;
+		display: flex;
+
+		.content {
+			min-height: 200px;
+			flex: 1;
+
+			&.full {
+				width: 100%;
+			}
+		}
+
+		&.card {
+			margin-right: 16px; // 6px
+			.content { min-height: 300px; }
+		}
+
+	}
+	// container styles: end
+
+
+	// aside styles: start
+	.aside {
+		flex: 1;
+		// margin-right: 10px;
+		// margin-top: 20px;
+		border-left: 1px solid #DDD;
+		margin-left: 20px;
+		padding-left: 20px;
+		max-width: 150px;
+
+		button {
+			margin-bottom: 5px;
+			text-align: left;
+			width: 100%;
+			border-radius: 2px;
+			box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+			padding: 4px 10px;
+			&:last-child { margin-bottom: 0; }
+		}
+
+	}
+	// aside styles: end
+
+
+}
+
+
+
+// modal__primary form styles: start
+.modal__primary form {
+
+	.ant-form-item-label {
+		line-height: 100%;
+	}
+
+	textarea { resize: none; }
+
+}
+// modal__primary form styles: end
+
+
+
+
+
+// modal__primary content styles: start
+.modal__primary .content {
+
+	.heading {
+		font-size: 14px;
+		line-height: 14px;
+		margin-bottom: 10px;
+		color: #8C8C8C;
+		border-bottom: 1px solid rgba(204, 204, 204, 0.46);
+		padding-bottom: 5px;
+	}
+
+	.value {
+		cursor: pointer;
+	}
+
+	.empty--content {
+		padding: 6px 8px;
+		border-radius: 3px;
+		cursor: pointer;
+		color: #4D4D4D;
+		font-size: 14px;
+		line-height: 14px;
+		text-decoration: underline;
+		// @include transition();
+
+		i { font-size: 14px; margin-right: 6px; }
+		&:hover {
+			background: #D6DADC;
+		}
+	}
+
+
+	.card--description {
+		max-height: 260px;
+		overflow: auto;
+
+		h1, h2, h3 {
+			margin-bottom: 10px;
+		}
+
+		h1 {
+			font-size: 24px;
+			color: #000;
+			line-height: 100%;
+		}
+
+		h2 {
+			font-size: 20px;
+			color: #333;
+			line-height: 100%;
+		}
+
+		h3 {
+			font-size: 17px;
+			color: #333;
+			line-height: 100%;
+		}
+
+		p {
+			font-size: 14px;
+			line-height: 16px;
+			color: #444;
+			margin-bottom: 15px;
+			&:last-child { margin-bottom: 0; }
+		}
+
+		ol, ul {
+			margin: 15px 0;
+			margin-left: 20px;
+		}
+		ol { list-style-type: decimal; }
+		ul { list-style-type: square; }
+
+		pre {
+			margin: 15px 0;
+			background: rgba(3, 169, 244, 0.19);
+			color: #000;
+			padding: 10px 20px;
+			font-size: 13px;
+			line-height: 18px;
+			border: 1px solid rgba(3, 169, 244, 0.29);
+		}
+
+
+	}
+
+
+
+
+
+}
+// modal__primary content styles: end
+
+
+
+
+
+
+.component__key_val_wrapper {
+	// margin-top: 25px;
+	.component__key_val {
+		margin-bottom: 10px;
+		&:last-child { margin-bottom: 0; }
+	}
+}
+
+.component__key_val {
+	display: flex;
+	flex-flow: row wrap;
+
+	.key {
+		width: 120px;
+		line-height: 28px; // 20px;
+		border-radius: 3px;
+		margin-right: 20px;
+		border: 1px solid #CCC;
+		font-weight: 600;
+		padding: 0 10px;
+		text-align: right;
+		// height: 22px;
+	}
+
+	.val {
+		flex: 1;
+		display: flex;
+		justify-content: space-between;
+		flex-flow: row wrap;
+
+		align-items: center;
+		line-height: 22px;
+
+		.full-width { width: 100%; flex: 1; }
+		input.ant-calendar-picker-input { height: 20px; }
+
+		.data--edit--inline {
+			width: 100%;
+			flex: 1;
+
+			button {
+				height: 24px;
+				margin-top: 2px;
+			}
+			
+
+		}
+
+
+	}
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

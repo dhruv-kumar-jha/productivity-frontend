@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+@import "./config.scss";
+@import "./mixins.scss";
+
+// import the fonts.
+@import url('https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two');
+
+
+html, body {
+	height:100%;
+}
+
+body {
+	font-family: $font_family_default;
+	background: $body_background;
+	// background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+}
+
+
+
+
+// import common/default files
+@import "./common/antd.scss";
+@import "./common/utils.scss";
+@import "./common/flex.scss";
+
+
+// import the application styles
+@import "./application/typography.scss";
+@import "./application/loading.scss";
+@import "./application/header.scss";
+@import "./application/main.scss";
+@import "./application/auth.scss";
+@import "./application/responsive.scss";
+
+
+
+@import "./productivity/board.scss";
+@import "./productivity/list.scss";
+@import "./productivity/card.scss";
+@import "./productivity/modal.scss";
+
+
+// import the components we're using.
+@import "./components/heading.scss";
+@import "./components/productivity.scss";
+@import "./components/buttons.scss";
+@import "./components/todo.scss";
+
+
+

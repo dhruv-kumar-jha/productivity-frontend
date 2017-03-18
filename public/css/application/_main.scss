@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+
+.has-fh { padding-top: $header_height; }
+
+main {
+
+	&.body-wrapper {
+		width: auto;
+		padding: 50px 40px;
+		padding-bottom: 50px;
+	    @include transition();
+	}
+
+
+}
+
+
+

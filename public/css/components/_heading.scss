@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+
+
+.component__heading {
+	display: flex;
+	&.center {
+		justify-content: center;
+	}
+
+	.icon {
+		margin-right: 20px;
+		font-size: 30px;
+		line-height: 100%;
+	}
+
+	h1 {
+		font-family: $font_family_sil;
+		font-size: 30px;
+		line-height: 34px;
+		color: #000;
+		font-weight: normal;
+	}
+
+	.subtitle {
+		font-family: $font_family_content_heading;
+		font-size: 15px;
+		line-height: 15px;
+		color: #000;
+		margin-top: 10px;
+		max-width: 400px;
+	}
+
+
+}
+
+
+

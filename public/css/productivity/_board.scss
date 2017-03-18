@@ -1,0 +1,162 @@
+@charset "UTF-8";
+
+
+.component__productivity__board {
+
+	.board-container { margin-bottom: 12px; }
+
+	// board styles
+	.board {
+		padding: 20px;
+		cursor: pointer;
+		min-height: 100px;
+		height: 100%;
+		margin-right: 12px;
+
+		// background: rgba(0, 0, 0, 0.25);
+		color: rgba(0, 0, 0, 0.7);
+		border-radius: 3px;
+		background: #FEA;
+		border: 1px solid #FFE063;
+
+
+		@include transition();
+
+		&:hover {
+			background: darken( #FEA, 20 );
+		}
+
+		.title {
+			font-family: $font_family_content_heading;
+			font-size: 18px;
+			line-height: 100%;
+			font-weight: 700;
+			color: #000;
+			letter-spacing: -1px;
+		}
+
+		.description {
+			font-size: 13px;
+			line-height: 15px;
+			margin-top: 15px;
+			color: rgba(0, 0, 0, 0.59);
+		}
+
+	}
+	// board styles end here
+
+	.create {
+		background: #E2E4E6;
+		border-color: #CCC;
+		color: #000;
+		font-size: 14px;
+		max-height: 100%;
+		@include disable_transition();
+
+		&:hover { background: #E2E4E6; }
+
+		&.create-form {
+			border: none;
+			padding: 0;
+		}
+	}
+
+
+}
+
+
+
+.component__productivity__board .card__form {
+	color: #000;
+	font-size: 14px;
+	position: relative;
+	@include centered();
+
+	form {
+		border-color: #CCC;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		cursor: default;
+	}
+
+	.ant-form-item-label {
+		padding: 0;
+		line-height: 100%;
+		text-transform: uppercase;
+		font-weight: 600;
+		margin-bottom: 6px;
+	}
+
+	.ant-card-head-title { text-align: center; }
+	.ant-card-bordered {
+		border: 1px solid #D6DADC;
+		border-bottom-color: #C4C9CC;
+	}
+	.ant-card {
+		box-shadow: 0 1px 6px rgba(0,0,0,.15);
+	}
+
+}
+
+
+
+
+
+
+
+
+
+// productivity header styles: start
+header.productivity {
+	padding: 11px 40px; // 16px 40px;
+	margin: -50px -40px;
+	// box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
+	box-shadow: 0px 0px 2px rgba(100, 100, 100, 0.49);
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+
+	&.default {
+		color: rgba(51,51,51,1);
+		.description { color: rgba(119,119,119,1); }
+	}
+
+	&.light {
+		color: rgba(255,255,255,1);
+		// background: rgba(255,255,255,0.08);
+		.description { color: rgba(255,255,255,0.9); }
+	}
+
+	&.dark {
+		color: rgba(0,0,0,1);
+		// background: rgba(255,255,255,0.08);
+		.description { color: rgba(0,0,0,0.7); }
+	}
+
+
+	.title {
+		font-family: $font_family_sil;
+		font-size: 18px;
+		// color: #333;
+		font-weight: 600;
+	}
+
+	.description {
+		font-family: $font_family_content_heading;
+		font-size: 15px;
+		line-height: 100%;
+		font-weight: normal;
+		margin-left: 10px;
+		// color: #777;
+		letter-spacing: -1px;
+	}
+
+}
+// productivity header styles: end
+
+
+
+
+

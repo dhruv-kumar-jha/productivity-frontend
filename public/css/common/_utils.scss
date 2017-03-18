@@ -1,0 +1,127 @@
+@charset "UTF-8";
+
+a, a:hover, a:focus, a:active {
+	text-decoration: none;
+}
+
+input, select, textarea, label, button { cursor: pointer; }
+
+// .ta-center { text-align: center; }
+.float-left { float: left !important; }
+.float-right { float: right !important; }
+.underline { text-decoration: underline; }
+.uppercase { text-transform: uppercase; }
+div.centered { margin: 0 auto; float: none; overflow: hidden; }
+.div-hidden { display: none !important; }
+.invisible { visibility: hidden; display: none !important; }
+
+.ta-left { text-align: left; }
+.ta-right { text-align: right; }
+.ta-center { text-align: center; }
+
+.cursor-pointer { cursor: pointer; }
+
+.separator {
+	height: 1px;
+	background: #CCC;
+	margin: 30px 0;
+	&.light { background: #EEE; }
+}
+
+.overflow-auto { overflow: auto; }
+
+.height-100p { height: 100%; }
+.height--100p { height: 100% !important; }
+
+.m-0 { margin: 0 !important; }
+.m-t-0 { margin-top: 0px !important; }
+.m-l-0 { margin-left: 0px !important; }
+.m-r-0 { margin-right: 0px !important; }
+.m-b-0 { margin-bottom: 0px !important; }
+
+.p-0 { padding: 0 !important; }
+.p-t-0 { padding-top: 0px !important; }
+.p-l-0 { padding-left: 0px !important; }
+.p-r-0 { padding-right: 0px !important; }
+.p-b-0 { padding-bottom: 0px !important; }
+
+.m-t-5 { margin-top: 5px !important; }
+.m-l-5 { margin-left: 5px !important; }
+.m-r-5 { margin-right: 5px !important; }
+.m-b-5 { margin-bottom: 5px !important; }
+
+.m-t-15 { margin-top: 15px !important; }
+.m-l-15 { margin-left: 15px !important; }
+.m-r-15 { margin-right: 15px !important; }
+.m-b-15 { margin-bottom: 15px !important; }
+
+.p-t-5 { padding-top: 5px !important; }
+.p-l-5 { padding-left: 5px !important; }
+.p-r-5 { padding-right: 5px !important; }
+.p-b-5 { padding-bottom: 5px !important; }
+
+.p-t-15 { padding-top: 15px !important; }
+.p-l-15 { padding-left: 15px !important; }
+.p-r-15 { padding-right: 15px !important; }
+.p-b-15 { padding-bottom: 15px !important; }
+
+
+
+$max_pixels_length: 12; // i..e 120px;
+@mixin generate-margins-and-paddings {
+	@for $i from 1 through $max_pixels_length {
+		$pixels: $i * 10;
+		.m-tb-#{$pixels} {
+			margin-top: #{$pixels}px !important;
+			margin-bottom: #{$pixels}px !important;
+		}
+		.m-t-#{$pixels} {
+			margin-top: #{$pixels}px !important;
+		}
+		.m-l-#{$pixels} {
+			margin-left: #{$pixels}px !important;
+		}
+		.m-b-#{$pixels} {
+			margin-bottom: #{$pixels}px !important;
+		}
+		.m-r-#{$pixels} {
+			margin-right: #{$pixels}px !important;
+		}
+
+
+		.p-tb-#{$pixels} {
+			padding-top: #{$pixels}px !important;
+			padding-bottom: #{$pixels}px !important;
+		}
+		.p-t-#{$pixels} {
+			padding-top: #{$pixels}px !important;
+		}
+		.p-b-#{$pixels} {
+			padding-bottom: #{$pixels}px !important;
+		}
+		.p-l-#{$pixels} {
+			padding-left: #{$pixels}px !important;
+		}
+		.p-r-#{$pixels} {
+			padding-right: #{$pixels}px !important;
+		}
+
+	}
+}
+@include generate-margins-and-paddings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
