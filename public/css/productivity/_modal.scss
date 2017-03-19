@@ -255,7 +255,11 @@
 		align-items: center;
 		line-height: 22px;
 
-		.full-width { width: 100%; flex: 1; }
+		.full-width {
+			width: 100%;
+			flex: 1;
+			word-break: break-all;
+		}
 		input.ant-calendar-picker-input { height: 20px; }
 
 		.data--edit--inline {
