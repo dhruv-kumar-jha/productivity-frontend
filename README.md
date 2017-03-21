@@ -4,7 +4,7 @@ Kanban style, Trello inspired Productivity application built using the awesome R
 
 
 
-![ScreenShot](https://s3.ap-south-1.amazonaws.com/productivityapp/screenshot.png?ref=1)
+![ScreenShot](https://s3.ap-south-1.amazonaws.com/productivityapp/sc.png?ref=1)
 
 
 ## Demo
