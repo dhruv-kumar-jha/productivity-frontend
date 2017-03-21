@@ -1,2 +1,6 @@
+[build]
+  publish = "public"
+  command = "npm run build:production"
+
 [template.environment]
   API_ENDPOINT = "Please enter API Endpoint URL"
