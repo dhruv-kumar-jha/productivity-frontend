@@ -15,6 +15,13 @@ Host | URL
 **Amazon S3** | http://proapp.s3-website.ap-south-1.amazonaws.com
 **Netlify** | http://productivity.netlify.com
 
+
+#### Demo Account
+
+**Email Address:** `demo@demo.com`  
+**Password:** `P@sSw0rd@123`
+
+
 *All of the demo deployments use the same backend/api so you can use these interchangeably*
 
 
