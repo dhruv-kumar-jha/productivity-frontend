@@ -14,6 +14,7 @@ export default gql`
 			id
 			title
 			description
+			meta
 			cards {
 				id
 				title

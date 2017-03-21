@@ -1,13 +1,13 @@
 {
   "name": "productivity-frontend",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Frontend for the productivity application.",
   "main": "index.js",
   "scripts": {
     "watch": "webpack -w",
     "clean": "rimraf public/scripts",
-    "build:dev": "cross-env NODE_ENV=development npm run clean && webpack",
-    "build:production": "cross-env NODE_ENV=production npm run clean && webpack -p",
+    "build:dev": "npm run clean && cross-env NODE_ENV=development webpack",
+    "build:production": "npm run clean && cross-env NODE_ENV=production webpack -p",
     "start": "node server.js",
     "start:production": "cross-env NODE_ENV=production node server.js"
   },

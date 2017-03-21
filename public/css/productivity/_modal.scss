@@ -72,7 +72,7 @@
 
 		&.card {
 			margin-right: 16px; // 6px
-			.content { min-height: 300px; }
+			.content { min-height: 300px; overflow: hidden; }
 		}
 
 	}
@@ -115,6 +115,11 @@
 	}
 
 	textarea { resize: none; }
+
+	// .background-image-suggestions {
+	// 	// background: #FFEB3B;
+	// }
+
 
 }
 // modal__primary form styles: end
@@ -205,6 +210,13 @@
 			font-size: 13px;
 			line-height: 18px;
 			border: 1px solid rgba(3, 169, 244, 0.29);
+			code { background: none; padding: 0; font-size: inherit; }
+		}
+
+		code {
+			background: rgba(255, 250, 204, 0.84); // rgb(255, 250, 204);
+			padding: 0 4px;
+			font-size: 13px;
 		}
 
 
@@ -256,22 +268,32 @@
 		line-height: 22px;
 
 		.full-width {
+			display: flex;
 			width: 100%;
 			flex: 1;
 			word-break: break-all;
 		}
 		input.ant-calendar-picker-input { height: 20px; }
 
+		.link {
+			flex: 1;
+			a {
+				height: 22px;
+				display: flex;
+				overflow: hidden;
+				&:after {
+					content: '...';
+				}
+			}
+		}
+
 		.data--edit--inline {
 			width: 100%;
 			flex: 1;
-
 			button {
 				height: 24px;
 				margin-top: 2px;
 			}
-			
-
 		}
 
 

@@ -39,20 +39,25 @@ class ShowBoard extends Component {
 
 	setParentState( newstate ) {
 		this.setState(newstate);
-		if ( newstate.background ) { this.setBackgroundColor(newstate.background); }
-		else { this.removeBackgroundColor() }
+		if ( newstate.background || newstate.background_image ) { this.setBackground(newstate.background, newstate.background_image); }
+		else { this.removeBackground() }
 	}
 
 
-	setBackgroundColor(background) {
-		document.body.style.backgroundColor = background;
+	setBackground(backgroundColor,backgroundImage) {
+		if ( backgroundColor ) { document.body.style.backgroundColor = backgroundColor; }
+		if ( backgroundImage ) { document.body.style.backgroundImage = `url('${backgroundImage}')`; }
+		//  no-repeat center center
 	}
-	removeBackgroundColor() {
+	removeBackground() {
 		document.body.style.backgroundColor = null;
+		document.body.style.backgroundImage = null;
 	}
 
 	componentWillReceiveProps(nextProps) {
-		if ( nextProps.data.board.meta.background ) { this.setBackgroundColor(nextProps.data.board.meta.background); }
+		if ( nextProps.data.board.meta.background || nextProps.data.board.meta.background_image ) {
+			this.setBackground(nextProps.data.board.meta.background, nextProps.data.board.meta.background_image);
+		}
 	}
 
 	// componentDidMount() {
@@ -60,7 +65,7 @@ class ShowBoard extends Component {
 	// }
 
 	componentWillUnmount() {
-		this.removeBackgroundColor();
+		this.removeBackground();
 		// document.getElementById("main").classList.remove('board_view');
 		// document.body.classList.add(props.board.meta.style);
 	}

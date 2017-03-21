@@ -74,7 +74,9 @@ class ModalMeta extends Component {
 				<div className="val">
 					{ ! this.state.edit && this.props.data.meta.link &&
 						<div className="full-width flex flex--sb">
-							<a href={this.props.data.meta.link} target="_blank" rel="nofollow">{ this.props.data.meta.link }</a>
+							<div className="link">
+								<a href={this.props.data.meta.link} target="_blank" rel="nofollow">{ this.props.data.meta.link }</a>
+							</div>
 							<Button type="primary" ghost size="small" onClick={ this.open } className="m-l-10">{ this.props.data.meta.link ? 'Update Link' : 'Add Link' }</Button>
 						</div>
 					}

@@ -56,6 +56,7 @@ class NewList extends Component {
 							id: 'loading',
 							title: fields.title,
 							description: fields.description || '',
+							meta: {},
 							positions: [],
 							cards: [],
 							created_at: +new Date,

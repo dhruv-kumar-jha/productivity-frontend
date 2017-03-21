@@ -28,7 +28,7 @@ const Card = (props) => {
 	return (
 		<div className="card" data-card-id={ data.id }>
 		<Spin spinning={ data.id === 'loading' } size="large">
-			<div className="card--content" onClick={ showCardModal }>
+			<div className="card--content" onClick={ showCardModal } style={{ backgroundColor: data.meta.background_color || null }}>
 				{ data.meta.image &&
 					<ImageComponent url={data.meta.image} title={data.title} />
 				}
@@ -37,15 +37,12 @@ const Card = (props) => {
 					{ data.description &&
 						<div className="icon"><Icon type="bars" /></div>
 					}
+					{ data.meta.duedate &&
+						<div><Tag color={ Helper.date.style(data.meta.duedate) } className="duedate m-r-0">{ Helper.date.formatYMD(data.meta.duedate) }</Tag></div>
+					}
 					{ data.todos && data.todos.length > 0 &&
 						<div className="icon"><Icon type="check-square-o" /><span>{ Helper.utils.countCompletedTodos(data.todos) }/ { data.todos.length }</span></div>
 					}
-
-
-					{ data.meta.duedate &&
-						<div><Tag color={ Helper.date.style(data.meta.duedate) } className="duedate">{ Helper.date.formatYMD(data.meta.duedate) }</Tag></div>
-					}
-
 					{ data.meta.link &&
 						<div className="icon right">
 							<a href={ data.meta.link } target="_blank" rel="nofollow"><Icon type="global" /></a>

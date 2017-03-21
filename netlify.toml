@@ -1,0 +1,2 @@
+[template.environment]
+  API_ENDPOINT = "Please enter API Endpoint URL"

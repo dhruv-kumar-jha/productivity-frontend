@@ -198,7 +198,7 @@ class List extends Component {
 		return (
 			<div data-list-id={ data.id } className={ data.id === 'loading' || this.state.processing ? 'list autoheight' : 'list' }>
 			<Spin spinning={ data.id === 'loading' || this.state.processing } size="large">
-			<div className="content" data-list-id={ data.id }>
+			<div className="content" data-list-id={ data.id } style={{ backgroundColor: data.meta.background_color || null }}>
 
 				<header>
 					<div className="title">{ data.title }</div>
@@ -241,7 +241,3 @@ export default graphql(updateCardListMutation)(
 	)
 );
 
-
-/*
-				{ data.cards && data.cards.length > 0 &&
- */

@@ -74,6 +74,7 @@ const WebpackConfig = {
 			inject: false,
 			filename: '../index.html',
 			template: 'src/index.ejs',
+			api_endpoint: process.env.API_ENDPOINT,
 			minify: {
 				collapseBooleanAttributes: true,
 				removeComments: true,

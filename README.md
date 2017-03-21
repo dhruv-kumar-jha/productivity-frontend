@@ -20,6 +20,9 @@ Host | URL
 
 ## Installation
 
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/dhruv-kumar-jha/productivity-frontend)
+
+
 Just clone this repo and then run
 
 ```javascript
@@ -31,7 +34,7 @@ to install all the dependencies.
 
 ### After installing
 
-1. Edit `/src/index.ejs` file and change the API endpoint url **window.__API__ENDPOINT__** with the API endpoint where you have setup the backend of this app.
+1. Edit `/src/index.ejs` file and change the API endpoint url **`window.__API__ENDPOINT__`** with the API endpoint where you have setup the backend of this app.
 2. Run `yarn build:production` or `npm run build:production` to make a production build of the app.
 
 Now you can access the application by running `yarn start:production` or `npm run start:production`
@@ -52,5 +55,6 @@ Status | Feature | Description
 [x] | Card Meta | Each card has meta section where you can specify Duedate, Link, Image and the appropriate icons will appear below card in the list view., If image URL is specified, Image will appear above the card title.
 [x] | Custom Background | Each board can have different Background color, To change the background color just edit the board by clicking the Edit icon below the header and there you can update board details along with background color.
 [x] | Settings | You can update your details, password in the settings page
+[x] | Deploy to Netlify | Added 1 click deploy to Netlify button.
 
 

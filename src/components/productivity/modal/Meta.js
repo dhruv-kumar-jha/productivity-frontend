@@ -6,6 +6,7 @@ import { Icon, Input, Button, DatePicker, Tag, message } from 'antd';
 import Duedate from './meta/Duedate';
 import LinkComponent from './meta/Link';
 import ImageComponent from './meta/Image';
+import BackgroundColorComponent from './meta/BackgroundColor';
 
 
 class ModalMeta extends Component {
@@ -82,6 +83,12 @@ class ModalMeta extends Component {
 					data={ this.props.data }
 					mutate={ this.props.mutate }
 				/>
+
+				<BackgroundColorComponent
+					data={ this.props.data }
+					mutate={ this.props.mutate }
+				/>
+
 
 			</div>
 		);

@@ -15,6 +15,7 @@ export default gql`
 				title
 				description
 				positions
+				meta
 				cards {
 					id
 					title

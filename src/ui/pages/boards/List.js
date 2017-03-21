@@ -25,6 +25,7 @@ class List extends Component {
 		this.handleCancel = this.handleCancel.bind(this);
 		this.handleFormSubmit = this.handleFormSubmit.bind(this);
 		this.resetForm = this.resetForm.bind(this);
+		this.resetBackground = this.resetBackground.bind(this);
 	}
 
 
@@ -36,12 +37,26 @@ class List extends Component {
 		this.props.form.resetFields();
 	}
 
+	resetBackground(e, list, board) {
+		if ( ! list.meta.background_color ) {
+			return message.info("You haven't set any background color yet.");
+		}
+		this.props.form.setFieldsValue({
+			'meta.background_color': null,
+		});
+		return this.handleFormSubmit(e, list, board)
+	}
+
 
 	handleFormSubmit(e, list, board) {
 		e.preventDefault();
 		this.props.form.validateFields( (err, fields) => {
 			if ( ! err ) {
-				if ( fields.description === list.description && fields.title === list.title ) {
+				if (
+					fields.description === list.description &&
+					fields.title === list.title &&
+					fields.meta.background_color === list.meta.background_color
+				) {
 					return message.warning('You haven\'t made any changes yet.');
 				}
 
@@ -53,6 +68,9 @@ class List extends Component {
 						id: list.id,
 						title: fields.title,
 						description: fields.description,
+						meta: {
+							background_color: fields.meta.background_color,
+						}
 					},
 					optimisticResponse: {
 						__typename: 'Mutation',
@@ -61,6 +79,9 @@ class List extends Component {
 							id: list.id,
 							title: fields.title,
 							description: fields.description,
+							meta: {
+								background_color: fields.meta.background_color,
+							}
 						},
 					},
 					updateQueries: {
@@ -72,7 +93,8 @@ class List extends Component {
 									lists: {
 										[listIndex]: {
 											title: { $set: updatedList.title },
-											description: { $set: updatedList.description }
+											description: { $set: updatedList.description },
+											meta: { $set: updatedList.meta },
 										}
 									}
 								},
@@ -92,8 +114,6 @@ class List extends Component {
 						console.log('errors',errors);
 					}
 				});
-
-
 
 			}
 		});
@@ -152,12 +172,24 @@ class List extends Component {
 								{ getFieldDecorator('description', {
 									initialValue: list.description,
 								})(
-									<Input type="textarea" placeholder="Board description" autosize={{ minRows: 3, maxRows: 6 }} />
+									<Input type="textarea" placeholder="List description" autosize={{ minRows: 3, maxRows: 6 }} />
 								) }
 							</FormItem>
+
+							<FormItem label="List Background" hasFeedback >
+								{ getFieldDecorator('meta.background_color', {
+									initialValue: list.meta.background_color || null,
+								})(
+									<Input type="color" />
+								) }
+							</FormItem>
+
 							<FormItem className="m-b-0">
 								<Button type="primary" size="default" icon="check" htmlType="submit">Update Details</Button>
 								<Button type="ghost" size="default" icon="reload" onClick={ this.resetForm } className="m-l-10">Reset</Button>
+								{ list.meta.background_color &&
+									<Button type="ghost" size="default" icon="reload" onClick={ (e) => { this.resetBackground(e, list, board ) } } className="float-right">Reset Background</Button>
+								}
 							</FormItem>
 						</Spin>
 

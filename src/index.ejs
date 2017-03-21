@@ -30,7 +30,7 @@
 	</div>
 
 	<script>
-		window.__API__ENDPOINT__ = 'https://pro-app-api.herokuapp.com/graphql';
+		window.__API__ENDPOINT__ = "<%= htmlWebpackPlugin.options.api_endpoint || 'https://pro-app-api.herokuapp.com' %>/graphql";
 	</script>
 
 	<!-- place all the generated js here -->

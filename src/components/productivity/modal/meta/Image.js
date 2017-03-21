@@ -74,7 +74,9 @@ class ModalMetaImage extends Component {
 				<div className="val">
 					{ ! this.state.edit && this.props.data.meta.image &&
 						<div className="full-width flex flex--sb">
-							<a href={this.props.data.meta.image} target="_blank" rel="nofollow">{ this.props.data.meta.image }</a>
+							<div className="link">
+								<a href={this.props.data.meta.image} target="_blank" rel="nofollow">{ this.props.data.meta.image }</a>
+							</div>
 							<Button type="primary" ghost size="small" onClick={ this.open } className="m-l-10">{ this.props.data.meta.image ? 'Update Image URL' : 'Add Image URL' }</Button>
 						</div>
 					}

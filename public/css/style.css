@@ -3,7 +3,7 @@
 @import url("https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two");
 html, body { height: 100%; }
 
-body { font-family: "Segoe UI", "Open Sans", Tahoma, Arial, sans-serif; background: #F7F8FA; }
+body { font-family: "Segoe UI", "Open Sans", Tahoma, Arial, sans-serif; background: #F7F8FA; background-position: center center; background-repeat: no-repeat; background-attachment: fixed; background-size: cover; }
 
 .ant-menu-sub.ant-menu-inline > .ant-menu-item, .ant-menu-sub.ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title { height: 34px; line-height: 34px; }
 
@@ -454,7 +454,7 @@ header.productivity .description { font-family: "Lucida Grande", Tahoma; font-si
 .modal__primary .container .content { min-height: 200px; flex: 1; }
 .modal__primary .container .content.full { width: 100%; }
 .modal__primary .container.card { margin-right: 16px; }
-.modal__primary .container.card .content { min-height: 300px; }
+.modal__primary .container.card .content { min-height: 300px; overflow: hidden; }
 .modal__primary .aside { flex: 1; border-left: 1px solid #DDD; margin-left: 20px; padding-left: 20px; max-width: 150px; }
 .modal__primary .aside button { margin-bottom: 5px; text-align: left; width: 100%; border-radius: 2px; box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); padding: 4px 10px; }
 .modal__primary .aside button:last-child { margin-bottom: 0; }
@@ -478,6 +478,8 @@ header.productivity .description { font-family: "Lucida Grande", Tahoma; font-si
 .modal__primary .content .card--description ol { list-style-type: decimal; }
 .modal__primary .content .card--description ul { list-style-type: square; }
 .modal__primary .content .card--description pre { margin: 15px 0; background: rgba(3, 169, 244, 0.19); color: #000; padding: 10px 20px; font-size: 13px; line-height: 18px; border: 1px solid rgba(3, 169, 244, 0.29); }
+.modal__primary .content .card--description pre code { background: none; padding: 0; font-size: inherit; }
+.modal__primary .content .card--description code { background: rgba(255, 250, 204, 0.84); padding: 0 4px; font-size: 13px; }
 
 .component__key_val_wrapper .component__key_val { margin-bottom: 10px; }
 .component__key_val_wrapper .component__key_val:last-child { margin-bottom: 0; }
@@ -485,8 +487,11 @@ header.productivity .description { font-family: "Lucida Grande", Tahoma; font-si
 .component__key_val { display: flex; flex-flow: row wrap; }
 .component__key_val .key { width: 120px; line-height: 28px; border-radius: 3px; margin-right: 20px; border: 1px solid #CCC; font-weight: 600; padding: 0 10px; text-align: right; }
 .component__key_val .val { flex: 1; display: flex; justify-content: space-between; flex-flow: row wrap; align-items: center; line-height: 22px; }
-.component__key_val .val .full-width { width: 100%; flex: 1; word-break: break-all; }
+.component__key_val .val .full-width { display: flex; width: 100%; flex: 1; word-break: break-all; }
 .component__key_val .val input.ant-calendar-picker-input { height: 20px; }
+.component__key_val .val .link { flex: 1; }
+.component__key_val .val .link a { height: 22px; display: flex; overflow: hidden; }
+.component__key_val .val .link a:after { content: '...'; }
 .component__key_val .val .data--edit--inline { width: 100%; flex: 1; }
 .component__key_val .val .data--edit--inline button { height: 24px; margin-top: 2px; }
 

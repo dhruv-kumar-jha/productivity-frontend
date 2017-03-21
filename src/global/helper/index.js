@@ -41,7 +41,7 @@ const Helper = {
 
 		countCompletedTodos(todos) {
 			const count = _.countBy( todos, { completed: true } );
-			return count.true;
+			return count.true > 0 ? count.true : 0;
 		},
 
 	},
@@ -84,9 +84,9 @@ const Helper = {
 		style(_date) {
 			const duedate = moment(_date);
 			const difference = duedate.diff( moment(), 'hours' );
-			if ( difference > 0 ) { return 'green-inverse'; }
-			else if ( difference < -24 ) { return 'orange-inverse'; }
-			else { return 'blue-inverse'; }
+			if ( difference > 0 ) { return 'green'; }
+			else if ( difference < -24 ) { return 'orange'; }
+			else { return 'blue'; }
 		},
 
 		format(_date) {
