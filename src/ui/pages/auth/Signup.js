@@ -28,6 +28,7 @@ class Signup extends Component {
 		this.checkPassword = this.checkPassword.bind(this);
 		this.checkConfirm = this.checkConfirm.bind(this);
 		this.handleConfirmBlur = this.handleConfirmBlur.bind(this);
+		this.validateEmail = this.validateEmail.bind(this);
 
 		this.handleErrorsClose = this.handleErrorsClose.bind(this);
 	}
@@ -83,6 +84,20 @@ class Signup extends Component {
 		callback();
 	}
 
+	validateEmail(rule, value, callback) {
+		if ( ! value ) {
+			callback('Please enter your Email Address');
+		} else {
+			const email_validator = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+			if ( email_validator.test(value) ) {
+				callback();
+			} else {
+				callback('Please enter a valid email address');
+			}
+		}
+	}
+
+
 	handleErrorsClose() {
 		this.setState({ hide_errors: true });
 	}
@@ -137,8 +152,9 @@ class Signup extends Component {
 					<FormItem {...formItemLayout} label="Email Address">
 						{ getFieldDecorator('email', {
 							rules: [
-								{ type: 'email', message: 'Please enter a valid email address' },
-								{ required: true, message: 'Please enter your Email Address' },
+								// { type: 'email', message: 'Please enter a valid email address' },
+								// { required: true, message: 'Please enter your Email Address' },
+								{ validator: this.validateEmail },
 							],
 							initialValue: this.state.user.email,
 						})(

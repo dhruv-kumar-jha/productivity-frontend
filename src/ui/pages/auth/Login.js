@@ -40,7 +40,7 @@ class Login extends Component {
 					const token = res.data.login.token;
 					Auth.setAuthToken(token);
 					this.setState({ processing: false });
-					message.success('You have successfully logged in.', 4);
+					message.success('You have successfully logged in.');
 					browserHistory.push('/dashboard');
 				})
 				.catch( res => {

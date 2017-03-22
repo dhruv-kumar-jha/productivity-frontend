@@ -16,16 +16,18 @@ import LogoutQuery from 'app/graphql/queries/auth/Logout';
 
 const Logout = (props) => {
 
-	setTimeout( () => {
-		Auth.logout();
-		message.success('You have been successfully logged out.', 4);
-		// browserHistory.push('/auth/login');
-		// props.client.resetStore();
 
-		// doing hard refresh since apollo module re-fetches the data after logout...
-		// will remove this once they provide option for not re-fetching the data and resetting the entire store.
-		window.location.href = '/auth/login';
-	}, 20);
+	// if ( ! props.data.loading && props.data.networkStatus === 7 ) {
+	if ( ! props.data.loading && props.data.logout.id ) {
+		Auth.logout();
+		setTimeout( () => {
+			message.success('You have been successfully logged out.');
+		}, 10);
+		setTimeout( () => {
+			window.location.href = '/auth/login';
+		}, 100);
+	}
+
 
 	return (
 		<CommonLayout>
@@ -40,7 +42,6 @@ const Logout = (props) => {
 					<Loading type="inline" hideText={true} />
 				</div>
 			</Heading>
-
 
 
 		</CommonLayout>

@@ -27,7 +27,6 @@ class ShowBoard extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			// background: this.props.data.board && this.props.data.board.meta ? this.props.data.board.meta.background : '',
 		};
 		this.handleRedirect = this.handleRedirect.bind(this);
 		this.setParentState = this.setParentState.bind(this);
@@ -43,15 +42,15 @@ class ShowBoard extends Component {
 		else { this.removeBackground() }
 	}
 
-
 	setBackground(backgroundColor,backgroundImage) {
 		if ( backgroundColor ) { document.body.style.backgroundColor = backgroundColor; }
 		if ( backgroundImage ) { document.body.style.backgroundImage = `url('${backgroundImage}')`; }
-		//  no-repeat center center
+		document.body.classList.add('transparent-header');
 	}
 	removeBackground() {
 		document.body.style.backgroundColor = null;
 		document.body.style.backgroundImage = null;
+		document.body.classList.remove('transparent-header');
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -60,16 +59,9 @@ class ShowBoard extends Component {
 		}
 	}
 
-	// componentDidMount() {
-	// 	document.getElementById("main").classList.add('board_view');
-	// }
-
 	componentWillUnmount() {
 		this.removeBackground();
-		// document.getElementById("main").classList.remove('board_view');
-		// document.body.classList.add(props.board.meta.style);
 	}
-
 
 
 

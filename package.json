@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "watch": "webpack -w",
+    "watch:dev": "cross-env API_ENDPOINT=http://127.0.0.1:1200 webpack -w",
     "clean": "rimraf public/scripts",
     "build:dev": "npm run clean && cross-env NODE_ENV=development webpack",
     "build:production": "npm run clean && cross-env NODE_ENV=production webpack -p",

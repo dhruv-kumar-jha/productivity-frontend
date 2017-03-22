@@ -60,7 +60,7 @@ Status | Feature | Description
 [x] | Cards | Cards are the meat of this app, you can add as many cards as you like, re-arrange them, drag them from one list to another, etc
 [x] | Todo List | Each card has Todo List tab, There you can add your todo list items, update them, mark them as completed and so on.
 [x] | Card Meta | Each card has meta section where you can specify Duedate, Link, Image and the appropriate icons will appear below card in the list view., If image URL is specified, Image will appear above the card title.
-[x] | Custom Background | Each board can have different Background color, To change the background color just edit the board by clicking the Edit icon below the header and there you can update board details along with background color.
+[x] | Custom Background | Each board, list and card can have different Background color, Boards can have background images as well. To change the background color of board just edit the board by clicking the Edit icon below the header and there you can update board details along with background color.
 [x] | Settings | You can update your details, password in the settings page
 [x] | Deploy to Netlify | Added 1 click deploy to Netlify button.
 
