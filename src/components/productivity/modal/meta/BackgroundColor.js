@@ -1,7 +1,7 @@
 'use strict';
 
 import React, { Component } from 'react';
-import { Input, Button, message } from 'antd';
+import { Input, Button, Tag, message } from 'antd';
 
 
 class BackgroundColor extends Component {
@@ -77,6 +77,24 @@ class BackgroundColor extends Component {
 
 	render() {
 
+
+
+		if ( this.props.public ) {
+			return (
+				<div className="component__key_val">
+					<div className="key">Background:</div>
+					<div className="val">
+						{ this.props.data.meta.background_color ?
+							( <Tag color={this.props.data.meta.background_color}>{this.props.data.meta.background_color}</Tag> ) :
+							( <p>Background color not set</p> )
+						}
+					</div>
+				</div>
+			);
+		}
+
+
+
 		return (
 			<div className="component__key_val">
 				<div className="key">Background:</div>
@@ -84,7 +102,7 @@ class BackgroundColor extends Component {
 					{ ! this.state.edit && this.props.data.meta.background_color &&
 						<div className="full-width flex flex--sb">
 							<div className="flex">
-								<p>{ this.props.data.meta.background_color }</p>
+								<Tag color={this.props.data.meta.background_color}>{this.props.data.meta.background_color}</Tag>
 								<Button type="primary" ghost size="small" onClick={ this.resetBackgroundColor } className="m-l-10">Reset Background Color</Button>
 							</div>
 							<Button type="primary" ghost size="small" onClick={ this.open } className="m-l-10">{ this.props.data.meta.background_color ? 'Update Background Color' : 'Set Background Color' }</Button>

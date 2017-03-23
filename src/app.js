@@ -27,6 +27,7 @@ import Middleware from 'app/global/middleware';
 import AppLayout from 'app/ui/layout/App';
 import DefaultLayout from 'app/ui/layout/Default';
 import AuthLayout from 'app/ui/layout/Auth';
+import PublicLayout from 'app/ui/layout/Public';
 
 import Dashboard from 'app/ui/pages/common/Dashboard';
 import Invalid from 'app/ui/common/Invalid';
@@ -44,6 +45,8 @@ import ShowListPage from 'app/ui/pages/boards/List';
 
 import SettingPage from 'app/ui/pages/common/Setting';
 
+import ShowPublicBoard from 'app/ui/public/boards/Show';
+import ShowPublicCard from 'app/ui/public/boards/Card';
 
 
 render(
@@ -57,6 +60,16 @@ render(
 				<Route path="signup" component={ SignupPage } />
 				<Route path="logout" component={ LogoutPage } />
 			</Route>
+
+			<Route path="public" component={ PublicLayout }>
+				<Route path="boards">
+					<Route path=":id" component={ ShowPublicBoard }>
+						<Route path="cards/:card_id" component={ ShowPublicCard } />
+					</Route>
+				</Route>
+				<Route path="*" component={ PageNotFound } />
+			</Route>
+
 
 			<Route component={ DefaultLayout } onEnter={ Middleware.auth.authenticatedUsersOnly } >
 				<Route path="/" component={ Dashboard } />

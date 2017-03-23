@@ -72,21 +72,25 @@ class ModalMeta extends Component {
 				<Duedate
 					data={ this.props.data }
 					mutate={ this.props.mutate }
+					public={ this.props.public || false }
 				/>
 
 				<LinkComponent
 					data={ this.props.data }
 					mutate={ this.props.mutate }
+					public={ this.props.public || false }
 				/>
 
 				<ImageComponent
 					data={ this.props.data }
 					mutate={ this.props.mutate }
+					public={ this.props.public || false }
 				/>
 
 				<BackgroundColorComponent
 					data={ this.props.data }
 					mutate={ this.props.mutate }
+					public={ this.props.public || false }
 				/>
 
 

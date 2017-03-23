@@ -64,6 +64,21 @@ class ModalMeta extends Component {
 
 	render() {
 
+		if ( this.props.public ) {
+			return (
+				<div className="component__key_val">
+					<div className="key">Duedate:</div>
+					<div className="val">
+						{ this.props.data.meta.duedate ?
+							( <Tag color={ Helper.date.style(this.props.data.meta.duedate) }>{ Helper.date.format(this.props.data.meta.duedate) }</Tag> ) :
+							( <p>Due date not specified</p> )
+						}
+					</div>
+				</div>
+			);
+		}
+
+
 		return (
 			<div className="component__key_val">
 				<div className="key">Duedate:</div>

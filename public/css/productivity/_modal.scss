@@ -144,6 +144,8 @@
 		cursor: pointer;
 	}
 
+	.public { cursor: default !important; }
+
 	.empty--content {
 		padding: 6px 8px;
 		border-radius: 3px;

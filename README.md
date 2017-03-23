@@ -14,6 +14,7 @@ Host | URL
 ------------ | -------------
 **Amazon S3** | http://proapp.s3-website.ap-south-1.amazonaws.com
 **Netlify** | http://productivity.netlify.com
+**Public Board Demo** | http://productivity.netlify.com/public/boards/58d383b20f4a2800178ef63e
 
 
 #### Demo Account
@@ -63,5 +64,6 @@ Status | Feature | Description
 [x] | Custom Background | Each board, list and card can have different Background color, Boards can have background images as well. To change the background color of board just edit the board by clicking the Edit icon below the header and there you can update board details along with background color.
 [x] | Settings | You can update your details, password in the settings page
 [x] | Deploy to Netlify | Added 1 click deploy to Netlify button.
+[x] | Public Boards | Now you can make boards public, Public boards are accessible to all the users with the board URL., By default all boards are private.
 
 

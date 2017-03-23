@@ -25,13 +25,9 @@ class ShowCard extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			edit_description: false,
 			processing: false,
 			delete_card: false,
-
 			tab: 'default',
-			pick_duedate: false,
-			duedate: '',
 		};
 
 		this.mutate = this.mutate.bind(this);

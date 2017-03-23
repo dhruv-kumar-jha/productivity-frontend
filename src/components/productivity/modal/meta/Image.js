@@ -68,6 +68,28 @@ class ModalMetaImage extends Component {
 
 	render() {
 
+
+		if ( this.props.public ) {
+			return (
+				<div className="component__key_val">
+					<div className="key">Image:</div>
+					<div className="val">
+						{ this.props.data.meta.image ?
+							(
+								<div className="full-width flex flex--sb">
+									<div className="link">
+										<a href={this.props.data.meta.image} target="_blank" rel="nofollow">{ this.props.data.meta.image }</a>
+									</div>
+								</div>
+							) :
+							( <p>Image not specified</p> )
+						}
+					</div>
+				</div>
+			);
+		}
+
+
 		return (
 			<div className="component__key_val">
 				<div className="key">Image:</div>

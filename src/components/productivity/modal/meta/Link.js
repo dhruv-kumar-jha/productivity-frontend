@@ -68,6 +68,27 @@ class ModalMeta extends Component {
 
 	render() {
 
+		if ( this.props.public ) {
+			return (
+				<div className="component__key_val">
+					<div className="key">Link:</div>
+					<div className="val">
+						{ this.props.data.meta.link ?
+							(
+								<div className="full-width flex flex--sb">
+									<div className="link">
+										<a href={this.props.data.meta.link} target="_blank" rel="nofollow">{ this.props.data.meta.link }</a>
+									</div>
+								</div>
+							) :
+							( <p>Link not specified</p> )
+						}
+					</div>
+				</div>
+			);
+		}
+
+
 		return (
 			<div className="component__key_val">
 				<div className="key">Link:</div>

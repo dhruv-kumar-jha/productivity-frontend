@@ -91,13 +91,14 @@ class ModalTodo extends Component {
 							}
 						},
 					});
+					this.setState({ processing: false, add: false, title: null, description: null });
 					return updated;
 				}
 			},
 		})
 		.then( res => {
 			loading_message();
-			this.setState({ processing: false, add: false, title: null, description: null });
+			// this.setState({ processing: false, add: false, title: null, description: null });
 			message.success('New todo has been successfully added.');
 		})
 		.catch( res => {
@@ -137,6 +138,23 @@ class ModalTodo extends Component {
 					</div>
 				</div>
 				</Spin>
+			);
+		}
+
+
+
+		if ( this.props.public ) {
+			if ( this.props.data.todos && this.props.data.todos.length < 1 ) {
+				return(
+					<div className="component__todo_list empty">
+						<p>No todo items has been added for this card yet.</p>
+					</div>
+				);
+			}
+			return (
+				<div className="component__todo_list">
+					{ this.props.data.todos.map( todo => <TodoItem key={todo._id} data={todo} card={{ id: this.props.data.id, _list: this.props.data._list }} public={true} /> ) }
+				</div>
 			);
 		}
 

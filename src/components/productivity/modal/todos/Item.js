@@ -26,7 +26,6 @@ class TodoItem extends Component {
 
 		this.confirmDelete = this.confirmDelete.bind(this);
 		this.delete = this.delete.bind(this);
-
 	}
 
 
@@ -125,7 +124,6 @@ class TodoItem extends Component {
 			},
 			onCancel() {},
 		});
-
 	}
 
 
@@ -254,24 +252,31 @@ class TodoItem extends Component {
 			}
 		});
 
-
 	}
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
 	render() {
+
+		const showPublicTodo = (data) => {
+			return(
+				<div className="item">
+					<div className="status">
+						<Checkbox defaultChecked={ data.completed } disabled />
+					</div>
+					<div className="info">
+						<div className="title">{ data.title }</div>
+						{ data.description &&
+							<div className="description">{ data.description }</div>
+						}
+					</div>
+				</div>
+			);
+		}
+
+
 
 		const showNormalTodo = (data) => {
 			return(
@@ -333,9 +338,14 @@ class TodoItem extends Component {
 
 		const { data } = this.props;
 
-		if ( ! this.state.edit ) {
+		if ( this.props.public ) {
+			return showPublicTodo(data);
+		}
+
+		else if ( ! this.state.edit ) {
 			return showNormalTodo(data);
-		} else {
+		}
+		else {
 			return showEditableTodo(data);
 		}
 

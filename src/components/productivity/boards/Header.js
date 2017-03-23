@@ -13,6 +13,8 @@ import { graphql } from 'react-apollo';
 import DeleteBoardMutation from 'app/graphql/mutations/boards/Delete';
 import GetAllBoardsQuery from 'app/graphql/queries/boards/All';
 
+import BoardVisibilityChange from 'app/components/productivity/boards/ChangeVisibility';
+
 
 const ProductivityHeader = (props) => {
 
@@ -74,6 +76,7 @@ const ProductivityHeader = (props) => {
 
 
 
+
 	// check if the background color of the board is: default, light or dark
 	const board_background = Helper.ui.detectBackgroundBrightness(props.board.meta.background);
 	let header_class = '';
@@ -91,11 +94,13 @@ const ProductivityHeader = (props) => {
 				}
 			</div>
 
-			<div>
-				<Button type="primary" icon="edit" onClick={ gotoBoardEdit } />
+			{ ! props.public &&
+			<div className="flex">
+				<BoardVisibilityChange data={props.board} />
+				<Button type="primary" icon="edit" className="m-l-10" onClick={ gotoBoardEdit } />
 				<Button type="danger" icon="delete" className="m-l-10" onClick={ confirmBoardDeletion } />
 			</div>
-
+			}
 
 		</header>
 	);

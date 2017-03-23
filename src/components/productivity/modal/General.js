@@ -74,9 +74,36 @@ class ModalGeneral extends Component {
 		);
 	}
 
+	renderPublic() {
+		if ( ! this.props.data.description ) {
+			return(
+				<div className="empty--content">
+					<Icon type="bars" />No description has been added for this card yet.
+				</div>
+			);
+		} else {
+			return(
+				<div className="value public component__custom_scrollbar">
+					<MarkedPreview
+						classNames={{ textContainer: 'card--description' }}
+						value={ this.props.data.description } />
+				</div>
+			);
+		}
+	}
+
 
 
 	render() {
+
+		if ( this.props.public ) {
+			return (
+				<div>
+					<div className="heading">General Details</div>
+					{ this.renderPublic() }
+				</div>
+			);
+		}
 
 		return (
 			<div>
