@@ -13,8 +13,8 @@ Kanban style, Trello inspired Productivity application built using the awesome R
 Host | URL
 ------------ | -------------
 **Amazon S3** | http://proapp.s3-website.ap-south-1.amazonaws.com
-**Netlify** | http://productivity.netlify.com
-**Public Board Demo** | http://productivity.netlify.com/public/boards/58d383b20f4a2800178ef63e
+**Netlify** | https://productivity.netlify.com
+**Public Board Demo** | http://proapp.s3-website.ap-south-1.amazonaws.com/public/boards/58d383b20f4a2800178ef63e https://productivity.netlify.com/public/boards/58d383b20f4a2800178ef63e
 
 
 #### Demo Account
