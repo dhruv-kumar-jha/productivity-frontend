@@ -18,7 +18,7 @@ const Logout = (props) => {
 
 
 	// if ( ! props.data.loading && props.data.networkStatus === 7 ) {
-	if ( ! props.data.loading && props.data.logout.id ) {
+	if ( ! props.data.loading && props.data.logout.status ) {
 		Auth.logout();
 		setTimeout( () => {
 			message.success('You have been successfully logged out.');
