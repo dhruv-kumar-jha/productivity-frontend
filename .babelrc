@@ -1,4 +1,4 @@
 {
-	"presets" : [ "env", "react" ],
-	"plugins": [[ "import", { "libraryName": "antd", "style": "css" } ]]
+	"presets" : [["env",{ "modules": false }], "react" ],
+	"plugins": [["import", { "libraryName": "antd", "style": "css" }], "syntax-dynamic-import"]
 }

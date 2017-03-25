@@ -13,10 +13,13 @@
     "no-alert": 0,
     "no-lone-blocks": 0
   },
+  "parser": "babel-eslint",
   "parserOptions": {
     "ecmaVersion": 6,
     "sourceType": "module",
+    "allowImportExportEverywhere": true,
     "ecmaFeatures": {
+      "modules": true,
       "jsx": true,
       "experimentalObjectRestSpread": true
     }

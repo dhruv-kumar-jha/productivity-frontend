@@ -10,6 +10,9 @@ import { ApolloProvider } from 'react-apollo';
 import networkInterface from 'app/global/middleware/networkInterface';
 import initialState from 'app/global/middleware/initialState';
 
+import ApplicationRoutes from './routes';
+
+
 const dataIdFromObject = o => o.id;
 const client = new ApolloClient({
 	networkInterface,
@@ -22,6 +25,23 @@ const client = new ApolloClient({
 	dataIdFromObject,
 });
 
+
+import AppLayout from 'app/ui/layout/App';
+
+render(
+	(
+	<ApolloProvider client={ client }>
+	<AppLayout>
+		<Router history={ browserHistory } routes={ ApplicationRoutes } />
+	</AppLayout>
+	</ApolloProvider>
+	),
+	document.getElementById('application__core')
+);
+
+
+
+/*
 import Middleware from 'app/global/middleware';
 
 import AppLayout from 'app/ui/layout/App';
@@ -49,6 +69,7 @@ import ShowPublicBoard from 'app/ui/public/boards/Show';
 import ShowPublicCard from 'app/ui/public/boards/Card';
 
 
+// Just for reference
 render(
 	(
 	<ApolloProvider client={ client }>
@@ -95,4 +116,5 @@ render(
 	document.getElementById('application__core')
 );
 
+*/
 

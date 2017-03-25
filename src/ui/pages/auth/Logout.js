@@ -16,8 +16,8 @@ import LogoutQuery from 'app/graphql/queries/auth/Logout';
 
 const Logout = (props) => {
 
-	// if ( ! props.data.loading && props.data.networkStatus === 7 ) {
-	if ( ! props.data.loading && props.data.logout.status ) {
+	// if ( ! props.data.loading && props.data.logout.status ) {
+	if ( ! props.data.loading && props.data.networkStatus === 7 ) {
 		Auth.logout();
 		setTimeout( () => {
 			message.success('You have been successfully logged out.');

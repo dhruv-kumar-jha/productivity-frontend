@@ -8,12 +8,12 @@ const APP_DIR = path.resolve(__dirname, 'src');
 
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin');
 
 
 const VENDOR_LIBS = [
 	'react',
 	'react-dom',
-	// 'antd',
 	'apollo-client',
 	'react-router',
 	'lodash',
@@ -30,20 +30,28 @@ const WebpackConfig = {
 	},
 	output: {
 		path: BUILD_DIR,
-		filename: '[name].[hash].js',
-		publicPath: 'scripts/',
+		filename: '[name].[chunkhash].js',
+		chunkFilename: '[name].[chunkhash].chunk.js',
+		publicPath: '/scripts/',
 	},
 
 	module: {
 		rules: [
 			{
+				enforce: 'pre',
+				test: /\.js$/,
+				exclude: /node_modules/,
+				loader: 'eslint-loader',
+				include : APP_DIR
+			},
+			{
 				loader: 'babel-loader',
 				test: /\.js$/,
-				exclude: '/node_modules/',
+				exclude: /node_modules/,
 				include : APP_DIR,
 				options: {
-					presets: [ 'env', 'react' ],
-					plugins: [[ 'import', { libraryName: 'antd', style: 'css' } ]]
+					presets: [ ['env',{ modules: false }], 'react' ],
+					plugins: [[ 'import', { libraryName: 'antd', style: 'css' } ], 'syntax-dynamic-import']
 				}
 			},
 			{
@@ -55,20 +63,22 @@ const WebpackConfig = {
 			{
 				loader: 'json',
 				test: /\.json$/
-			},
-			{
-				enforce: 'pre',
-				test: /\.js$/,
-				loader: 'eslint-loader',
-				include : APP_DIR
-			},
+			}
 		],
 	},
 
 	plugins: [
-		new ExtractTextPlugin('styles.css'),
+		new ExtractTextPlugin({
+			filename: 'styles.css',
+			allChunks: true
+		}),
 		new webpack.optimize.CommonsChunkPlugin({
-			names: ['vendor', 'manifest']
+			names: ['vendor', 'manifest'],
+			minChunks: Infinity,
+			// children: true,
+			// moveToParents: true,
+			// async: true,
+			// https://webpack.js.org/plugins/commons-chunk-plugin/#move-common-modules-into-the-parent-chunk
 		}),
 		new HTMLWebpackPlugin({
 			inject: false,
@@ -81,9 +91,22 @@ const WebpackConfig = {
 				collapseWhitespace: true,
 			}
 		}),
-
-		// new webpack.optimize.UglifyJsPlugin(),
-		// new webpack.optimize.AggressiveMergingPlugin()
+		new InlineManifestWebpackPlugin({
+			name: 'webpackManifest'
+		}),
+		new webpack.optimize.AggressiveMergingPlugin(),
+		new webpack.optimize.UglifyJsPlugin({
+			beautify: false,
+			mangle: {
+				screw_ie8: true,
+				// keep_fnames: true
+			},
+			compress: {
+				warnings: false,
+				screw_ie8: true
+			},
+			comments: false
+		}),
 	],
 
 	resolve: {
@@ -97,33 +120,4 @@ const WebpackConfig = {
 };
 
 module.exports = WebpackConfig;
-
-
-
-/*
-
-new webpack.LoaderOptionsPlugin({
-  minimize: true,
-  debug: false
-}),
-
-		// filename: 'bundle.js',
-		// filename: '[name].js',
-		// chunkFilename: '[name]-[chunkhash].js', 
-
-		// publicPath: 'scripts/'
-		// filename: '[hash].js',
-
-
-				use: [
-					{
-						loader: 'css-loader',
-						options: {
-							minimize: true,
-							modules: false,
-						}
-					}
-				]
-
- */
 

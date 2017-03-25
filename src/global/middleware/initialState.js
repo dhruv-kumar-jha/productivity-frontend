@@ -7,7 +7,10 @@ const token = Auth.token();
 let decoded_user = null;
 
 if ( token ) {
-	decoded_user = jwt_decode( Auth.token() );
+	try {
+		decoded_user = jwt_decode( Auth.token() );
+	} catch (e) {
+	}
 }
 
 const initialState = {

@@ -12,11 +12,11 @@ const errorHandler = {
 	applyAfterware({response}, next) {
 		response.clone().json()
 			.then( res => {
-				// console.log('res',res);
-				if ( res.code === 401 ) {
+				// console.log('applyAfterware res',res);
+				if ( res.code === 401 || res.code === 403 ) {
 					// unauthorized, logout and redirect to login page
 					if ( window.location.pathname != '/auth/logout' ) {
-						message.info('Your token has expired. Please login again to generate new token');
+						message.info('Your token has expired/invalidated. Please login again to generate new token');
 						browserHistory.push('/auth/logout');
 					}
 				}
