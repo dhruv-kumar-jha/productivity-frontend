@@ -7,15 +7,17 @@
 
 
 .component__productivity__lists {
-	margin-top: 80px;
+	margin-top: 55px; //80px;
 
-    height: calc(100vh - 140px);
+    height: calc(100vh - 115px); // 140px;
 	// margin-bottom: -40px !important;
     overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
     font-family: Helvetica, ​Arial, ​sans-serif;
     display: flex;
+	margin-left: -30px;
+	margin-right: -30px;
 
 
 	// list styles
@@ -118,7 +120,7 @@
 				font-size: 14px;
 				line-height: 100%;
 				&:hover {
-					background-color: #CDD2D4;
+					background-color: rgba(0,0,0,0.1); //#CDD2D4;
 					color: #4d4d4d;
 					text-decoration: underline
 				}
@@ -400,9 +402,17 @@
 		background: 0 0;
 		display: none
 	}
-	::-webkit-scrollbar-track-piece {
-	    background: #D6DADC
+	// ::-webkit-scrollbar-track-piece {
+	//     background: rgba(0,0,0,0.2); //#D6DADC
+	// }
+	::-webkit-scrollbar-track-piece:vertical {
+	    background: transparent; //#D6DADC;
 	}
+	::-webkit-scrollbar-track-piece:horizontal {
+	    background: rgba(0,0,0,0.2);
+	}
+
+
 	::-webkit-scrollbar-track-piece:vertical:start {
 		border-radius: 5px 5px 0 0
 	}
