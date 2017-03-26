@@ -18,8 +18,12 @@ class PublicList extends Component {
 
 		const { data, board } = this.props;
 
+		const defaultListWidth = 280; // in pixels.
+		const space_before = data.meta.space_before ? (defaultListWidth * data.meta.space_before) + 5 : 5;
+		const space_after = data.meta.space_after ? (defaultListWidth * data.meta.space_after) + 5 : 5;
+
 		return (
-			<div data-list-id={ data.id } className="list">
+			<div data-list-id={ data.id } className="list" style={{ marginLeft: space_before, marginRight: space_after }}>
 			<div className="content" style={{ backgroundColor: data.meta.background_color || null }}>
 
 				<header>
