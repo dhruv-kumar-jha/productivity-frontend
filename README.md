@@ -70,6 +70,8 @@ Status | Feature | Description
 :white_check_mark: | Deploy to Netlify | Added 1 click deploy to Netlify button.
 :white_check_mark: | Public Boards | Now you can make boards public, Public boards are accessible to all the users with the board URL., By default all boards are private.
 :white_check_mark: | Code Splitting | Split the code into different files and only load those files when necessary., Enable tree shaking so we only include the code we're actually using in the app.
+:white_check_mark: | Lists Spacing | Now you can add spaces between lists, You can add space before and after a list. (might be useful to some of you)
+:white_check_mark: | Customizations | Now you have more control over specifying background colors, you can either select it using colorpicker or enter it manually, it can be `Color Names`, `HEX`, `RGB` or `RGBA`.
 
 
 ## Feature Requests

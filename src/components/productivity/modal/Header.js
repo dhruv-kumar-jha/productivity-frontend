@@ -10,6 +10,7 @@ class ModalHeader extends Component {
 		super(props);
 		this.state = {
 			edit: false,
+			title: this.props.title || '',
 		}
 
 		this.enableEdit = this.enableEdit.bind(this);
@@ -26,7 +27,7 @@ class ModalHeader extends Component {
 		this.setState({ edit: true });
 	}
 	disableEdit() {
-		this.setState({ edit: false });
+		this.setState({ edit: false, title: this.props.title });
 	}
 
 
@@ -93,7 +94,8 @@ class ModalHeader extends Component {
 								<div className="flex row nowrap">
 									<Input
 										placeholder="Card Title"
-										value={ this.state.title || this.props.title }
+										// value={ this.state.title || this.props.title }
+										value={ this.state.title }
 										onChange={ this.onInputChange }
 										onKeyPress={ this.onInputEnter }
 										autoFocus={ true }

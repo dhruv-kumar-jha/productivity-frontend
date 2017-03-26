@@ -9,10 +9,11 @@ import UpdateListMutation from 'app/graphql/mutations/lists/Update';
 import update from 'immutability-helper';
 import _  from 'lodash';
 
-import { Modal, Icon, Col, Form, Input, InputNumber, Button, Spin, Card, message } from 'antd';
+import { Modal, Icon, Row, Col, Form, Input, InputNumber, Button, Spin, Card, message } from 'antd';
 const FormItem = Form.Item;
 
 import ModalHeader from 'app/components/productivity/modal/Header';
+import ColorPicker from 'app/components/common/ColorPicker';
 
 
 class List extends Component {
@@ -183,18 +184,19 @@ class List extends Component {
 							</FormItem>
 
 							<Input.Group>
+							<Row>
 
-								<Col span="10">
-									<FormItem label="List Background" hasFeedback >
+								<Col span="12">
+									<FormItem label="List Background" >
 										{ getFieldDecorator('meta.background_color', {
 											initialValue: list.meta.background_color || null,
 										})(
-											<Input type="color" />
+											<ColorPicker />
 										) }
 									</FormItem>
 								</Col>
 
-								<Col span="6" offset="1">
+								<Col span="5" offset="1">
 									<FormItem label="Space Before" >
 										{ getFieldDecorator('meta.space_before', {
 											initialValue: list.meta.space_before || null,
@@ -204,7 +206,7 @@ class List extends Component {
 									</FormItem>
 								</Col>
 
-								<Col span="6" offset="1">
+								<Col span="5" offset="1">
 									<FormItem label="Space After" >
 										{ getFieldDecorator('meta.space_after', {
 											initialValue: list.meta.space_after || null,
@@ -214,10 +216,8 @@ class List extends Component {
 									</FormItem>
 								</Col>
 
-
+							</Row>
 							</Input.Group>
-
-
 
 							<FormItem className="m-b-0">
 								<Button type="primary" size="default" icon="check" htmlType="submit">Update Details</Button>

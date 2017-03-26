@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import { Input, Button, Tag, message } from 'antd';
+import ColorPicker from 'app/components/common/ColorPicker';
 
 
 class BackgroundColor extends Component {
@@ -33,8 +34,8 @@ class BackgroundColor extends Component {
 	}
 
 
-	change(event) {
-		this.setState({ background_color: event.target.value });
+	change(value) {
+		this.setState({ background_color: value });
 	}
 
 	enter(event) {
@@ -115,10 +116,8 @@ class BackgroundColor extends Component {
 
 					{ this.state.edit &&
 						<div className="data--edit--inline flex row nowrap">
-							<Input
-								type="color"
-								placeholder="Background Color"
-								defaultValue={ this.props.data.meta.background_color }
+							<ColorPicker
+								value={ this.state.background_color || this.props.data.meta.background_color }
 								onChange={ this.change }
 								onKeyPress={ this.enter }
 								autoFocus={ true }

@@ -9,6 +9,7 @@ import update from 'immutability-helper';
 
 import { Modal, Icon, Col, Form, Input, Button, Spin, message } from 'antd';
 const FormItem = Form.Item;
+import ColorPicker from 'app/components/common/ColorPicker';
 
 import ModalHeader from 'app/components/productivity/modal/Header';
 
@@ -194,7 +195,7 @@ class BoardEdit extends Component {
 										{ getFieldDecorator('meta.background', {
 											initialValue: board.meta.background || null,
 										})(
-											<Input type="color" onChange={ this.setBackgroundColor } />
+											<ColorPicker />
 										) }
 									</FormItem>
 								</Col>
