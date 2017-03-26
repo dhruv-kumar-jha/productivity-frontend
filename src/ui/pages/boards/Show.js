@@ -151,6 +151,7 @@ class ShowBoard extends Component {
 			dragClass: 'list-sortable-drag',
 			chosenClass: 'list-sortable-chosen',
 			scrollSensitivity: 40,
+			// animation: 150,
 		};
 
 
@@ -170,7 +171,7 @@ class ShowBoard extends Component {
 
 				<div className="component__custom_scrollbar">
 				<div className="component__productivity__lists">
-					<Sortable options={ sortableListOptions } onChange={ sortableOnChange }>
+					<Sortable options={ sortableListOptions } onChange={ sortableOnChange } className="board-lists">
 						{ sorted_lists.map( list => <List key={list.id} data={list} board={{ id: board.id }} refetch={ this.props.data.refetch } /> )}
 					</Sortable>
 					<NewList board={{ id: board.id }} />

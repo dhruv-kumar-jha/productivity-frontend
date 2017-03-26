@@ -26,7 +26,7 @@
   "author": "dhruv@dhruvkumarjha.com <dhruv@dhruvkumarjha.com>",
   "license": "MIT",
   "devDependencies": {
-    "antd": "^2.8.0",
+    "antd": "^2.8.2",
     "apollo-client": "^0.10.1",
     "babel-core": "^6.23.1",
     "babel-eslint": "^7.2.1",

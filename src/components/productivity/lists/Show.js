@@ -159,19 +159,13 @@ class List extends Component {
 
 
 
-
-
-
 	render() {
 
-
 		const { data, board } = this.props;
-
 
 		const sortableOnChange = (order, sortable, evt) => {
 			this.updateCardPositions(order);
 		}
-
 
 		const sortableCardOptions = {
 			group: {
@@ -193,10 +187,13 @@ class List extends Component {
 			},
 		};
 
+		const defaultListWidth = 280; // in pixels.
+		const space_before = data.meta.space_before ? (defaultListWidth * data.meta.space_before) + 5 : 5;
+		const space_after = data.meta.space_after ? (defaultListWidth * data.meta.space_after) + 5 : 5;
 
 
 		return (
-			<div data-list-id={ data.id } className={ data.id === 'loading' || this.state.processing ? 'list autoheight' : 'list' }>
+			<div data-list-id={ data.id } className={ data.id === 'loading' || this.state.processing ? 'list autoheight' : 'list' } style={{ marginLeft: space_before, marginRight: space_after }}>
 			<Spin spinning={ data.id === 'loading' || this.state.processing } size="large">
 			<div className="content" data-list-id={ data.id } style={{ backgroundColor: data.meta.background_color || null }}>
 

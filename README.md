@@ -1,6 +1,6 @@
 # Productivity Application
 
-Kanban style, Trello inspired Productivity application built using the awesome React, AntD, Apollo Client and other fantastic libraries.
+Kanban style, Trello inspired Productivity application built using the awesome React, Ant Design, Apollo Client and other fantastic libraries.
 
 
 

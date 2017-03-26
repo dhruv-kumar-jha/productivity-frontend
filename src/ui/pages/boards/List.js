@@ -9,7 +9,7 @@ import UpdateListMutation from 'app/graphql/mutations/lists/Update';
 import update from 'immutability-helper';
 import _  from 'lodash';
 
-import { Modal, Icon, Col, Form, Input, Button, Spin, Card, message } from 'antd';
+import { Modal, Icon, Col, Form, Input, InputNumber, Button, Spin, Card, message } from 'antd';
 const FormItem = Form.Item;
 
 import ModalHeader from 'app/components/productivity/modal/Header';
@@ -55,7 +55,9 @@ class List extends Component {
 				if (
 					fields.description === list.description &&
 					fields.title === list.title &&
-					fields.meta.background_color === list.meta.background_color
+					fields.meta.background_color == list.meta.background_color &&
+					fields.meta.space_before == list.meta.space_before &&
+					fields.meta.space_after == list.meta.space_after
 				) {
 					return message.warning('You haven\'t made any changes yet.');
 				}
@@ -70,6 +72,8 @@ class List extends Component {
 						description: fields.description,
 						meta: {
 							background_color: fields.meta.background_color,
+							space_before: fields.meta.space_before || null,
+							space_after: fields.meta.space_after || null,
 						}
 					},
 					optimisticResponse: {
@@ -81,6 +85,8 @@ class List extends Component {
 							description: fields.description,
 							meta: {
 								background_color: fields.meta.background_color,
+								space_before: fields.meta.space_before,
+								space_after: fields.meta.space_after,
 							}
 						},
 					},
@@ -176,13 +182,42 @@ class List extends Component {
 								) }
 							</FormItem>
 
-							<FormItem label="List Background" hasFeedback >
-								{ getFieldDecorator('meta.background_color', {
-									initialValue: list.meta.background_color || null,
-								})(
-									<Input type="color" />
-								) }
-							</FormItem>
+							<Input.Group>
+
+								<Col span="10">
+									<FormItem label="List Background" hasFeedback >
+										{ getFieldDecorator('meta.background_color', {
+											initialValue: list.meta.background_color || null,
+										})(
+											<Input type="color" />
+										) }
+									</FormItem>
+								</Col>
+
+								<Col span="6" offset="1">
+									<FormItem label="Space Before" >
+										{ getFieldDecorator('meta.space_before', {
+											initialValue: list.meta.space_before || null,
+										})(
+											<InputNumber min={1} max={10} placeholder="Example: 1" style={{ width: '100%' }} />
+										) }
+									</FormItem>
+								</Col>
+
+								<Col span="6" offset="1">
+									<FormItem label="Space After" >
+										{ getFieldDecorator('meta.space_after', {
+											initialValue: list.meta.space_after || null,
+										})(
+											<InputNumber min={1} max={10} placeholder="Example: 1" style={{ width: '100%' }} />
+										) }
+									</FormItem>
+								</Col>
+
+
+							</Input.Group>
+
+
 
 							<FormItem className="m-b-0">
 								<Button type="primary" size="default" icon="check" htmlType="submit">Update Details</Button>
