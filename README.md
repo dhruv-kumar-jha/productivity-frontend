@@ -3,8 +3,7 @@
 Kanban style, Trello inspired Productivity application built using the awesome React, Ant Design, Apollo Client and other fantastic libraries.
 
 
-
-![ScreenShot](https://s3.ap-south-1.amazonaws.com/productivityapp/app/papp-sc-23232ed42.jpg#3)
+![ScreenShot](public/images/screenshot.jpg)
 
 
 ## Demo
