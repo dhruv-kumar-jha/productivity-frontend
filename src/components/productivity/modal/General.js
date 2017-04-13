@@ -1,6 +1,8 @@
 'use strict';
 
 import React, { Component } from 'react';
+import { FormattedMessage } from 'react-intl';
+import translate from 'app/global/helper/translate';
 
 import { Icon, Input, Button, message } from 'antd';
 import { MarkedPreview } from 'react-markdown-area';
@@ -37,7 +39,7 @@ class ModalGeneral extends Component {
 
 	updateDetails() {
 		if ( ! this.state.description || this.state.description == this.props.data.description ) {
-			return message.warning('Please make changes to the description first');
+			return message.warning( translate('messages.card.update.description.warning') );
 		}
 
 		this.props.mutate({
@@ -69,7 +71,7 @@ class ModalGeneral extends Component {
 	renderEmptyContent() {
 		return(
 			<div className="empty--content" onClick={ this.enableEdit }>
-				<Icon type="bars" />Edit the description
+				<Icon type="bars" /><FormattedMessage id="card.general.description.edit" defaultMessage="Edit the description" />
 			</div>
 		);
 	}
@@ -78,7 +80,7 @@ class ModalGeneral extends Component {
 		if ( ! this.props.data.description ) {
 			return(
 				<div className="empty--content">
-					<Icon type="bars" />No description has been added for this card yet.
+					<Icon type="bars" /><FormattedMessage id="card.general.description.empty" defaultMessage="No description has been added for this card yet." />
 				</div>
 			);
 		} else {
@@ -99,7 +101,7 @@ class ModalGeneral extends Component {
 		if ( this.props.public ) {
 			return (
 				<div>
-					<div className="heading">General Details</div>
+					<div className="heading"><FormattedMessage id="card.general.heading" defaultMessage="General Details" /></div>
 					{ this.renderPublic() }
 				</div>
 			);
@@ -107,22 +109,22 @@ class ModalGeneral extends Component {
 
 		return (
 			<div>
-				<div className="heading">General Details</div>
+				<div className="heading"><FormattedMessage id="card.general.heading" defaultMessage="General Details" /></div>
 
 				{ this.state.edit ?
 					(
 						<div className="edit-description component__custom_scrollbar">
 							<Input
 								type="textarea"
-								placeholder="Enter your description here. (Markdown allowed)"
+								placeholder={ translate('card.general.form.placeholder', 'Enter your description here. (Markdown allowed)') }
 								defaultValue={ this.props.data.description }
 								onChange={ this.onInputChange }
 								autosize={{ minRows: 6, maxRows: 16 }}
 								autoFocus={true}
 							/>
 							<div className="m-t-10">
-								<Button type="primary" onClick={ this.updateDetails } >{ this.props.data.description ? 'Update Description' : 'Save Description' }</Button>
-								<Button type="ghost" onClick={ this.disableEdit } className="m-l-10">Cancel</Button>
+								<Button type="primary" onClick={ this.updateDetails } >{ this.props.data.description ? <FormattedMessage id="card.general.form.update" defaultMessage="Update Description" /> : <FormattedMessage id="card.general.form.save" defaultMessage="Save Description" /> }</Button>
+								<Button type="ghost" onClick={ this.disableEdit } className="m-l-10"><FormattedMessage id="form.cancel" defaultMessage="Cancel" /></Button>
 							</div>
 						</div>
 					) : (

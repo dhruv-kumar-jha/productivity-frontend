@@ -1,7 +1,8 @@
 'use strict';
 
 import React from 'react';
-// import { browserHistory } from 'react-router';
+import { FormattedMessage } from 'react-intl';
+import translate from 'app/global/helper/translate';
 
 import Auth from 'app/global/api/Auth';
 import { message } from 'antd';
@@ -20,7 +21,7 @@ const Logout = (props) => {
 	if ( ! props.data.loading && props.data.networkStatus === 7 ) {
 		Auth.logout();
 		setTimeout( () => {
-			message.success('You have been successfully logged out.');
+			message.success( translate('messages.logout.success') );
 		}, 10);
 		setTimeout( () => {
 			window.location.href = '/auth/login';
@@ -32,8 +33,8 @@ const Logout = (props) => {
 		<CommonLayout>
 
 			<Heading
-				title="Logging you out"
-				subtitle="Please wait while we log you out., you will be automatically redirected to the login page after successful logout."
+				title={<FormattedMessage id="logout.title" defaultMessage="Logging you out" />}
+				subtitle={<FormattedMessage id="logout.subtitle" defaultMessage="Please wait while we log you out., you will be automatically redirected to the login page after successful logout." />}
 				icon="logout"
 				align="center"
 			>

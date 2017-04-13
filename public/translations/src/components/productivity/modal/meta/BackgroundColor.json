@@ -1,0 +1,34 @@
+[
+  {
+    "id": "card.meta.background.title",
+    "defaultMessage": "Background"
+  },
+  {
+    "id": "card.meta.background.empty",
+    "defaultMessage": "Background color not set"
+  },
+  {
+    "id": "card.meta.background.reset_color",
+    "defaultMessage": "Reset Background Color"
+  },
+  {
+    "id": "card.meta.background.update_color",
+    "defaultMessage": "Update Background Color"
+  },
+  {
+    "id": "card.meta.background.set_color",
+    "defaultMessage": "Set Background Color"
+  },
+  {
+    "id": "card.meta.background.update",
+    "defaultMessage": "Update Background"
+  },
+  {
+    "id": "card.meta.background.set",
+    "defaultMessage": "Set Background"
+  },
+  {
+    "id": "form.cancel",
+    "defaultMessage": "Cancel"
+  }
+]

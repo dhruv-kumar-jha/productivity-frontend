@@ -1,0 +1,18 @@
+[
+  {
+    "id": "card.meta.duedate.title",
+    "defaultMessage": "Duedate"
+  },
+  {
+    "id": "card.meta.duedate.empty",
+    "defaultMessage": "Due date not specified"
+  },
+  {
+    "id": "card.meta.duedate.update",
+    "defaultMessage": "Update Duedate"
+  },
+  {
+    "id": "card.meta.duedate.add",
+    "defaultMessage": "Add Duedate"
+  }
+]

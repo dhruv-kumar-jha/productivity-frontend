@@ -61,7 +61,7 @@ const WebpackConfig = {
 				test: /\.css$/
 			},
 			{
-				loader: 'json',
+				loader: 'json-loader',
 				test: /\.json$/
 			}
 		],
@@ -94,8 +94,8 @@ const WebpackConfig = {
 		new InlineManifestWebpackPlugin({
 			name: 'webpackManifest'
 		}),
-		new webpack.optimize.AggressiveMergingPlugin(),
-		new webpack.optimize.UglifyJsPlugin({
+		process.env.NODE_ENV !== 'production' ? () => {} : new webpack.optimize.AggressiveMergingPlugin(),
+		process.env.NODE_ENV !== 'production' ? () => {} : new webpack.optimize.UglifyJsPlugin({
 			beautify: false,
 			mangle: {
 				screw_ie8: true,

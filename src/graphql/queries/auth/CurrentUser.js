@@ -9,6 +9,7 @@ export default gql`
 			name
 			email
 			status
+			language
 		}
 	}
 `;

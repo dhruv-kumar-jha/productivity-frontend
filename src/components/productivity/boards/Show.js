@@ -1,6 +1,8 @@
 'use strict';
 
 import React from 'react';
+import translate from 'app/global/helper/translate';
+
 import { browserHistory } from 'react-router';
 import { Col, Spin } from 'antd';
 
@@ -22,7 +24,7 @@ const Board = (props) => {
 		<Col xs={24} sm={12} md={8} lg={6} className="board-container">
 		{ data.id === 'loading' || data.status === 10 ?
 			(
-			<Spin spinning={ true } tip={ data.id === 'loading' ? 'Adding board..' : 'Deleting board' } size="large">
+			<Spin spinning={ true } tip={ data.id === 'loading' ? translate('messages.board.processing.adding') : translate('messages.board.processing.deleting') } size="large">
 			<div className="board">
 				<div className="title">{ data.title }</div>
 				{ data.description &&

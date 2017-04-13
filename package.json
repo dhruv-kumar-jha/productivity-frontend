@@ -8,9 +8,12 @@
     "watch:dev": "cross-env API_ENDPOINT=http://127.0.0.1:1200 webpack -w",
     "clean": "rimraf public/scripts",
     "build:dev": "npm run clean && cross-env NODE_ENV=development webpack",
-    "build:production": "npm run clean && cross-env NODE_ENV=production webpack -p",
+    "build:production": "npm run clean && npm run locale && cross-env NODE_ENV=production webpack -p",
     "start": "node server.js",
-    "start:production": "cross-env NODE_ENV=production node server.js"
+    "start:production": "cross-env NODE_ENV=production node server.js",
+    "locale:create": "node ./src/global/helper/i13n.js",
+    "locale:combine": "node ./src/global/helper/i13n.combine.js",
+    "locale": "npm run locale:create && npm run locale:combine"
   },
   "repository": "https://github.com/dhruv-kumar-jha/productivity-frontend.git",
   "keywords": [
@@ -27,11 +30,12 @@
   "license": "MIT",
   "devDependencies": {
     "antd": "^2.8.2",
-    "apollo-client": "^0.10.1",
+    "apollo-client": "^1.0.1",
     "babel-core": "^6.23.1",
     "babel-eslint": "^7.2.1",
     "babel-loader": "^6.4.0",
     "babel-plugin-import": "^1.1.1",
+    "babel-plugin-react-intl": "^2.3.1",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-preset-env": "^1.2.1",
     "babel-preset-react": "^6.23.0",
@@ -51,6 +55,8 @@
     "react": "^15.4.2",
     "react-apollo": "^0.13.2",
     "react-dom": "^15.4.2",
+    "react-intl": "^2.2.3",
+    "react-intl-translations-manager": "^4.0.1",
     "react-markdown-area": "^0.3.8",
     "react-router": "^3.0.2",
     "react-sortablejs": "^1.3.1",

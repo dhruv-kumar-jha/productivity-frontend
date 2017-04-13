@@ -1,6 +1,8 @@
 'use strict';
 
 import React, { Component } from 'react';
+import { defineMessages, injectIntl, FormattedMessage } from 'react-intl';
+import translate from 'app/global/helper/translate';
 
 import { graphql } from 'react-apollo';
 import AddBoardMutation from 'app/graphql/mutations/boards/Add';
@@ -63,7 +65,7 @@ class NewBoard extends Component {
 					},
 				})
 				.then( res => {
-					message.success('New board has been successfully added.', 4);
+					message.success( translate('messages.board.new.success') , 4);
 				})
 				.catch( res => {
 					if ( res.graphQLErrors ) {
@@ -85,10 +87,18 @@ class NewBoard extends Component {
 
 	render() {
 
+		const messages = defineMessages({
+			placeholderTitle: { id: "board.card.form.placeholder.title", defaultMessage: "Board Title" },
+			placeholderDescription: { id: "board.card.form.placeholder.description", defaultMessage: "Board Description" },
+			validateTitle: { id: "board.card.form.validate.title", defaultMessage: "Please enter Board Title" },
+		});
+		const { formatMessage } = this.props.intl;
+
+
 		const add_new_board_link = () => {
 			return (
 				<div className="board create" onClick={ this.addNewBoard }>
-					<div className="title">Create New Board</div>
+					<div className="title"><FormattedMessage id="board.card.title" defaultMessage="Create New Board" /></div>
 				</div>
 			);
 		}
@@ -104,27 +114,27 @@ class NewBoard extends Component {
 
 					<Card
 						className="form-card"
-						title="Add New Board"
+						title={<FormattedMessage id="board.card.heading" defaultMessage="Add New Board" />}
 						extra={ <a className="cancel" onClick={ this.onCancel }><Icon type="close" /></a> }
 					>
 					<Spin spinning={ this.state.processing } size="large">
 
 						<FormItem hasFeedback>
 							{ getFieldDecorator('title', {
-								rules: [{ required: true, message: 'Please enter Board Title' }],
+								rules: [{ required: true, message: formatMessage(messages.validateTitle) }],
 							})(
-								<Input placeholder="Board Title" autoComplete="off" autoFocus />
+								<Input placeholder={formatMessage(messages.placeholderTitle)} autoComplete="off" autoFocus />
 							) }
 						</FormItem>
 
 						<FormItem hasFeedback >
 							{ getFieldDecorator('description')(
-								<Input type="textarea" placeholder="Board description" autosize={{ minRows: 3, maxRows: 6 }} />
+								<Input type="textarea" placeholder={formatMessage(messages.placeholderDescription)} autosize={{ minRows: 3, maxRows: 6 }} />
 							) }
 						</FormItem>
 
 						<FormItem className="m-b-0">
-							<Button type="primary" size="default" icon="plus" htmlType="submit">Create</Button>
+							<Button type="primary" size="default" icon="plus" htmlType="submit"><FormattedMessage id="form.create" defaultMessage="Create" /></Button>
 						</FormItem>
 
 					</Spin>
@@ -150,6 +160,8 @@ class NewBoard extends Component {
 }
 
 NewBoard = Form.create()(NewBoard);
+NewBoard = injectIntl(NewBoard);
+
 export default graphql(AddBoardMutation)(NewBoard);
 
 

@@ -2,6 +2,8 @@
 
 import React, { Component } from 'react';
 import { Link, browserHistory } from 'react-router';
+import { FormattedMessage } from 'react-intl';
+import translate from 'app/global/helper/translate';
 
 import { graphql } from 'react-apollo';
 import UpdateBoardMutation from 'app/graphql/mutations/boards/Update';
@@ -69,14 +71,14 @@ class BoardEdit extends Component {
 				if (
 						fields.description === this.props.data.board.description &&
 						fields.title === this.props.data.board.title &&
-						( this.props.data.board.meta && fields.meta.background === this.props.data.board.meta.background ) &&
-						( this.props.data.board.meta && fields.meta.background_image === this.props.data.board.meta.background_image )
+						( this.props.data.board.meta && fields.meta.background == this.props.data.board.meta.background ) &&
+						( this.props.data.board.meta && fields.meta.background_image == this.props.data.board.meta.background_image )
 					) {
-						return message.warning('You haven\'t made any changes yet.');
+						return message.warning( translate('messages.board.update.warning') );
 				}
 
 				this.setState({ processing: true });
-				const loading_message = message.loading('Updating board details..', 0);
+				// const loading_message = message.loading('Updating board details..', 0);
 
 				this.props.mutate({
 					variables: {
@@ -117,8 +119,8 @@ class BoardEdit extends Component {
 				})
 				.then( res => {
 					this.setState({ processing: false });
-					loading_message();
-					message.success('Board details has been successfully updated.');
+					// loading_message();
+					message.success( translate('messages.board.update.success') );
 				})
 				.catch( res => {
 					if ( res.graphQLErrors ) {
@@ -141,7 +143,7 @@ class BoardEdit extends Component {
 		const BackgroundImageLinks = () => {
 			return (
 				<div className="background-image-suggestions">
-					<strong>Inspirations</strong>
+					<strong><FormattedMessage id="board.background.inspirations" defaultMessage="Inspirations" /></strong>
 					<span className="m-l-10">
 						<a href="https://pixabay.com/" target="_blank">Pixabay</a>
 						<a href="https://unsplash.com/" target="_blank" className="m-l-5">Unsplash</a>
@@ -162,8 +164,8 @@ class BoardEdit extends Component {
 			>
 
 				<ModalHeader
-					title={ <div><span>Board:</span> {board.title}</div> }
-					subtitle="Enter the board details below and click on update."
+					title={ <div><span><FormattedMessage id="board.header.title" defaultMessage="Board" />:</span> {board.title}</div> }
+					subtitle={ <FormattedMessage id="board.header.subtitle" defaultMessage="Enter the board details below and click on update." /> }
 					editable={ false }
 				/>
 
@@ -173,25 +175,25 @@ class BoardEdit extends Component {
 					<Form layout="vertical" onSubmit={ this.handleFormSubmit }>
 
 						<Spin spinning={ this.state.processing } size="large">
-							<FormItem label="Board Title" hasFeedback>
+							<FormItem label={ <FormattedMessage id="board.form.label.title" defaultMessage="Board Title" /> } hasFeedback>
 								{ getFieldDecorator('title', {
-									rules: [{ required: true, message: 'Please enter Board Title' }],
+									rules: [{ required: true, message: translate('board.form.validate.title', 'Please enter Board Title') }],
 									initialValue: board.title,
 								})(
-									<Input placeholder="Board Title" autoComplete="off" />
+									<Input placeholder={ translate('board.form.placeholder.title', 'Board Title') } autoComplete="off" />
 								) }
 							</FormItem>
-							<FormItem label="Board Description" hasFeedback >
+							<FormItem label={ <FormattedMessage id="board.form.label.description" defaultMessage="Board Description" /> } hasFeedback >
 								{ getFieldDecorator('description', {
 									initialValue: board.description,
 								})(
-									<Input type="textarea" placeholder="Board description" autosize={{ minRows: 3, maxRows: 6 }} />
+									<Input type="textarea" placeholder={ translate('board.form.placeholder.description', 'Board description') } autosize={{ minRows: 3, maxRows: 6 }} />
 								) }
 							</FormItem>
 
 							<Input.Group style={{ marginBottom: 24 }}>
 								<Col span="8">
-									<FormItem label="Board Background" >
+									<FormItem label={ <FormattedMessage id="board.form.label.background" defaultMessage="Board Background" /> } >
 										{ getFieldDecorator('meta.background', {
 											initialValue: board.meta.background || null,
 										})(
@@ -200,21 +202,21 @@ class BoardEdit extends Component {
 									</FormItem>
 								</Col>
 								<Col span="15" offset="1">
-									<FormItem label="Board Background Image" help={ <BackgroundImageLinks /> } hasFeedback>
+									<FormItem label={ <FormattedMessage id="board.form.label.background_image" defaultMessage="Board Background Image" /> } help={ <BackgroundImageLinks /> } hasFeedback>
 										{ getFieldDecorator('meta.background_image', {
 											initialValue: board.meta.background_image || null,
 										})(
-											<Input placeholder="Background image URL" onChange={ this.setBackgroundImage } autoComplete="off" />
+											<Input placeholder={ translate('board.form.placeholder.background_image_url', 'Background image URL') } onChange={ this.setBackgroundImage } autoComplete="off" />
 										) }
 									</FormItem>
 								</Col>
 							</Input.Group>
 
 							<FormItem className="m-b-0">
-								<Button type="primary" size="default" icon="check" htmlType="submit">Update Details</Button>
-								<Button type="ghost" size="default" icon="reload" onClick={ this.resetForm } className="m-l-10">Reset</Button>
+								<Button type="primary" size="default" icon="check" htmlType="submit"><FormattedMessage id="board.form.update" defaultMessage="Update Details" /></Button>
+								<Button type="ghost" size="default" icon="reload" onClick={ this.resetForm } className="m-l-10"><FormattedMessage id="form.reset" defaultMessage="Reset" /></Button>
 								{ board.meta.background &&
-									<Button type="ghost" size="default" icon="reload" onClick={ this.resetBackground } className="float-right">Reset Background</Button>
+									<Button type="ghost" size="default" icon="reload" onClick={ this.resetBackground } className="float-right"><FormattedMessage id="board.form.reset_background" defaultMessage="Reset Background" /></Button>
 								}
 							</FormItem>
 						</Spin>

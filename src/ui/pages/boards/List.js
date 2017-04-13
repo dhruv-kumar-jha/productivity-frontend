@@ -2,6 +2,8 @@
 
 import React, { Component } from 'react';
 import { Link, browserHistory } from 'react-router';
+import { FormattedMessage } from 'react-intl';
+import translate from 'app/global/helper/translate';
 
 import { graphql } from 'react-apollo';
 import UpdateListMutation from 'app/graphql/mutations/lists/Update';
@@ -40,7 +42,7 @@ class List extends Component {
 
 	resetBackground(e, list, board) {
 		if ( ! list.meta.background_color ) {
-			return message.info("You haven't set any background color yet.");
+			return message.info( translate('messages.list.background.empty') );
 		}
 		this.props.form.setFieldsValue({
 			'meta.background_color': null,
@@ -60,11 +62,11 @@ class List extends Component {
 					fields.meta.space_before == list.meta.space_before &&
 					fields.meta.space_after == list.meta.space_after
 				) {
-					return message.warning('You haven\'t made any changes yet.');
+					return message.warning( translate('messages.list.update.warning') );
 				}
 
 				this.setState({ processing: true });
-				const loading_message = message.loading('Updating list details..', 0);
+				// const loading_message = message.loading('Updating list details..', 0);
 
 				this.props.mutate({
 					variables: {
@@ -112,8 +114,8 @@ class List extends Component {
 				})
 				.then( res => {
 					this.setState({ processing: false });
-					loading_message();
-					message.success('List details has been successfully updated.');
+					// loading_message();
+					message.success( translate('messages.list.update.success') );
 				})
 				.catch( res => {
 					if ( res.graphQLErrors ) {
@@ -136,7 +138,7 @@ class List extends Component {
 
 		if ( ! list ) {
 			setTimeout( () => {
-				message.error("The list you're looking for doesn't exist or your dont have permissions to access it.");
+				message.error( translate('messages.list.show.error') );
 				this.handleCancel();
 			}, 50);
 			return <div></div>;
@@ -156,8 +158,8 @@ class List extends Component {
 			>
 
 				<ModalHeader
-					title={ <div><span>List:</span> {list.title}</div> }
-					subtitle="Enter the list details below and click on update."
+					title={ <div><span><FormattedMessage id="list.header.title" defaultMessage="List" />:</span> {list.title}</div> }
+					subtitle={ <FormattedMessage id="list.header.subtitle" defaultMessage="Enter the list details below and click on update." /> }
 					editable={ false }
 				/>
 
@@ -167,19 +169,19 @@ class List extends Component {
 					<Form layout="vertical" onSubmit={ (e) => { this.handleFormSubmit(e, list, board ) } }>
 
 						<Spin spinning={ this.state.processing } size="large">
-							<FormItem label="List Title" hasFeedback>
+							<FormItem label={ <FormattedMessage id="list.form.label.title" defaultMessage="List Title" /> } hasFeedback>
 								{ getFieldDecorator('title', {
-									rules: [{ required: true, message: 'Please enter List Title' }],
+									rules: [{ required: true, message: translate('list.form.validate.title', 'Please enter List Title') }],
 									initialValue: list.title,
 								})(
-									<Input placeholder="List Title" autoComplete="off" autoFocus />
+									<Input placeholder={ translate('list.form.placeholder.title', 'List Title') } autoComplete="off" autoFocus />
 								) }
 							</FormItem>
-							<FormItem label="List Description" hasFeedback >
+							<FormItem label={ <FormattedMessage id="list.form.label.description" defaultMessage="List Description" /> } hasFeedback >
 								{ getFieldDecorator('description', {
 									initialValue: list.description,
 								})(
-									<Input type="textarea" placeholder="List description" autosize={{ minRows: 3, maxRows: 6 }} />
+									<Input type="textarea" placeholder={ translate('list.form.placeholder.description', 'List description') } autosize={{ minRows: 3, maxRows: 6 }} />
 								) }
 							</FormItem>
 
@@ -187,7 +189,7 @@ class List extends Component {
 							<Row>
 
 								<Col span="12">
-									<FormItem label="List Background" >
+									<FormItem label={ <FormattedMessage id="list.form.label.background" defaultMessage="List Background" /> } >
 										{ getFieldDecorator('meta.background_color', {
 											initialValue: list.meta.background_color || null,
 										})(
@@ -197,21 +199,21 @@ class List extends Component {
 								</Col>
 
 								<Col span="5" offset="1">
-									<FormItem label="Space Before" >
+									<FormItem label={ <FormattedMessage id="list.form.label.space_before" defaultMessage="Space Before" /> } >
 										{ getFieldDecorator('meta.space_before', {
 											initialValue: list.meta.space_before || null,
 										})(
-											<InputNumber min={1} max={10} placeholder="Example: 1" style={{ width: '100%' }} />
+											<InputNumber min={1} max={10} placeholder={ translate('list.form.placeholder.space_before', 'Example: 1') } style={{ width: '100%' }} />
 										) }
 									</FormItem>
 								</Col>
 
 								<Col span="5" offset="1">
-									<FormItem label="Space After" >
+									<FormItem label={ <FormattedMessage id="list.form.label.space_after" defaultMessage="Space After" /> } >
 										{ getFieldDecorator('meta.space_after', {
 											initialValue: list.meta.space_after || null,
 										})(
-											<InputNumber min={1} max={10} placeholder="Example: 1" style={{ width: '100%' }} />
+											<InputNumber min={1} max={10} placeholder={ translate('list.form.placeholder.space_after', 'Example: 1') } style={{ width: '100%' }} />
 										) }
 									</FormItem>
 								</Col>
@@ -220,10 +222,10 @@ class List extends Component {
 							</Input.Group>
 
 							<FormItem className="m-b-0">
-								<Button type="primary" size="default" icon="check" htmlType="submit">Update Details</Button>
-								<Button type="ghost" size="default" icon="reload" onClick={ this.resetForm } className="m-l-10">Reset</Button>
+								<Button type="primary" size="default" icon="check" htmlType="submit"><FormattedMessage id="list.form.update" defaultMessage="Update Details" /></Button>
+								<Button type="ghost" size="default" icon="reload" onClick={ this.resetForm } className="m-l-10"><FormattedMessage id="form.reset" defaultMessage="Reset" /></Button>
 								{ list.meta.background_color &&
-									<Button type="ghost" size="default" icon="reload" onClick={ (e) => { this.resetBackground(e, list, board ) } } className="float-right">Reset Background</Button>
+									<Button type="ghost" size="default" icon="reload" onClick={ (e) => { this.resetBackground(e, list, board ) } } className="float-right"><FormattedMessage id="list.form.reset_background" defaultMessage="Reset Background" /></Button>
 								}
 							</FormItem>
 						</Spin>

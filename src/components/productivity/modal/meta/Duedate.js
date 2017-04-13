@@ -1,6 +1,8 @@
 'use strict';
 
 import React, { Component } from 'react';
+import { FormattedMessage } from 'react-intl';
+import translate from 'app/global/helper/translate';
 
 import { Button, DatePicker, Tag, message } from 'antd';
 import Helper from 'app/global/helper';
@@ -41,7 +43,7 @@ class ModalMeta extends Component {
 	update() {
 		// if ( ! this.state.duedate || this.state.duedate == this.props.data.meta.duedate ) {
 		if ( this.state.duedate == this.props.data.meta.duedate ) {
-			return message.error('Please make changes to the due date first');
+			return message.error( translate('messages.card.duedate.error') );
 		}
 
 		this.props.mutate({
@@ -67,11 +69,11 @@ class ModalMeta extends Component {
 		if ( this.props.public ) {
 			return (
 				<div className="component__key_val">
-					<div className="key">Duedate:</div>
+					<div className="key"><FormattedMessage id="card.meta.duedate.title" defaultMessage="Duedate" />:</div>
 					<div className="val">
 						{ this.props.data.meta.duedate ?
 							( <Tag color={ Helper.date.style(this.props.data.meta.duedate) }>{ Helper.date.format(this.props.data.meta.duedate) }</Tag> ) :
-							( <p>Due date not specified</p> )
+							( <p><FormattedMessage id="card.meta.duedate.empty" defaultMessage="Due date not specified" /></p> )
 						}
 					</div>
 				</div>
@@ -81,7 +83,7 @@ class ModalMeta extends Component {
 
 		return (
 			<div className="component__key_val">
-				<div className="key">Duedate:</div>
+				<div className="key"><FormattedMessage id="card.meta.duedate.title" defaultMessage="Duedate" />:</div>
 				<div className="val">
 					{ this.props.data.meta.duedate &&
 						<Tag color={ Helper.date.style(this.props.data.meta.duedate) }>{ Helper.date.format(this.props.data.meta.duedate) }</Tag>
@@ -103,7 +105,7 @@ class ModalMeta extends Component {
 									size="small"
 									onClick={ this.open }
 								>
-									{ this.props.data.meta.duedate ? 'Update Duedate' : 'Add Duedate' }
+									{ this.props.data.meta.duedate ? <FormattedMessage id="card.meta.duedate.update" defaultMessage="Update Duedate" /> : <FormattedMessage id="card.meta.duedate.add" defaultMessage="Add Duedate" /> }
 								</Button>
 							</div>
 						)

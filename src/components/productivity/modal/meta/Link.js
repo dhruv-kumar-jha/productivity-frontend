@@ -2,6 +2,8 @@
 
 import React, { Component } from 'react';
 import { Input, Button, message } from 'antd';
+import { FormattedMessage } from 'react-intl';
+import translate from 'app/global/helper/translate';
 
 
 class ModalMeta extends Component {
@@ -45,7 +47,7 @@ class ModalMeta extends Component {
 
 	update() {
 		if ( this.state.link === null || this.state.link == this.props.data.meta.link ) {
-			return message.error('Please enter/update the link first');
+			return message.error( translate('messages.card.link.error') );
 		}
 
 		this.props.mutate({
@@ -71,7 +73,7 @@ class ModalMeta extends Component {
 		if ( this.props.public ) {
 			return (
 				<div className="component__key_val">
-					<div className="key">Link:</div>
+					<div className="key"><FormattedMessage id="card.meta.link.title" defaultMessage="Link" />:</div>
 					<div className="val">
 						{ this.props.data.meta.link ?
 							(
@@ -81,7 +83,7 @@ class ModalMeta extends Component {
 									</div>
 								</div>
 							) :
-							( <p>Link not specified</p> )
+							( <p><FormattedMessage id="card.meta.link.empty" defaultMessage="Link not specified" /></p> )
 						}
 					</div>
 				</div>
@@ -91,25 +93,25 @@ class ModalMeta extends Component {
 
 		return (
 			<div className="component__key_val">
-				<div className="key">Link:</div>
+				<div className="key"><FormattedMessage id="card.meta.link.title" defaultMessage="Link" />:</div>
 				<div className="val">
 					{ ! this.state.edit && this.props.data.meta.link &&
 						<div className="full-width flex flex--sb">
 							<div className="link">
 								<a href={this.props.data.meta.link} target="_blank" rel="nofollow">{ this.props.data.meta.link }</a>
 							</div>
-							<Button type="primary" ghost size="small" onClick={ this.open } className="m-l-10">{ this.props.data.meta.link ? 'Update Link' : 'Add Link' }</Button>
+							<Button type="primary" ghost size="small" onClick={ this.open } className="m-l-10">{ this.props.data.meta.link ? <FormattedMessage id="card.meta.link.update" defaultMessage="Update Link" /> : <FormattedMessage id="card.meta.link.add" defaultMessage="Add Link" /> }</Button>
 						</div>
 					}
 
 					{ ! this.state.edit && ! this.props.data.meta.link &&
-						<Button type="primary" ghost size="small" onClick={ this.open }>Add Link</Button>
+						<Button type="primary" ghost size="small" onClick={ this.open }><FormattedMessage id="card.meta.link.add" defaultMessage="Add Link" /></Button>
 					}
 
 					{ this.state.edit &&
 						<div className="data--edit--inline flex row nowrap">
 							<Input
-								placeholder="Link URL"
+								placeholder={ translate('card.meta.link.placeholder', 'Link URL') }
 								defaultValue={ this.props.data.meta.link }
 								onChange={ this.change }
 								onKeyPress={ this.enter }
@@ -119,12 +121,12 @@ class ModalMeta extends Component {
 								type="primary"
 								size="small"
 								className="m-l-10"
-								onClick={ this.update }>{ this.props.data.meta.link ? 'Update' : 'Add' }</Button>
+								onClick={ this.update }>{ this.props.data.meta.link ? <FormattedMessage id="form.update" defaultMessage="Update" /> : <FormattedMessage id="form.add" defaultMessage="Add" /> }</Button>
 							<Button
 								type="ghost"
 								size="small"
 								onClick={ this.close }
-								className="m-l-5">Cancel</Button>
+								className="m-l-5"><FormattedMessage id="form.cancel" defaultMessage="Cancel" /></Button>
 
 						</div>
 					}

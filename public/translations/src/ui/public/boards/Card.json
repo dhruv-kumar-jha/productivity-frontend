@@ -1,0 +1,18 @@
+[
+  {
+    "id": "card.show.heading.sub",
+    "defaultMessage": "In list"
+  },
+  {
+    "id": "card.show.tab.general",
+    "defaultMessage": "General"
+  },
+  {
+    "id": "card.show.tab.todo",
+    "defaultMessage": "Todo List"
+  },
+  {
+    "id": "card.show.tab.delete",
+    "defaultMessage": "Delete"
+  }
+]

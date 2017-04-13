@@ -1,0 +1,30 @@
+[
+  {
+    "id": "card.meta.link.title",
+    "defaultMessage": "Link"
+  },
+  {
+    "id": "card.meta.link.empty",
+    "defaultMessage": "Link not specified"
+  },
+  {
+    "id": "card.meta.link.update",
+    "defaultMessage": "Update Link"
+  },
+  {
+    "id": "card.meta.link.add",
+    "defaultMessage": "Add Link"
+  },
+  {
+    "id": "form.update",
+    "defaultMessage": "Update"
+  },
+  {
+    "id": "form.add",
+    "defaultMessage": "Add"
+  },
+  {
+    "id": "form.cancel",
+    "defaultMessage": "Cancel"
+  }
+]

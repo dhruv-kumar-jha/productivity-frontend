@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
+import translate from 'app/global/helper/translate';
 
 import ProductivityLayout from 'app/components/layout/Productivity';
 import Header from 'app/components/productivity/boards/Header';
@@ -69,21 +70,21 @@ class ShowBoard extends Component {
 
 
 		if ( this.props.data.loading ) {
-			return <Loading text="Loading board details..." />;
+			return <Loading text={ translate('messages.board.show.loading') } />;
 		}
 
 		if ( ! this.props.data.board ) {
 			setTimeout( () => {
-				message.warning("Board not found or you don't have permissions to access it.");
+				message.warning( translate('messages.board.show.error') );
 				this.handleRedirect();
 			}, 50);
-			return <Loading text="Loading board details..." />;
+			return <Loading text={ translate('messages.board.show.loading') } />;
 		}
 
 		const { board } = this.props.data
 
 		const updateListOrder = (order) => {
-			const loading_message = message.loading('Updating the position of the list..', 0);
+			const loading_message = message.loading( translate('messages.board.list.position.update') , 0);
 			this.props.mutate({
 				variables: {
 					id: board.id,
@@ -121,7 +122,7 @@ class ShowBoard extends Component {
 			})
 			.then( res => {
 				loading_message();
-				message.success('List position has been successfully updated.');
+				message.success( translate('messages.board.list.position.update.success') );
 			})
 			.catch( res => {
 				if ( res.graphQLErrors ) {

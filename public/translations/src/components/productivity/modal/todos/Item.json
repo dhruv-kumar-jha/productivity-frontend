@@ -1,0 +1,22 @@
+[
+  {
+    "id": "card.todo.form.processing",
+    "defaultMessage": "Adding item.."
+  },
+  {
+    "id": "card.todo.form.processing_update",
+    "defaultMessage": "Updating item.."
+  },
+  {
+    "id": "card.todo.form.update",
+    "defaultMessage": "Update Todo"
+  },
+  {
+    "id": "form.cancel",
+    "defaultMessage": "Cancel"
+  },
+  {
+    "id": "card.todo.form.delete",
+    "defaultMessage": "Delete Todo"
+  }
+]

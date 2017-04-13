@@ -1,0 +1,1091 @@
+[
+  {
+    "descriptors": [
+      {
+        "defaultMessage": "Productivity",
+        "id": "app.name.main"
+      },
+      {
+        "defaultMessage": "Application",
+        "id": "app.name.sub"
+      },
+      {
+        "defaultMessage": "Dashboard",
+        "id": "app.nav.dashboard"
+      },
+      {
+        "defaultMessage": "Settings",
+        "id": "app.nav.settings"
+      },
+      {
+        "defaultMessage": "Logout",
+        "id": "app.nav.logout"
+      },
+      {
+        "defaultMessage": "Login Now",
+        "id": "app.nav.login"
+      },
+      {
+        "defaultMessage": "Create New Account",
+        "id": "app.nav.create_account"
+      }
+    ],
+    "path": "components/common/AuthHeader.json"
+  },
+  {
+    "descriptors": [
+      {
+        "defaultMessage": "Productivity",
+        "id": "app.name.main"
+      },
+      {
+        "defaultMessage": "Application",
+        "id": "app.name.sub"
+      },
+      {
+        "defaultMessage": "Dashboard",
+        "id": "app.nav.dashboard"
+      },
+      {
+        "defaultMessage": "Settings",
+        "id": "app.nav.settings"
+      },
+      {
+        "defaultMessage": "Logout",
+        "id": "app.nav.logout"
+      }
+    ],
+    "path": "components/common/Header.json"
+  },
+  {
+    "descriptors": [
+      {
+        "defaultMessage": "Make Private",
+        "id": "board.visibility.private"
+      },
+      {
+        "defaultMessage": "Make Public",
+        "id": "board.visibility.public"
+      }
+    ],
+    "path": "components/productivity/boards/ChangeVisibility.json"
+  },
+  {
+    "descriptors": [
+      {
+        "defaultMessage": "Board Title",
+        "id": "board.card.form.placeholder.title"
+      },
+      {
+        "defaultMessage": "Board Description",
+        "id": "board.card.form.placeholder.description"
+      },
+      {
+        "defaultMessage": "Please enter Board Title",
+        "id": "board.card.form.validate.title"
+      },
+      {
+        "defaultMessage": "Create New Board",
+        "id": "board.card.title"
+      },
+      {
+        "defaultMessage": "Add New Board",
+        "id": "board.card.heading"
+      },
+      {
+        "defaultMessage": "Create",
+        "id": "form.create"
+      }
+    ],
+    "path": "components/productivity/boards/New.json"
+  },
+  {
+    "descriptors": [
+      {
+        "defaultMessage": "Enter card title",
+        "id": "card.form.title"
+      },
+      {
+        "defaultMessage": "Add New Card",
+        "id": "card.title"
+      },
+      {
+        "defaultMessage": "Add",
+        "id": "card.form.add"
+      }
+    ],
+    "path": "components/productivity/cards/New.json"
+  },
+  {
+    "descriptors": [
+      {
+        "defaultMessage": "List Title",
+        "id": "list.card.form.placeholder.title"
+      },
+      {
+        "defaultMessage": "List Description",
+        "id": "list.card.form.placeholder.description"
+      },
+      {
+        "defaultMessage": "Please enter List Title",
+        "id": "list.card.form.validate.title"
+      },
+      {
+        "defaultMessage": "Create New List...",
+        "id": "list.card.title"
+      },
+      {
+        "defaultMessage": "Add New List",
+        "id": "list.card.heading"
+      },
+      {
+        "defaultMessage": "Create",
+        "id": "form.create"
+      }
+    ],
+    "path": "components/productivity/lists/New.json"
+  },
+  {
+    "descriptors": [
+      {
+        "defaultMessage": "List Actions",
+        "id": "list.actions.title"
+      },
+      {
+        "defaultMessage": "Update List",
+        "id": "list.actions.update"
+      },
+      {
+        "defaultMessage": "Delete this List",
+        "id": "list.actions.delete"
+      }
+    ],
+    "path": "components/productivity/lists/Show.json"
+  },
+  {
+    "descriptors": [
+      {
+        "defaultMessage": "Edit the description",
+        "id": "card.general.description.edit"
+      },
+      {
+        "defaultMessage": "No description has been added for this card yet.",
+        "id": "card.general.description.empty"
+      },
+      {
+        "defaultMessage": "General Details",
+        "id": "card.general.heading"
+      },
+      {
+        "defaultMessage": "Update Description",
+        "id": "card.general.form.update"
+      },
+      {
+        "defaultMessage": "Save Description",
+        "id": "card.general.form.save"
+      },
+      {
+        "defaultMessage": "Cancel",
+        "id": "form.cancel"
+      }
+    ],
+    "path": "components/productivity/modal/General.json"
+  },
+  {
+    "descriptors": [
+      {
+        "defaultMessage": "Update",
+        "id": "form.update"
+      },
+      {
+        "defaultMessage": "Cancel",
+        "id": "form.cancel"
+      }
+    ],
+    "path": "components/productivity/modal/Header.json"
+  },
+  {
+    "descriptors": [
+      {
+        "defaultMessage": "Background",
+        "id": "card.meta.background.title"
+      },
+      {
+        "defaultMessage": "Background color not set",
+        "id": "card.meta.background.empty"
+      },
+      {
+        "defaultMessage": "Reset Background Color",
+        "id": "card.meta.background.reset_color"
+      },
+      {
+        "defaultMessage": "Update Background Color",
+        "id": "card.meta.background.update_color"
+      },
+      {
+        "defaultMessage": "Set Background Color",
+        "id": "card.meta.background.set_color"
+      },
+      {
+        "defaultMessage": "Update Background",
+        "id": "card.meta.background.update"
+      },
+      {
+        "defaultMessage": "Set Background",
+        "id": "card.meta.background.set"
+      },
+      {
+        "defaultMessage": "Cancel",
+        "id": "form.cancel"
+      }
+    ],
+    "path": "components/productivity/modal/meta/BackgroundColor.json"
+  },
+  {
+    "descriptors": [
+      {
+        "defaultMessage": "Duedate",
+        "id": "card.meta.duedate.title"
+      },
+      {
+        "defaultMessage": "Due date not specified",
+        "id": "card.meta.duedate.empty"
+      },
+      {
+        "defaultMessage": "Update Duedate",
+        "id": "card.meta.duedate.update"
+      },
+      {
+        "defaultMessage": "Add Duedate",
+        "id": "card.meta.duedate.add"
+      }
+    ],
+    "path": "components/productivity/modal/meta/Duedate.json"
+  },
+  {
+    "descriptors": [
+      {
+        "defaultMessage": "Image",
+        "id": "card.meta.image.title"
+      },
+      {
+        "defaultMessage": "Image not specified",
+        "id": "card.meta.image.empty"
+      },
+      {
+        "defaultMessage": "Update Image URL",
+        "id": "card.meta.image.update"
+      },
+      {
+        "defaultMessage": "Add Image URL",
+        "id": "card.meta.image.add"
+      },
+      {
+        "defaultMessage": "Update",
+        "id": "form.update"
+      },
+      {
+        "defaultMessage": "Add",
+        "id": "form.add"
+      },
+      {
+        "defaultMessage": "Cancel",
+        "id": "form.cancel"
+      }
+    ],
+    "path": "components/productivity/modal/meta/Image.json"
+  },
+  {
+    "descriptors": [
+      {
+        "defaultMessage": "Link",
+        "id": "card.meta.link.title"
+      },
+      {
+        "defaultMessage": "Link not specified",
+        "id": "card.meta.link.empty"
+      },
+      {
+        "defaultMessage": "Update Link",
+        "id": "card.meta.link.update"
+      },
+      {
+        "defaultMessage": "Add Link",
+        "id": "card.meta.link.add"
+      },
+      {
+        "defaultMessage": "Update",
+        "id": "form.update"
+      },
+      {
+        "defaultMessage": "Add",
+        "id": "form.add"
+      },
+      {
+        "defaultMessage": "Cancel",
+        "id": "form.cancel"
+      }
+    ],
+    "path": "components/productivity/modal/meta/Link.json"
+  },
+  {
+    "descriptors": [
+      {
+        "defaultMessage": "Add Todo",
+        "id": "card.todo.form.add"
+      },
+      {
+        "defaultMessage": "Cancel",
+        "id": "form.cancel"
+      },
+      {
+        "defaultMessage": "No todo items has been added for this card yet.",
+        "id": "card.todo.public.empty"
+      },
+      {
+        "defaultMessage": "You haven't added any items to todo list yet.",
+        "id": "card.todo.empty"
+      },
+      {
+        "defaultMessage": "Add new Item",
+        "id": "card.todo.form.add_item"
+      }
+    ],
+    "path": "components/productivity/modal/Todo.json"
+  },
+  {
+    "descriptors": [
+      {
+        "defaultMessage": "Adding item..",
+        "id": "card.todo.form.processing"
+      },
+      {
+        "defaultMessage": "Updating item..",
+        "id": "card.todo.form.processing_update"
+      },
+      {
+        "defaultMessage": "Update Todo",
+        "id": "card.todo.form.update"
+      },
+      {
+        "defaultMessage": "Cancel",
+        "id": "form.cancel"
+      },
+      {
+        "defaultMessage": "Delete Todo",
+        "id": "card.todo.form.delete"
+      }
+    ],
+    "path": "components/productivity/modal/todos/Item.json"
+  },
+  {
+    "descriptors": [
+      {
+        "defaultMessage": "Link URL",
+        "id": "card.meta.link.placeholder"
+      },
+      {
+        "defaultMessage": "Image URL",
+        "id": "card.meta.image.placeholder"
+      },
+      {
+        "defaultMessage": "Color",
+        "id": "component.colorpicker.placeholder"
+      },
+      {
+        "defaultMessage": "Card Title",
+        "id": "card.header.title.placeholder"
+      },
+      {
+        "defaultMessage": "Enter your description here. (Markdown allowed)",
+        "id": "card.general.form.placeholder"
+      },
+      {
+        "defaultMessage": "Todo Title",
+        "id": "card.todo.form.placeholder.title"
+      },
+      {
+        "defaultMessage": "Please enter todo description here",
+        "id": "card.todo.form.placeholder.description"
+      },
+      {
+        "defaultMessage": "Adding item..",
+        "id": "card.todo.form.processing"
+      },
+      {
+        "defaultMessage": "List Title",
+        "id": "list.form.placeholder.title"
+      },
+      {
+        "defaultMessage": "List description",
+        "id": "list.form.placeholder.description"
+      },
+      {
+        "defaultMessage": "Example: 1",
+        "id": "list.form.placeholder.space_before"
+      },
+      {
+        "defaultMessage": "Example: 1",
+        "id": "list.form.placeholder.space_after"
+      },
+      {
+        "defaultMessage": "Please enter List Title",
+        "id": "list.form.validate.title"
+      },
+      {
+        "defaultMessage": "Board Title",
+        "id": "board.form.placeholder.title"
+      },
+      {
+        "defaultMessage": "Board description",
+        "id": "board.form.placeholder.description"
+      },
+      {
+        "defaultMessage": "Background image URL",
+        "id": "board.form.placeholder.background_image_url"
+      },
+      {
+        "defaultMessage": "Please enter Board Title",
+        "id": "board.form.validate.title"
+      },
+      {
+        "defaultMessage": "New card has been successfully added.",
+        "id": "messages.card.new.success"
+      },
+      {
+        "defaultMessage": "Deleting card, please wait..",
+        "id": "messages.card.delete.loading"
+      },
+      {
+        "defaultMessage": "Card has been successfully deleted.",
+        "id": "messages.card.delete.success"
+      },
+      {
+        "defaultMessage": "Card details have been successfully updated.",
+        "id": "messages.card.update.success"
+      },
+      {
+        "defaultMessage": "The card you're looking for doesn't exist or your dont have permissions to access it.",
+        "id": "messages.card.show.error"
+      },
+      {
+        "defaultMessage": "Deleting card...",
+        "id": "messages.card.processing.delete"
+      },
+      {
+        "defaultMessage": "Updating card details...",
+        "id": "messages.card.processing.update"
+      },
+      {
+        "defaultMessage": "Yes",
+        "id": "confirm.yes"
+      },
+      {
+        "defaultMessage": "No",
+        "id": "confirm.no"
+      },
+      {
+        "defaultMessage": "Are you sure?",
+        "id": "confirm.common.title"
+      },
+      {
+        "defaultMessage": "This is a non reversible process, Once deleted you cannot recover this card again.",
+        "id": "confirm.card.delete.description"
+      },
+      {
+        "defaultMessage": "This is a non reversible process, Once deleted you cannot recover this list again.",
+        "id": "confirm.list.delete.description"
+      },
+      {
+        "defaultMessage": "Please enter card title first.",
+        "id": "messages.card.new.empty"
+      },
+      {
+        "defaultMessage": "You haven't set any background color yet.",
+        "id": "messages.list.background.empty"
+      },
+      {
+        "defaultMessage": "You haven't made any changes yet.",
+        "id": "messages.list.update.warning"
+      },
+      {
+        "defaultMessage": "List details has been successfully updated.",
+        "id": "messages.list.update.success"
+      },
+      {
+        "defaultMessage": "The list you're looking for doesn't exist or your dont have permissions to access it.",
+        "id": "messages.list.show.error"
+      },
+      {
+        "defaultMessage": "Please make changes to the title first.",
+        "id": "messages.card.title.update.empty"
+      },
+      {
+        "defaultMessage": "New list has been successfully added.",
+        "id": "messages.list.new.success"
+      },
+      {
+        "defaultMessage": "Card position has been successfully updated.",
+        "id": "messages.list.position.updated"
+      },
+      {
+        "defaultMessage": "Deleting list, please wait..",
+        "id": "messages.list.delete.processing"
+      },
+      {
+        "defaultMessage": "List has been successfully deleted.",
+        "id": "messages.list.delete.success"
+      },
+      {
+        "defaultMessage": "Please make changes to the description first",
+        "id": "messages.card.update.description.warning"
+      },
+      {
+        "defaultMessage": "Please enter todo item title",
+        "id": "messages.card.todo.title.empty"
+      },
+      {
+        "defaultMessage": "Adding new todo item..",
+        "id": "messages.card.todo.processing"
+      },
+      {
+        "defaultMessage": "New todo has been successfully added.",
+        "id": "messages.card.todo.success"
+      },
+      {
+        "defaultMessage": "Please make changes to the item first.",
+        "id": "messages.card.todo.item.update.empty"
+      },
+      {
+        "defaultMessage": "Todo item has been successfully updated.",
+        "id": "messages.card.todo.item.update.success"
+      },
+      {
+        "defaultMessage": "Deleting todo item..",
+        "id": "messages.card.todo.item.delete.loading"
+      },
+      {
+        "defaultMessage": "Todo item has been successfully deleted.",
+        "id": "messages.card.todo.item.delete.success"
+      },
+      {
+        "defaultMessage": "Updating todo status..",
+        "id": "messages.card.todo.item.status.update"
+      },
+      {
+        "defaultMessage": "Todo item status has been successfully updated.",
+        "id": "messages.card.todo.item.status.update.success"
+      },
+      {
+        "defaultMessage": "Please make changes to the due date first",
+        "id": "messages.card.duedate.error"
+      },
+      {
+        "defaultMessage": "Please enter/update the image url first",
+        "id": "messages.card.image.error"
+      },
+      {
+        "defaultMessage": "Please enter/update the link first",
+        "id": "messages.card.link.error"
+      },
+      {
+        "defaultMessage": "Please enter/update the background color first",
+        "id": "messages.card.background.error"
+      },
+      {
+        "defaultMessage": "This is a non reversible process, Once deleted you cannot recover this todo item again.",
+        "id": "confirm.todo.delete.description"
+      },
+      {
+        "defaultMessage": "This is a non reversible process, Once deleted you cannot recover this board, its lists and cards again.",
+        "id": "confirm.board.delete.description"
+      },
+      {
+        "defaultMessage": "New board has been successfully added.",
+        "id": "messages.board.new.success"
+      },
+      {
+        "defaultMessage": "Deleting board, please wait..",
+        "id": "messages.board.delete.processing"
+      },
+      {
+        "defaultMessage": "Board has been successfully deleted.",
+        "id": "messages.board.delete.success"
+      },
+      {
+        "defaultMessage": "Adding board..",
+        "id": "messages.board.processing.adding"
+      },
+      {
+        "defaultMessage": "Deleting board",
+        "id": "messages.board.processing.deleting"
+      },
+      {
+        "defaultMessage": "Private boards can only be accessed by its owner and the users who are given access to it",
+        "id": "confirm.board.toggle.private"
+      },
+      {
+        "defaultMessage": "Publc boards can be accessed by anybody who has the board URL (or id)",
+        "id": "confirm.board.toggle.public"
+      },
+      {
+        "defaultMessage": "Board has been made public.",
+        "id": "messages.board.status.public"
+      },
+      {
+        "defaultMessage": "Board has been made private.",
+        "id": "messages.board.status.private"
+      },
+      {
+        "defaultMessage": "You haven't made any changes yet.",
+        "id": "messages.board.update.warning"
+      },
+      {
+        "defaultMessage": "Board details has been successfully updated.",
+        "id": "messages.board.update.success"
+      },
+      {
+        "defaultMessage": "Board not found or you don't have permissions to access it.",
+        "id": "messages.board.show.error"
+      },
+      {
+        "defaultMessage": "Loading board details...",
+        "id": "messages.board.show.loading"
+      },
+      {
+        "defaultMessage": "Updating the position of the list..",
+        "id": "messages.board.list.position.update"
+      },
+      {
+        "defaultMessage": "List position has been successfully updated.",
+        "id": "messages.board.list.position.update.success"
+      },
+      {
+        "defaultMessage": "Loading boards...",
+        "id": "messages.board.loading"
+      },
+      {
+        "defaultMessage": "You haven't made any changes yet.",
+        "id": "messages.settings.warning"
+      },
+      {
+        "defaultMessage": "Updating your details..",
+        "id": "messages.settings.processing"
+      },
+      {
+        "defaultMessage": "Your details has been successfully updated.",
+        "id": "messages.settings.success"
+      },
+      {
+        "defaultMessage": "Loading user details...",
+        "id": "messages.settings.loading"
+      },
+      {
+        "defaultMessage": "You have successfully logged in.",
+        "id": "messages.auth.success"
+      },
+      {
+        "defaultMessage": "You have been successfully logged out.",
+        "id": "messages.logout.success"
+      },
+      {
+        "defaultMessage": "Your account has been successfully created.",
+        "id": "messages.signup.success"
+      },
+      {
+        "defaultMessage": "Your token has expired/invalidated. Please login again to generate new token",
+        "id": "global.token.expired"
+      },
+      {
+        "defaultMessage": "Record doesn't exist or you dont have permissions to access it",
+        "id": "global.record.empty"
+      }
+    ],
+    "path": "global/helper/translate.json"
+  },
+  {
+    "descriptors": [
+      {
+        "defaultMessage": "Ex: john.doe@gmail.com",
+        "id": "auth.form.placeholder.email"
+      },
+      {
+        "defaultMessage": "Password",
+        "id": "auth.form.placeholder.password"
+      },
+      {
+        "defaultMessage": "Error Occurred",
+        "id": "form.error"
+      },
+      {
+        "defaultMessage": "Please enter your Email Address",
+        "id": "auth.form.validate.email"
+      },
+      {
+        "defaultMessage": "Please enter your Password",
+        "id": "auth.form.validate.password"
+      },
+      {
+        "defaultMessage": "Logging you in...",
+        "id": "auth.form.processing.login"
+      },
+      {
+        "defaultMessage": "Login to your Account",
+        "id": "auth.login.title"
+      },
+      {
+        "defaultMessage": "Please enter your details to login.",
+        "id": "auth.login.subtitle"
+      },
+      {
+        "defaultMessage": "Email Address",
+        "id": "form.email"
+      },
+      {
+        "defaultMessage": "Password",
+        "id": "form.password"
+      },
+      {
+        "defaultMessage": "Login Now",
+        "id": "auth.form.login"
+      },
+      {
+        "defaultMessage": "Reset",
+        "id": "form.reset"
+      },
+      {
+        "defaultMessage": "Demo",
+        "id": "auth.form.demouser"
+      },
+      {
+        "defaultMessage": "Don't have an account?",
+        "id": "auth.form.no_account"
+      },
+      {
+        "defaultMessage": "Signup Now",
+        "id": "auth.form.signup"
+      }
+    ],
+    "path": "ui/pages/auth/Login.json"
+  },
+  {
+    "descriptors": [
+      {
+        "defaultMessage": "Logging you out",
+        "id": "logout.title"
+      },
+      {
+        "defaultMessage": "Please wait while we log you out., you will be automatically redirected to the login page after successful logout.",
+        "id": "logout.subtitle"
+      }
+    ],
+    "path": "ui/pages/auth/Logout.json"
+  },
+  {
+    "descriptors": [
+      {
+        "defaultMessage": "Please enter your Email Address",
+        "id": "auth.form.validate.email"
+      },
+      {
+        "defaultMessage": "Please enter a valid email address",
+        "id": "auth.form.validate.invalid_email"
+      },
+      {
+        "defaultMessage": "Ex: john.doe@gmail.com",
+        "id": "auth.form.placeholder.email"
+      },
+      {
+        "defaultMessage": "Password",
+        "id": "auth.form.placeholder.password"
+      },
+      {
+        "defaultMessage": "Re-enter Password",
+        "id": "auth.form.placeholder.re_password"
+      },
+      {
+        "defaultMessage": "Ex: John Doe",
+        "id": "auth.form.placeholder.name"
+      },
+      {
+        "defaultMessage": "Error Occurred",
+        "id": "form.error"
+      },
+      {
+        "defaultMessage": "Please enter your Full Name",
+        "id": "auth.form.validate.name"
+      },
+      {
+        "defaultMessage": "Please enter your Password",
+        "id": "auth.form.validate.password"
+      },
+      {
+        "defaultMessage": "Please re-enter your Password",
+        "id": "auth.form.validate.re_password"
+      },
+      {
+        "defaultMessage": "You must agree to Terms and Conditions",
+        "id": "auth.form.validate.terms"
+      },
+      {
+        "defaultMessage": "Creating your account...",
+        "id": "auth.form.processing.signup"
+      },
+      {
+        "defaultMessage": "Create New Account",
+        "id": "auth.signup.title"
+      },
+      {
+        "defaultMessage": "Please enter your details below to create new account.",
+        "id": "auth.signup.subtitle"
+      },
+      {
+        "defaultMessage": "Full Name",
+        "id": "form.name"
+      },
+      {
+        "defaultMessage": "Email Address",
+        "id": "form.email"
+      },
+      {
+        "defaultMessage": "Password",
+        "id": "form.password"
+      },
+      {
+        "defaultMessage": "Verify Password",
+        "id": "auth.form.verify_password"
+      },
+      {
+        "defaultMessage": "I have read and agree to the terms and conditions.",
+        "id": "auth.form.terms_and_conditions"
+      },
+      {
+        "defaultMessage": "Signup",
+        "id": "auth.form.signup"
+      },
+      {
+        "defaultMessage": "Reset",
+        "id": "form.reset"
+      }
+    ],
+    "path": "ui/pages/auth/Signup.json"
+  },
+  {
+    "descriptors": [
+      {
+        "defaultMessage": "In list",
+        "id": "card.show.heading.sub"
+      },
+      {
+        "defaultMessage": "General",
+        "id": "card.show.tab.general"
+      },
+      {
+        "defaultMessage": "Todo List",
+        "id": "card.show.tab.todo"
+      },
+      {
+        "defaultMessage": "Meta Details",
+        "id": "card.show.tab.meta"
+      },
+      {
+        "defaultMessage": "Delete",
+        "id": "card.show.tab.delete"
+      }
+    ],
+    "path": "ui/pages/boards/card/Show.json"
+  },
+  {
+    "descriptors": [
+      {
+        "defaultMessage": "Inspirations",
+        "id": "board.background.inspirations"
+      },
+      {
+        "defaultMessage": "Board",
+        "id": "board.header.title"
+      },
+      {
+        "defaultMessage": "Enter the board details below and click on update.",
+        "id": "board.header.subtitle"
+      },
+      {
+        "defaultMessage": "Board Title",
+        "id": "board.form.label.title"
+      },
+      {
+        "defaultMessage": "Board Description",
+        "id": "board.form.label.description"
+      },
+      {
+        "defaultMessage": "Board Background",
+        "id": "board.form.label.background"
+      },
+      {
+        "defaultMessage": "Board Background Image",
+        "id": "board.form.label.background_image"
+      },
+      {
+        "defaultMessage": "Update Details",
+        "id": "board.form.update"
+      },
+      {
+        "defaultMessage": "Reset",
+        "id": "form.reset"
+      },
+      {
+        "defaultMessage": "Reset Background",
+        "id": "board.form.reset_background"
+      }
+    ],
+    "path": "ui/pages/boards/Edit.json"
+  },
+  {
+    "descriptors": [
+      {
+        "defaultMessage": "List",
+        "id": "list.header.title"
+      },
+      {
+        "defaultMessage": "Enter the list details below and click on update.",
+        "id": "list.header.subtitle"
+      },
+      {
+        "defaultMessage": "List Title",
+        "id": "list.form.label.title"
+      },
+      {
+        "defaultMessage": "List Description",
+        "id": "list.form.label.description"
+      },
+      {
+        "defaultMessage": "List Background",
+        "id": "list.form.label.background"
+      },
+      {
+        "defaultMessage": "Space Before",
+        "id": "list.form.label.space_before"
+      },
+      {
+        "defaultMessage": "Space After",
+        "id": "list.form.label.space_after"
+      },
+      {
+        "defaultMessage": "Update Details",
+        "id": "list.form.update"
+      },
+      {
+        "defaultMessage": "Reset",
+        "id": "form.reset"
+      },
+      {
+        "defaultMessage": "Reset Background",
+        "id": "list.form.reset_background"
+      }
+    ],
+    "path": "ui/pages/boards/List.json"
+  },
+  {
+    "descriptors": [
+      {
+        "defaultMessage": "All of your Boards",
+        "id": "dashboard.title"
+      },
+      {
+        "defaultMessage": "These are all the boards you have added till date, Any board you add will appear here.",
+        "id": "dashboard.subtitle"
+      }
+    ],
+    "path": "ui/pages/common/Dashboard.json"
+  },
+  {
+    "descriptors": [
+      {
+        "defaultMessage": "Ex: John Doe",
+        "id": "auth.form.placeholder.name"
+      },
+      {
+        "defaultMessage": "Ex: john.doe@gmail.com",
+        "id": "auth.form.placeholder.email"
+      },
+      {
+        "defaultMessage": "Password",
+        "id": "auth.form.placeholder.password"
+      },
+      {
+        "defaultMessage": "Please enter your Full Name",
+        "id": "auth.form.validate.name"
+      },
+      {
+        "defaultMessage": "Please enter your Email Address",
+        "id": "auth.form.validate.email"
+      },
+      {
+        "defaultMessage": "Please enter a valid email address",
+        "id": "auth.form.validate.invalid_email"
+      },
+      {
+        "defaultMessage": "Updating details...",
+        "id": "settings.form.processing"
+      },
+      {
+        "defaultMessage": "Manage your Settings",
+        "id": "settings.title"
+      },
+      {
+        "defaultMessage": "Manage and update your personal information, login details from here.",
+        "id": "settings.subtitle"
+      },
+      {
+        "defaultMessage": "Full Name",
+        "id": "form.name"
+      },
+      {
+        "defaultMessage": "Email Address",
+        "id": "form.email"
+      },
+      {
+        "defaultMessage": "Password",
+        "id": "form.password"
+      },
+      {
+        "defaultMessage": "If you enter new password here, your existing password will be updated.",
+        "id": "settings.form.password_help"
+      },
+      {
+        "defaultMessage": "Select Language",
+        "id": "settings.form.language"
+      },
+      {
+        "defaultMessage": "Update Details",
+        "id": "settings.form.update_details"
+      },
+      {
+        "defaultMessage": "Reset",
+        "id": "form.reset"
+      }
+    ],
+    "path": "ui/pages/common/Setting.json"
+  },
+  {
+    "descriptors": [
+      {
+        "defaultMessage": "In list",
+        "id": "card.show.heading.sub"
+      },
+      {
+        "defaultMessage": "General",
+        "id": "card.show.tab.general"
+      },
+      {
+        "defaultMessage": "Todo List",
+        "id": "card.show.tab.todo"
+      },
+      {
+        "defaultMessage": "Delete",
+        "id": "card.show.tab.delete"
+      }
+    ],
+    "path": "ui/public/boards/Card.json"
+  }
+]

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Link } from 'react-router';
+import { FormattedMessage } from 'react-intl';
 
 import { Icon } from 'antd';
 
@@ -11,15 +12,20 @@ const Header = (props) => {
 		<header id="main">
 
 			<div className="logo">
-				<div className="text"><Link to="/dashboard">Productivity <span>Application</span></Link></div>
+				<div className="text">
+				<Link to="/dashboard">
+					<FormattedMessage id="app.name.main" defaultMessage="Productivity" />
+					<span className="light"> <FormattedMessage id="app.name.sub" defaultMessage="Application" /></span>
+				</Link>
+				</div>
 			</div>
 
 			<nav>
-				<Link to="/dashboard" activeClassName="active">Dashboard</Link>
+				<Link to="/dashboard" activeClassName="active"><FormattedMessage id="app.nav.dashboard" defaultMessage="Dashboard" /></Link>
 				<span className="separator"></span>
-				<Link to="/settings" activeClassName="active">Settings</Link>
+				<Link to="/settings" activeClassName="active"><FormattedMessage id="app.nav.settings" defaultMessage="Settings" /></Link>
 				<span className="separator"></span>
-				<Link to="/auth/logout" activeClassName="active">Logout</Link>
+				<Link to="/auth/logout" activeClassName="active"><FormattedMessage id="app.nav.logout" defaultMessage="Logout" /></Link>
 			</nav>
 
 		</header>

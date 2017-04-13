@@ -1,0 +1,10 @@
+[
+  {
+    "id": "form.update",
+    "defaultMessage": "Update"
+  },
+  {
+    "id": "form.cancel",
+    "defaultMessage": "Cancel"
+  }
+]

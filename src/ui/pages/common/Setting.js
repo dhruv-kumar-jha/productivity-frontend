@@ -3,6 +3,8 @@
 import React, { Component } from 'react';
 import Heading from 'app/components/common/Heading';
 import CommonLayout from 'app/components/layout/Common';
+import { defineMessages, injectIntl, FormattedMessage } from 'react-intl';
+import translate from 'app/global/helper/translate';
 
 import { graphql } from 'react-apollo';
 import GetCurrentUserQuery from 'app/graphql/queries/auth/CurrentUser';
@@ -43,16 +45,17 @@ class Setting extends Component {
 				if (
 						fields.name === user.name &&
 						fields.email === user.email &&
-						fields.password === user.password
+						fields.password === user.password &&
+						fields.language === user.language
 					)
 				{
-					return message.warning("You haven't made any changes yet.");
+					return message.warning( translate('messages.settings.warning') );
 				}
 
 
 				this.setState({ processing: true });
 
-				const loading_message = message.loading('Updating your details..', 0);
+				const loading_message = message.loading( translate('messages.settings.processing') , 0);
 
 				this.props.updateUser({
 					variables: {
@@ -60,6 +63,7 @@ class Setting extends Component {
 						name: fields.name,
 						email: fields.email,
 						password: fields.password,
+						language: fields.language,
 					},
 					optimisticResponse: {
 						__typename: 'Mutation',
@@ -68,16 +72,18 @@ class Setting extends Component {
 							id: user.id,
 							name: fields.name,
 							email: fields.email,
+							language: fields.language,
 						},
 					},
 					updateQueries: {
 						CurrentUser: (previousResult, { mutationResult }) => {
 							const updateUser = mutationResult.data.updateUser;
-							console.log('updateUser',updateUser);
+							// console.log('updateUser',updateUser);
 							return update(previousResult, {
 								current_user: {
 									name: { $set: updateUser.name },
 									email: { $set: updateUser.email },
+									language: { $set: updateUser.language },
 								},
 							});
 						}
@@ -86,7 +92,7 @@ class Setting extends Component {
 				.then( res => {
 					this.setState({ processing: false });
 					loading_message();
-					message.success('Your details has been successfully updated.');
+					message.success( translate('messages.settings.success') );
 				})
 				.catch( res => {
 					if ( res.graphQLErrors ) {
@@ -102,16 +108,27 @@ class Setting extends Component {
 
 
 
-
 	render() {
 
 
 		if ( this.props.data.loading ) {
-			return <Loading text="Loading user details..." />;
+			return <Loading text={ translate('messages.settings.loading') } />;
 		}
 
 
 		const user = this.props.data.current_user;
+
+		const messages = defineMessages({
+			placeholderName: { id: "auth.form.placeholder.name", defaultMessage: "Ex: John Doe" },
+			placeholderEmail: { id: "auth.form.placeholder.email", defaultMessage: "Ex: john.doe@gmail.com" },
+			placeholderPassword: { id: "auth.form.placeholder.password", defaultMessage: "Password" },
+
+			validateName: { id: "auth.form.validate.name", defaultMessage: "Please enter your Full Name" },
+			validateEmail: { id: "auth.form.validate.email", defaultMessage: "Please enter your Email Address" },
+			validateInvalidEmail: { id: "auth.form.validate.invalid_email", defaultMessage: "Please enter a valid email address" },
+			processingSettings: { id: "settings.form.processing", defaultMessage: "Updating details..." },
+		});
+		const { formatMessage } = this.props.intl;
 
 
 		const { getFieldDecorator } = this.props.form;
@@ -123,8 +140,8 @@ class Setting extends Component {
 			<CommonLayout>
 
 				<Heading
-					title="Manage your Settings"
-					subtitle="Manage and update your personal information, login details from here."
+					title={<FormattedMessage id="settings.title" defaultMessage="Manage your Settings" />}
+					subtitle={<FormattedMessage id="settings.subtitle" defaultMessage="Manage and update your personal information, login details from here." />}
 					icon="setting" />
 
 				<div className="m-t-30 m-b-50">
@@ -132,39 +149,51 @@ class Setting extends Component {
 
 
 					<Form layout="vertical" onSubmit={ this.handleFormSubmit }>
-					<Spin spinning={ this.state.processing } tip="Updating details..." size="large">
+					<Spin spinning={ this.state.processing } tip={formatMessage(messages.processingSettings)} size="large">
 
-						<FormItem {...formItemLayout} label="Full Name">
+						<FormItem {...formItemLayout} label={<FormattedMessage id="form.name" defaultMessage="Full Name" />} >
 							{ getFieldDecorator('name', {
-								rules: [{ required: true, message: 'Please enter your Full Name' }],
+								rules: [{ required: true, message: formatMessage(messages.validateName) }],
 								initialValue: user.name,
 							})(
-								<Input addonBefore={<Icon type="user" />} placeholder="Ex: John Doe" autoComplete="off" autoFocus />
+								<Input addonBefore={<Icon type="user" />} placeholder={ formatMessage(messages.placeholderName, { name: 'John Doe' }) } autoComplete="off" autoFocus />
 							) }
 						</FormItem>
 
-						<FormItem {...formItemLayout} label="Email Address">
+						<FormItem {...formItemLayout} label={<FormattedMessage id="form.email" defaultMessage="Email Address" />} >
 							{ getFieldDecorator('email', {
 								rules: [
-									{ type: 'email', message: 'Please enter a valid email address' },
-									{ required: true, message: 'Please enter your Email Address' },
+									{ type: 'email', message: formatMessage(messages.validateInvalidEmail) },
+									{ required: true, message: formatMessage(messages.validateEmail) },
 								],
 								initialValue: user.email,
 							})(
-								<Input addonBefore={<Icon type="mail" />} placeholder="Ex: john.doe@gmail.com" autoComplete="off" />
+								<Input addonBefore={<Icon type="mail" />} placeholder={ formatMessage(messages.placeholderEmail, { email: 'john.doe@gmail.com' }) } autoComplete="off" />
 							) }
 						</FormItem>
 
-						<FormItem {...formItemLayout} label="Password" extra="If you enter new password here, your existing password will be updated,">
+						<FormItem {...formItemLayout} label={<FormattedMessage id="form.password" defaultMessage="Password" />} extra={<FormattedMessage id="settings.form.password_help" defaultMessage="If you enter new password here, your existing password will be updated." />} extra>
 							{ getFieldDecorator('password')(
-								<Input addonBefore={<Icon type="lock" />} type="password" placeholder="Password" />
+								<Input addonBefore={<Icon type="lock" />} type="password" placeholder={ formatMessage(messages.placeholderPassword) } />
+							) }
+						</FormItem>
+
+
+						<FormItem {...formItemLayout} label={<FormattedMessage id="settings.form.language" defaultMessage="Select Language" />}>
+							{ getFieldDecorator('language', {
+								initialValue: user.language
+							})(
+								<Select placeholder="Select Language">
+									<Option value="en">English</Option>
+									<Option value="zh">Chinese</Option>
+								</Select>
 							) }
 						</FormItem>
 
 
 						<FormItem {...tailFormItemLayout} className="m-b-0">
-							<Button type="primary" size="default" icon="check" htmlType="submit">Update Details</Button>
-							<Button type="ghost" size="default" icon="reload" onClick={ this.resetForm } className="m-l-10">Reset</Button>
+							<Button type="primary" size="default" icon="check" htmlType="submit"><FormattedMessage id="settings.form.update_details" defaultMessage="Update Details" /></Button>
+							<Button type="ghost" size="default" icon="reload" onClick={ this.resetForm } className="m-l-10"><FormattedMessage id="form.reset" defaultMessage="Reset" /></Button>
 						</FormItem>
 
 					</Spin>
@@ -182,6 +211,8 @@ class Setting extends Component {
 
 
 Setting = Form.create()(Setting);
+Setting = injectIntl(Setting);
+
 export default graphql(GetCurrentUserQuery)(
 	graphql(UpdateUserMutation, { name: 'updateUser' })(Setting)
 );

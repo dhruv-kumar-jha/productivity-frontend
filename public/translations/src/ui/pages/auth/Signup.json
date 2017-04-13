@@ -1,0 +1,86 @@
+[
+  {
+    "id": "auth.form.validate.email",
+    "defaultMessage": "Please enter your Email Address"
+  },
+  {
+    "id": "auth.form.validate.invalid_email",
+    "defaultMessage": "Please enter a valid email address"
+  },
+  {
+    "id": "auth.form.placeholder.email",
+    "defaultMessage": "Ex: john.doe@gmail.com"
+  },
+  {
+    "id": "auth.form.placeholder.password",
+    "defaultMessage": "Password"
+  },
+  {
+    "id": "auth.form.placeholder.re_password",
+    "defaultMessage": "Re-enter Password"
+  },
+  {
+    "id": "auth.form.placeholder.name",
+    "defaultMessage": "Ex: John Doe"
+  },
+  {
+    "id": "form.error",
+    "defaultMessage": "Error Occurred"
+  },
+  {
+    "id": "auth.form.validate.name",
+    "defaultMessage": "Please enter your Full Name"
+  },
+  {
+    "id": "auth.form.validate.password",
+    "defaultMessage": "Please enter your Password"
+  },
+  {
+    "id": "auth.form.validate.re_password",
+    "defaultMessage": "Please re-enter your Password"
+  },
+  {
+    "id": "auth.form.validate.terms",
+    "defaultMessage": "You must agree to Terms and Conditions"
+  },
+  {
+    "id": "auth.form.processing.signup",
+    "defaultMessage": "Creating your account..."
+  },
+  {
+    "id": "auth.signup.title",
+    "defaultMessage": "Create New Account"
+  },
+  {
+    "id": "auth.signup.subtitle",
+    "defaultMessage": "Please enter your details below to create new account."
+  },
+  {
+    "id": "form.name",
+    "defaultMessage": "Full Name"
+  },
+  {
+    "id": "form.email",
+    "defaultMessage": "Email Address"
+  },
+  {
+    "id": "form.password",
+    "defaultMessage": "Password"
+  },
+  {
+    "id": "auth.form.verify_password",
+    "defaultMessage": "Verify Password"
+  },
+  {
+    "id": "auth.form.terms_and_conditions",
+    "defaultMessage": "I have read and agree to the terms and conditions."
+  },
+  {
+    "id": "auth.form.signup",
+    "defaultMessage": "Signup"
+  },
+  {
+    "id": "form.reset",
+    "defaultMessage": "Reset"
+  }
+]

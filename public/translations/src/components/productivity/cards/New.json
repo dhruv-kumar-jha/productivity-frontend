@@ -1,0 +1,14 @@
+[
+  {
+    "id": "card.form.title",
+    "defaultMessage": "Enter card title"
+  },
+  {
+    "id": "card.title",
+    "defaultMessage": "Add New Card"
+  },
+  {
+    "id": "card.form.add",
+    "defaultMessage": "Add"
+  }
+]

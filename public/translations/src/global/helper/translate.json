@@ -1,0 +1,322 @@
+[
+  {
+    "id": "card.meta.link.placeholder",
+    "defaultMessage": "Link URL"
+  },
+  {
+    "id": "card.meta.image.placeholder",
+    "defaultMessage": "Image URL"
+  },
+  {
+    "id": "component.colorpicker.placeholder",
+    "defaultMessage": "Color"
+  },
+  {
+    "id": "card.header.title.placeholder",
+    "defaultMessage": "Card Title"
+  },
+  {
+    "id": "card.general.form.placeholder",
+    "defaultMessage": "Enter your description here. (Markdown allowed)"
+  },
+  {
+    "id": "card.todo.form.placeholder.title",
+    "defaultMessage": "Todo Title"
+  },
+  {
+    "id": "card.todo.form.placeholder.description",
+    "defaultMessage": "Please enter todo description here"
+  },
+  {
+    "id": "card.todo.form.processing",
+    "defaultMessage": "Adding item.."
+  },
+  {
+    "id": "list.form.placeholder.title",
+    "defaultMessage": "List Title"
+  },
+  {
+    "id": "list.form.placeholder.description",
+    "defaultMessage": "List description"
+  },
+  {
+    "id": "list.form.placeholder.space_before",
+    "defaultMessage": "Example: 1"
+  },
+  {
+    "id": "list.form.placeholder.space_after",
+    "defaultMessage": "Example: 1"
+  },
+  {
+    "id": "list.form.validate.title",
+    "defaultMessage": "Please enter List Title"
+  },
+  {
+    "id": "board.form.placeholder.title",
+    "defaultMessage": "Board Title"
+  },
+  {
+    "id": "board.form.placeholder.description",
+    "defaultMessage": "Board description"
+  },
+  {
+    "id": "board.form.placeholder.background_image_url",
+    "defaultMessage": "Background image URL"
+  },
+  {
+    "id": "board.form.validate.title",
+    "defaultMessage": "Please enter Board Title"
+  },
+  {
+    "id": "messages.card.new.success",
+    "defaultMessage": "New card has been successfully added."
+  },
+  {
+    "id": "messages.card.delete.loading",
+    "defaultMessage": "Deleting card, please wait.."
+  },
+  {
+    "id": "messages.card.delete.success",
+    "defaultMessage": "Card has been successfully deleted."
+  },
+  {
+    "id": "messages.card.update.success",
+    "defaultMessage": "Card details have been successfully updated."
+  },
+  {
+    "id": "messages.card.show.error",
+    "defaultMessage": "The card you're looking for doesn't exist or your dont have permissions to access it."
+  },
+  {
+    "id": "messages.card.processing.delete",
+    "defaultMessage": "Deleting card..."
+  },
+  {
+    "id": "messages.card.processing.update",
+    "defaultMessage": "Updating card details..."
+  },
+  {
+    "id": "confirm.yes",
+    "defaultMessage": "Yes"
+  },
+  {
+    "id": "confirm.no",
+    "defaultMessage": "No"
+  },
+  {
+    "id": "confirm.common.title",
+    "defaultMessage": "Are you sure?"
+  },
+  {
+    "id": "confirm.card.delete.description",
+    "defaultMessage": "This is a non reversible process, Once deleted you cannot recover this card again."
+  },
+  {
+    "id": "confirm.list.delete.description",
+    "defaultMessage": "This is a non reversible process, Once deleted you cannot recover this list again."
+  },
+  {
+    "id": "messages.card.new.empty",
+    "defaultMessage": "Please enter card title first."
+  },
+  {
+    "id": "messages.list.background.empty",
+    "defaultMessage": "You haven't set any background color yet."
+  },
+  {
+    "id": "messages.list.update.warning",
+    "defaultMessage": "You haven't made any changes yet."
+  },
+  {
+    "id": "messages.list.update.success",
+    "defaultMessage": "List details has been successfully updated."
+  },
+  {
+    "id": "messages.list.show.error",
+    "defaultMessage": "The list you're looking for doesn't exist or your dont have permissions to access it."
+  },
+  {
+    "id": "messages.card.title.update.empty",
+    "defaultMessage": "Please make changes to the title first."
+  },
+  {
+    "id": "messages.list.new.success",
+    "defaultMessage": "New list has been successfully added."
+  },
+  {
+    "id": "messages.list.position.updated",
+    "defaultMessage": "Card position has been successfully updated."
+  },
+  {
+    "id": "messages.list.delete.processing",
+    "defaultMessage": "Deleting list, please wait.."
+  },
+  {
+    "id": "messages.list.delete.success",
+    "defaultMessage": "List has been successfully deleted."
+  },
+  {
+    "id": "messages.card.update.description.warning",
+    "defaultMessage": "Please make changes to the description first"
+  },
+  {
+    "id": "messages.card.todo.title.empty",
+    "defaultMessage": "Please enter todo item title"
+  },
+  {
+    "id": "messages.card.todo.processing",
+    "defaultMessage": "Adding new todo item.."
+  },
+  {
+    "id": "messages.card.todo.success",
+    "defaultMessage": "New todo has been successfully added."
+  },
+  {
+    "id": "messages.card.todo.item.update.empty",
+    "defaultMessage": "Please make changes to the item first."
+  },
+  {
+    "id": "messages.card.todo.item.update.success",
+    "defaultMessage": "Todo item has been successfully updated."
+  },
+  {
+    "id": "messages.card.todo.item.delete.loading",
+    "defaultMessage": "Deleting todo item.."
+  },
+  {
+    "id": "messages.card.todo.item.delete.success",
+    "defaultMessage": "Todo item has been successfully deleted."
+  },
+  {
+    "id": "messages.card.todo.item.status.update",
+    "defaultMessage": "Updating todo status.."
+  },
+  {
+    "id": "messages.card.todo.item.status.update.success",
+    "defaultMessage": "Todo item status has been successfully updated."
+  },
+  {
+    "id": "messages.card.duedate.error",
+    "defaultMessage": "Please make changes to the due date first"
+  },
+  {
+    "id": "messages.card.image.error",
+    "defaultMessage": "Please enter/update the image url first"
+  },
+  {
+    "id": "messages.card.link.error",
+    "defaultMessage": "Please enter/update the link first"
+  },
+  {
+    "id": "messages.card.background.error",
+    "defaultMessage": "Please enter/update the background color first"
+  },
+  {
+    "id": "confirm.todo.delete.description",
+    "defaultMessage": "This is a non reversible process, Once deleted you cannot recover this todo item again."
+  },
+  {
+    "id": "confirm.board.delete.description",
+    "defaultMessage": "This is a non reversible process, Once deleted you cannot recover this board, its lists and cards again."
+  },
+  {
+    "id": "messages.board.new.success",
+    "defaultMessage": "New board has been successfully added."
+  },
+  {
+    "id": "messages.board.delete.processing",
+    "defaultMessage": "Deleting board, please wait.."
+  },
+  {
+    "id": "messages.board.delete.success",
+    "defaultMessage": "Board has been successfully deleted."
+  },
+  {
+    "id": "messages.board.processing.adding",
+    "defaultMessage": "Adding board.."
+  },
+  {
+    "id": "messages.board.processing.deleting",
+    "defaultMessage": "Deleting board"
+  },
+  {
+    "id": "confirm.board.toggle.private",
+    "defaultMessage": "Private boards can only be accessed by its owner and the users who are given access to it"
+  },
+  {
+    "id": "confirm.board.toggle.public",
+    "defaultMessage": "Publc boards can be accessed by anybody who has the board URL (or id)"
+  },
+  {
+    "id": "messages.board.status.public",
+    "defaultMessage": "Board has been made public."
+  },
+  {
+    "id": "messages.board.status.private",
+    "defaultMessage": "Board has been made private."
+  },
+  {
+    "id": "messages.board.update.warning",
+    "defaultMessage": "You haven't made any changes yet."
+  },
+  {
+    "id": "messages.board.update.success",
+    "defaultMessage": "Board details has been successfully updated."
+  },
+  {
+    "id": "messages.board.show.error",
+    "defaultMessage": "Board not found or you don't have permissions to access it."
+  },
+  {
+    "id": "messages.board.show.loading",
+    "defaultMessage": "Loading board details..."
+  },
+  {
+    "id": "messages.board.list.position.update",
+    "defaultMessage": "Updating the position of the list.."
+  },
+  {
+    "id": "messages.board.list.position.update.success",
+    "defaultMessage": "List position has been successfully updated."
+  },
+  {
+    "id": "messages.board.loading",
+    "defaultMessage": "Loading boards..."
+  },
+  {
+    "id": "messages.settings.warning",
+    "defaultMessage": "You haven't made any changes yet."
+  },
+  {
+    "id": "messages.settings.processing",
+    "defaultMessage": "Updating your details.."
+  },
+  {
+    "id": "messages.settings.success",
+    "defaultMessage": "Your details has been successfully updated."
+  },
+  {
+    "id": "messages.settings.loading",
+    "defaultMessage": "Loading user details..."
+  },
+  {
+    "id": "messages.auth.success",
+    "defaultMessage": "You have successfully logged in."
+  },
+  {
+    "id": "messages.logout.success",
+    "defaultMessage": "You have been successfully logged out."
+  },
+  {
+    "id": "messages.signup.success",
+    "defaultMessage": "Your account has been successfully created."
+  },
+  {
+    "id": "global.token.expired",
+    "defaultMessage": "Your token has expired/invalidated. Please login again to generate new token"
+  },
+  {
+    "id": "global.record.empty",
+    "defaultMessage": "Record doesn't exist or you dont have permissions to access it"
+  }
+]

@@ -5,6 +5,8 @@ import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import UpdateBoardMutation from 'app/graphql/mutations/boards/Update';
 import update from 'immutability-helper';
+import { FormattedMessage } from 'react-intl';
+import translate from 'app/global/helper/translate';
 
 import { Icon, Modal, Button, Spin, message } from 'antd';
 
@@ -49,7 +51,13 @@ class ChangeVisibility extends Component {
 		})
 		.then( res => {
 			this.setState({ processing: false });
-			message.success(`Board has been made ${ board_status ? 'public' : 'private' }.`);
+			if ( board_status ) {
+				message.success( translate('messages.board.status.public') )
+			} else {
+				message.success( translate('messages.board.status.private') )
+			}
+			// board_status ? message.success( translate('messages.board.status.public') ) : message.success( translate('messages.board.status.private') )
+			// message.success(`Board has been made ${ board_status ? 'public' : 'private' }.`);
 		})
 		.catch( res => {
 			if ( res.graphQLErrors ) {
@@ -68,10 +76,11 @@ class ChangeVisibility extends Component {
 		const confirmBoardVisibilityChange = () => {
 			const toggleBoardStatus = this.toggleBoardStatus;
 			Modal.confirm({
-				title: 'Are you sure?',
-				content: meta.public ? 'Private boards can only be accessed by its owner and the users who are given access to it' : 'Publc boards can be accessed by anybody who has the board URL (or id)',
-				okText: 'Yes',
-				cancelText: 'No',
+				title: translate('confirm.common.title'),
+				content: meta.public ? translate('confirm.board.toggle.private') : translate('confirm.board.toggle.public'),
+				okText: translate('confirm.yes'),
+				cancelText: translate('confirm.no'),
+
 				onOk() {
 					toggleBoardStatus();
 				},
@@ -88,7 +97,7 @@ class ChangeVisibility extends Component {
 						loading={ this.state.processing }
 						onClick={ confirmBoardVisibilityChange }
 					>
-						{ meta.public ? 'Make Private' : 'Make Public' }
+						{ meta.public ? <FormattedMessage id="board.visibility.private" defaultMessage="Make Private" /> : <FormattedMessage id="board.visibility.public" defaultMessage="Make Public" /> }
 					</Button>
 					<a
 						href={`/public/boards/${this.props.data.id}`}
@@ -107,7 +116,7 @@ class ChangeVisibility extends Component {
 				loading={ this.state.processing }
 				onClick={ confirmBoardVisibilityChange }
 			>
-				{ meta.public ? 'Make Private' : 'Make Public' }
+				{ meta.public ? <FormattedMessage id="board.visibility.private" defaultMessage="Make Private" /> : <FormattedMessage id="board.visibility.public" defaultMessage="Make Public" /> }
 			</Button>
 		);
 

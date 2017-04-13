@@ -2,6 +2,8 @@
 
 import React, { Component } from 'react';
 import { Col, Input } from 'antd';
+import translate from 'app/global/helper/translate';
+
 
 const colorValidator = (color) => {
 	const validColor = /^#[0-9A-F]{6}$/i.test(color);
@@ -72,7 +74,7 @@ class ColorPicker extends Component {
 					<Input type="color" id={ this.props.id } value={ this.state.colorpicker } onChange={ this.colorpickerChange } />
 				</Col>
 				<Col span="18" offset="1">
-					<Input placeholder="Color" value={ this.state.color } onChange={ this.inputChange } onKeyPress={this.props.onKeyPress || null } autoComplete="off" />
+					<Input placeholder={translate('component.colorpicker.placeholder', 'Color')} value={ this.state.color } onChange={ this.inputChange } onKeyPress={this.props.onKeyPress || null } autoComplete="off" />
 				</Col>
 			</div>
 		)

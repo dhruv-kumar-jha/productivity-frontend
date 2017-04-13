@@ -2,6 +2,8 @@
 
 import React, { Component } from 'react';
 import { Checkbox, Input, Button, Spin, message } from 'antd';
+import { FormattedMessage } from 'react-intl';
+import translate from 'app/global/helper/translate';
 
 
 import { graphql } from 'react-apollo';
@@ -46,12 +48,12 @@ class ModalTodo extends Component {
 	// addTodo: start
 	addTodo() {
 		if ( ! this.state.title ) {
-			return message.warning('Pelase enter todo item title');
+			return message.warning( translate('messages.card.todo.title.empty') );
 		}
 
 		this.setState({ processing: true });
 
-		const loading_message = message.loading('Adding new todo item..', 0);
+		const loading_message = message.loading( translate('messages.card.todo.processing') , 0);
 
 		this.props.addTodo({
 			variables: {
@@ -99,7 +101,7 @@ class ModalTodo extends Component {
 		.then( res => {
 			loading_message();
 			// this.setState({ processing: false, add: false, title: null, description: null });
-			message.success('New todo has been successfully added.');
+			message.success( translate('messages.card.todo.success') );
 		})
 		.catch( res => {
 			if ( res.graphQLErrors ) {
@@ -116,25 +118,25 @@ class ModalTodo extends Component {
 
 		const addTodoForm = () => {
 			return(
-				<Spin spinning={ this.state.processing } tip="Adding item.." size="large">
+				<Spin spinning={ this.state.processing } tip={ translate('card.todo.form.processing', 'Adding item..') } size="large">
 				<div className="component__todo_list add_new">
 					<div>
 						<Input
-							placeholder="Todo Title"
+							placeholder={ translate('card.todo.form.placeholder.title', 'Todo Title') }
 							autoFocus={true}
 							onChange={ (event) => { this.updateField(event, 'title' ) } }
 						/>
 						<Input
 							type="textarea"
-							placeholder="Please enter todo description here"
+							placeholder={ translate('card.todo.form.placeholder.description', 'Please enter todo description here') }
 							autosize={{ minRows: 3, maxRows: 5 }}
 							className="m-t-5"
 							onChange={ (event) => { this.updateField(event, 'description' ) } }
 						/>
 					</div>
 					<div className="m-t-10">
-						<Button type="primary" onClick={ this.addTodo }>Add Todo</Button>
-						<Button type="ghost" className="m-l-5" onClick={ this.hideAddItemForm }>Cancel</Button>
+						<Button type="primary" onClick={ this.addTodo }><FormattedMessage id="card.todo.form.add" defaultMessage="Add Todo" /></Button>
+						<Button type="ghost" className="m-l-5" onClick={ this.hideAddItemForm }><FormattedMessage id="form.cancel" defaultMessage="Cancel" /></Button>
 					</div>
 				</div>
 				</Spin>
@@ -147,7 +149,7 @@ class ModalTodo extends Component {
 			if ( this.props.data.todos && this.props.data.todos.length < 1 ) {
 				return(
 					<div className="component__todo_list empty">
-						<p>No todo items has been added for this card yet.</p>
+						<p><FormattedMessage id="card.todo.public.empty" defaultMessage="No todo items has been added for this card yet." /></p>
 					</div>
 				);
 			}
@@ -171,7 +173,7 @@ class ModalTodo extends Component {
 
 				{ this.props.data.todos && this.props.data.todos.length < 1 &&
 					<div className="component__todo_list empty">
-						<p>You haven't added any items to todo list yet.</p>
+						<p><FormattedMessage id="card.todo.empty" defaultMessage="You haven't added any items to todo list yet." /></p>
 					</div>
 				}
 
@@ -180,7 +182,7 @@ class ModalTodo extends Component {
 					(
 						addTodoForm()
 					) : (
-						<Button ghost type="primary" icon="plus" onClick={ this.showAddItemForm }>Add new Item</Button>
+						<Button ghost type="primary" icon="plus" onClick={ this.showAddItemForm }><FormattedMessage id="card.todo.form.add_item" defaultMessage="Add new Item" /></Button>
 					)
 				}
 				</div>

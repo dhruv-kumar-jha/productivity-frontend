@@ -2,6 +2,8 @@
 
 import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
+import { defineMessages, injectIntl, FormattedMessage } from 'react-intl';
+import translate from 'app/global/helper/translate';
 
 import { graphql } from 'react-apollo';
 import SingupMutation from 'app/graphql/mutations/auth/Signup';
@@ -47,7 +49,7 @@ class Signup extends Component {
 				})
 				.then( res => {
 					this.setState({ processing: false });
-					message.success('Your account has been successfully created.', 4);
+					message.success( translate('messages.signup.success') , 4);
 					browserHistory.push('/auth/login');
 				})
 				.catch( res => {
@@ -85,14 +87,21 @@ class Signup extends Component {
 	}
 
 	validateEmail(rule, value, callback) {
+		const messages = defineMessages({
+			validateEmail: { id: "auth.form.validate.email", defaultMessage: "Please enter your Email Address" },
+			validateInvalidEmail: { id: "auth.form.validate.invalid_email", defaultMessage: "Please enter a valid email address" },
+		});
+		const { formatMessage } = this.props.intl;
+
+
 		if ( ! value ) {
-			callback('Please enter your Email Address');
+			callback( formatMessage(messages.validateEmail) );
 		} else {
 			const email_validator = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 			if ( email_validator.test(value) ) {
 				callback();
 			} else {
-				callback('Please enter a valid email address');
+				callback( formatMessage(messages.validateInvalidEmail) );
 			}
 		}
 	}
@@ -109,6 +118,21 @@ class Signup extends Component {
 
 	render() {
 
+		const messages = defineMessages({
+			placeholderEmail: { id: "auth.form.placeholder.email", defaultMessage: "Ex: john.doe@gmail.com" },
+			placeholderPassword: { id: "auth.form.placeholder.password", defaultMessage: "Password" },
+			placeholderRePassword: { id: "auth.form.placeholder.re_password", defaultMessage: "Re-enter Password" },
+			placeholderName: { id: "auth.form.placeholder.name", defaultMessage: "Ex: John Doe" },
+
+			validateError: { id: "form.error", defaultMessage: "Error Occurred" },
+			validateName: { id: "auth.form.validate.name", defaultMessage: "Please enter your Full Name" },
+			validatePassword: { id: "auth.form.validate.password", defaultMessage: "Please enter your Password" },
+			validateRePassword: { id: "auth.form.validate.re_password", defaultMessage: "Please re-enter your Password" },
+			validateTerms: { id: "auth.form.validate.terms", defaultMessage: "You must agree to Terms and Conditions" },
+			processingSignup: { id: "auth.form.processing.signup", defaultMessage: "Creating your account..." },
+		});
+		const { formatMessage } = this.props.intl;
+
 		const { getFieldDecorator } = this.props.form;
 		const formItemLayout = { labelCol: { span: 8 }, wrapperCol: { span: 16 }, };
 		const tailFormItemLayout = { wrapperCol: { span: 16, offset: 8 }, };
@@ -118,18 +142,18 @@ class Signup extends Component {
 
 				<Row className="m-b-30">
 				<Col span="16" offset="8">
-					<h1>Create New Account</h1>
-					<p>Please enter your details below to create new account.</p>
+					<h1><FormattedMessage id="auth.signup.title" defaultMessage="Create New Account" /></h1>
+					<p><FormattedMessage id="auth.signup.subtitle" defaultMessage="Please enter your details below to create new account." /></p>
 				</Col>
 				</Row>
 
 
-				<Spin spinning={ this.state.processing } size="large" tip="Creating your account...">
+				<Spin spinning={ this.state.processing } size="large" tip={formatMessage(messages.processingSignup)} >
 				<Form onSubmit={ this.handleFormSubmit } className="login-form">
 
 					{ this.state.errors.length > 0 && ! this.state.hide_errors &&
 						<Alert
-							message="Error Occoured"
+							message={ formatMessage(messages.validateError) }
 							description={ this.state.errors.map( (error, index) => <p key={index}>{ error }</p> ) }
 							type="error"
 							showIcon
@@ -140,69 +164,65 @@ class Signup extends Component {
 					}
 
 
-					<FormItem {...formItemLayout} label="Full Name">
+					<FormItem {...formItemLayout} label={<FormattedMessage id="form.name" defaultMessage="Full Name" />} >
 						{ getFieldDecorator('name', {
-							rules: [{ required: true, message: 'Please enter your Full Name' }],
+							rules: [{ required: true, message: formatMessage(messages.validateName) }],
 							initialValue: this.state.user.name,
 						})(
-							<Input addonBefore={<Icon type="user" />} placeholder="Ex: John Doe" autoComplete="off" autoFocus />
+							<Input addonBefore={<Icon type="user" />} placeholder={ formatMessage(messages.placeholderName, { name: 'John Doe' }) } autoComplete="off" autoFocus />
 						) }
 					</FormItem>
 
-					<FormItem {...formItemLayout} label="Email Address">
+					<FormItem {...formItemLayout} label={<FormattedMessage id="form.email" defaultMessage="Email Address" />} >
 						{ getFieldDecorator('email', {
 							rules: [
-								// { type: 'email', message: 'Please enter a valid email address' },
-								// { required: true, message: 'Please enter your Email Address' },
 								{ validator: this.validateEmail },
 							],
 							initialValue: this.state.user.email,
 						})(
-							<Input addonBefore={<Icon type="mail" />} placeholder="Ex: john.doe@gmail.com" autoComplete="off" />
+							<Input addonBefore={<Icon type="mail" />} placeholder={ formatMessage(messages.placeholderEmail, { email: 'john.doe@gmail.com' }) } autoComplete="off" />
 						) }
 					</FormItem>
 
-					<FormItem {...formItemLayout} label="Password">
+					<FormItem {...formItemLayout} label={<FormattedMessage id="form.password" defaultMessage="Password" />} >
 						{ getFieldDecorator('password', {
 							rules: [
-								{ required: true, message: 'Please enter your Password' },
+								{ required: true, message: formatMessage(messages.validatePassword) },
 								{ validator: this.checkConfirm },
 							],
 							initialValue: this.state.user.password,
 						})(
-							<Input addonBefore={<Icon type="lock" />} type="password" placeholder="Password" />
+							<Input addonBefore={<Icon type="lock" />} type="password" placeholder={ formatMessage(messages.placeholderPassword) } />
 						) }
 					</FormItem>
 
 
-					<FormItem {...formItemLayout} label="Verify Password">
+					<FormItem {...formItemLayout} label={<FormattedMessage id="auth.form.verify_password" defaultMessage="Verify Password" />} >
 						{ getFieldDecorator('verifyPassword', {
 							rules: [
-								{ required: true, message: 'Please re-enter your Password' },
+								{ required: true, message: formatMessage(messages.validateRePassword) },
 								{ validator: this.checkPassword },
 							],
 							initialValue: this.state.user.verifyPassword,
 						})(
-							<Input addonBefore={<Icon type="lock" />} type="password" placeholder="Re-enter Password" onBlur={this.handleConfirmBlur} />
+							<Input addonBefore={<Icon type="lock" />} type="password" placeholder={ formatMessage(messages.placeholderRePassword) } onBlur={this.handleConfirmBlur} />
 						) }
 					</FormItem>
 
 
 					<FormItem {...tailFormItemLayout}>
 						{ getFieldDecorator('agreement', {
-							rules: [ { required: true, message: 'You must agree to Terms and Conditions' } ],
+							rules: [ { required: true, message: formatMessage(messages.validateTerms) } ],
 							valuePropName: 'checked',
 						})(
-							<Checkbox>I have read and agree to the <a>terms and conditions</a>.</Checkbox>
+							<Checkbox><FormattedMessage id="auth.form.terms_and_conditions" defaultMessage="I have read and agree to the terms and conditions." /></Checkbox>
 						)}
 					</FormItem>
 
 
-
-
 					<FormItem className="m-b-0" {...tailFormItemLayout}>
-						<Button type="primary" size="default" icon="check-circle-o" htmlType="submit">Signup</Button>
-						<Button type="ghost" size="default" icon="reload" onClick={ this.handleReset } style={{ marginLeft: 10 }}>Reset</Button>
+						<Button type="primary" size="default" icon="check-circle-o" htmlType="submit"><FormattedMessage id="auth.form.signup" defaultMessage="Signup" /></Button>
+						<Button type="ghost" size="default" icon="reload" onClick={ this.handleReset } style={{ marginLeft: 10 }}><FormattedMessage id="form.reset" defaultMessage="Reset" /></Button>
 					</FormItem>
 
 				</Form>
@@ -215,5 +235,6 @@ class Signup extends Component {
 }
 
 Signup = Form.create()(Signup);
+Signup = injectIntl(Signup);
 
 export default graphql(SingupMutation)(Signup);

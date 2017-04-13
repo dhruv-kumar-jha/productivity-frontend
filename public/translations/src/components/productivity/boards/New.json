@@ -1,0 +1,26 @@
+[
+  {
+    "id": "board.card.form.placeholder.title",
+    "defaultMessage": "Board Title"
+  },
+  {
+    "id": "board.card.form.placeholder.description",
+    "defaultMessage": "Board Description"
+  },
+  {
+    "id": "board.card.form.validate.title",
+    "defaultMessage": "Please enter Board Title"
+  },
+  {
+    "id": "board.card.title",
+    "defaultMessage": "Create New Board"
+  },
+  {
+    "id": "board.card.heading",
+    "defaultMessage": "Add New Board"
+  },
+  {
+    "id": "form.create",
+    "defaultMessage": "Create"
+  }
+]

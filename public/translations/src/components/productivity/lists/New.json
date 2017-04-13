@@ -1,0 +1,26 @@
+[
+  {
+    "id": "list.card.form.placeholder.title",
+    "defaultMessage": "List Title"
+  },
+  {
+    "id": "list.card.form.placeholder.description",
+    "defaultMessage": "List Description"
+  },
+  {
+    "id": "list.card.form.validate.title",
+    "defaultMessage": "Please enter List Title"
+  },
+  {
+    "id": "list.card.title",
+    "defaultMessage": "Create New List..."
+  },
+  {
+    "id": "list.card.heading",
+    "defaultMessage": "Add New List"
+  },
+  {
+    "id": "form.create",
+    "defaultMessage": "Create"
+  }
+]

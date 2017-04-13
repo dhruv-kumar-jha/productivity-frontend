@@ -1,4 +1,13 @@
 {
 	"presets" : [["env",{ "modules": false }], "react" ],
-	"plugins": [["import", { "libraryName": "antd", "style": "css" }], "syntax-dynamic-import"]
+	"plugins": [
+		[ "import", {
+			"libraryName": "antd", "style": "css"
+		} ],
+		"syntax-dynamic-import",
+		[ "react-intl", {
+			"messagesDir": "./public/translations/",
+			"enforceDescriptions": false
+		} ]
+	]
 }

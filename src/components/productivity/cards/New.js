@@ -1,6 +1,8 @@
 'use strict';
 
 import React, { Component } from 'react';
+import { defineMessages, injectIntl, FormattedMessage } from 'react-intl';
+import translate from 'app/global/helper/translate';
 
 import { graphql } from 'react-apollo';
 import AddCardMutation from 'app/graphql/mutations/cards/Add';
@@ -51,11 +53,11 @@ class NewCard extends Component {
 
 	handleFormSubmit() {
 		if ( ! this.state.card_title ) {
-			return message.error('Please enter card title first.',3);
+			return message.error( translate('messages.card.new.empty') ,3);
 		}
 
 		this.setState({ processing: true });
-		const loading_message = message.loading('Adding new card..', 0);
+		// const loading_message = message.loading('Adding new card..', 0);
 
 		this.props.mutate({
 			variables: {
@@ -96,8 +98,9 @@ class NewCard extends Component {
 			},
 		})
 		.then( res => {
-			loading_message();
-			message.success('New card has been successfully added.');
+			// loading_message();
+
+			message.success( translate('messages.card.new.success') );
 		})
 		.catch( res => {
 			if ( res.graphQLErrors ) {
@@ -115,11 +118,16 @@ class NewCard extends Component {
 
 	render() {
 
+		const messages = defineMessages({
+			placeholderTitle: { id: "card.form.title", defaultMessage: "Enter card title" },
+		});
+		const { formatMessage } = this.props.intl;
+
 	
 		const add_new_card_link = () => {
 			return (
 				<div className="" onClick={ this.addNewCard }>
-					<a className="add-card">Add New Card</a>
+					<a className="add-card"><FormattedMessage id="card.title" defaultMessage="Add New Card" /></a>
 				</div>
 			);
 		}
@@ -128,9 +136,9 @@ class NewCard extends Component {
 			return (
 				<div className="card__new">
 				<Spin spinning={ this.state.processing } size="large">
-					<textarea placeholder="Enter card title" onKeyPress={ this.handleInputOnEnter } onChange={ this.handleInputChange } autoFocus value={this.state.card_title}></textarea>
+					<textarea placeholder={formatMessage(messages.placeholderTitle)} onKeyPress={ this.handleInputOnEnter } onChange={ this.handleInputChange } autoFocus value={this.state.card_title}></textarea>
 					<div className="links">
-						<Button type="primary" onClick={ this.handleFormSubmit }>Add</Button>
+						<Button type="primary" onClick={ this.handleFormSubmit }><FormattedMessage id="card.form.add" defaultMessage="Add" /></Button>
 						<Button type="danger" onClick={ this.onCancel } icon="close" />
 					</div>
 				</Spin>
@@ -150,6 +158,9 @@ class NewCard extends Component {
 	}
 
 }
+
+
+NewCard = injectIntl(NewCard);
 
 export default graphql(AddCardMutation)(NewCard);
 

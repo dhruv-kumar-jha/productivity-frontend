@@ -1,9 +1,10 @@
 'use strict';
 
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
+import translate from 'app/global/helper/translate';
 
 import { graphql } from 'react-apollo';
-// import GetCurrentUserQuery from 'app/graphql/queries/auth/CurrentUser';
 import GetAllBoardsQuery from 'app/graphql/queries/boards/All';
 
 import Loading from 'app/components/common/Loading';
@@ -19,7 +20,7 @@ import { Row, Col } from 'antd';
 const Dashboard = (props) => {
 
 	if ( props.boards.loading ) {
-		return <Loading text="Loading boards..." />;
+		return <Loading text={ translate('messages.board.loading') } />;
 	}
 
 	const { boards } = props.boards;
@@ -29,9 +30,8 @@ const Dashboard = (props) => {
 		<CommonLayout>
 
 			<Heading
-				title="All of your Boards"
-				subtitle="These are all the boards you have added till date, Any board you add will appear here." />
-
+				title={<FormattedMessage id="dashboard.title" defaultMessage="All of your Boards" />}
+				subtitle={<FormattedMessage id="dashboard.subtitle" defaultMessage="These are all the boards you have added till date, Any board you add will appear here." />} />
 
 			<Row type="flex" className="component__productivity__board m-t-30">
 				{ boards.map( board => <Board key={board.id} data={board} />  )}

@@ -2,6 +2,8 @@
 
 import React, { Component } from 'react';
 import { Icon, Input, Button, message } from 'antd';
+import { FormattedMessage } from 'react-intl';
+import translate from 'app/global/helper/translate';
 
 
 class ModalHeader extends Component {
@@ -44,7 +46,7 @@ class ModalHeader extends Component {
 
 	updateDetails() {
 		if ( ! this.state.title || this.state.title == this.props.data.title ) {
-			return message.warning('Please make changes to the title first');
+			return message.warning( translate('messages.card.title.update.empty') );
 		}
 
 		this.props.mutate({
@@ -93,7 +95,7 @@ class ModalHeader extends Component {
 							(
 								<div className="flex row nowrap">
 									<Input
-										placeholder="Card Title"
+										placeholder={translate('card.header.title.placeholder', 'Card Title')}
 										// value={ this.state.title || this.props.title }
 										value={ this.state.title }
 										onChange={ this.onInputChange }
@@ -103,11 +105,11 @@ class ModalHeader extends Component {
 									<Button
 										type="primary"
 										className="m-l-10"
-										onClick={ this.updateDetails }>Update</Button>
+										onClick={ this.updateDetails }><FormattedMessage id="form.update" defaultMessage="Update" /></Button>
 									<Button
 										type="ghost"
 										onClick={ this.disableEdit }
-										className="m-l-5">Cancel</Button>
+										className="m-l-5"><FormattedMessage id="form.cancel" defaultMessage="Cancel" /></Button>
 								</div>
 							) : (
 								<div onClick={ this.enableEdit }>{ this.props.title }</div>

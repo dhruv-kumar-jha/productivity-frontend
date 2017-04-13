@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
+import translate from 'app/global/helper/translate';
 
 import ProductivityLayout from 'app/components/layout/Productivity';
 import Header from 'app/components/productivity/boards/Header';
@@ -66,7 +67,7 @@ class PublicShowBoard extends Component {
 	render() {
 
 		if ( this.props.data.loading ) {
-			return <Loading text="Loading board details..." />;
+			return <Loading text={ translate('messages.board.show.loading') } />;
 		}
 
 		if ( ! this.props.data.publicBoard ) {

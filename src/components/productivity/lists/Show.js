@@ -3,6 +3,8 @@
 import React, { Component } from 'react';
 import { Link, browserHistory } from 'react-router';
 import { Icon, Spin, message, Modal, Dropdown, Menu } from 'antd';
+import { FormattedMessage } from 'react-intl';
+import translate from 'app/global/helper/translate';
 
 import Card from 'app/components/productivity/cards/Show';
 import NewCard from 'app/components/productivity/cards/New';
@@ -59,7 +61,7 @@ class List extends Component {
 
 
 	updateCardPositions(order) {
-		const loading_message = message.loading('Updating card position..', 0);
+		// const loading_message = message.loading('Updating card position..', 0);
 		this.props.updateCardPositions({
 			variables: {
 				id: this.props.data.id,
@@ -85,8 +87,8 @@ class List extends Component {
 
 		})
 		.then( res => {
-			loading_message();
-			message.success('Card position has been successfully updated.');
+			// loading_message();
+			message.success( translate('messages.list.position.updated') );
 		})
 		.catch( res => {
 			if ( res.graphQLErrors ) {
@@ -99,14 +101,14 @@ class List extends Component {
 
 	deleteList(list_id) {
 		this.setState({ processing: true });
-		const loading_message = message.loading('Deleting list, please wait..', 0);
+		const loading_message = message.loading( translate('messages.list.delete.processing'), 0);
 
 		this.props.deleteList({ variables: { id: list_id } })
 			.then( () => {
 				this.props.refetch()
 					.then( res => {
 						loading_message()
-						message.success('List has been successfully deleted.');
+						message.success( translate('messages.list.delete.success') );
 					});
 			});
 
@@ -127,10 +129,10 @@ class List extends Component {
 		const confirmListDeletion = (id) => {
 			const _this = this;
 			Modal.confirm({
-				title: 'Are you sure?',
-				content: 'This is a non reversible process, Once deleted you cannot recover this list again.',
-				okText: 'Yes',
-				cancelText: 'No',
+				title: translate('confirm.common.title'),
+				content: translate('confirm.list.delete.description'),
+				okText: translate('confirm.yes'),
+				cancelText: translate('confirm.no'),
 				onOk() {
 					_this.deleteList(id);
 				},
@@ -142,11 +144,11 @@ class List extends Component {
 			<Menu>
 			<Menu.Item>
 			<div className="list__dropdown__actions">
-				<div className="title">List Actions</div>
+				<div className="title"><FormattedMessage id="list.actions.title" defaultMessage="List Actions" /></div>
 				<div className="links">
-					<a onClick={ () => { this.gotoListEdit(list_id) } }>Update List</a>
+					<a onClick={ () => { this.gotoListEdit(list_id) } }><FormattedMessage id="list.actions.update" defaultMessage="Update List" /></a>
 					<span className="link-separator"></span>
-					<a onClick={ () => { confirmListDeletion(list_id) } }>Delete this List</a>
+					<a onClick={ () => { confirmListDeletion(list_id) } }><FormattedMessage id="list.actions.delete" defaultMessage="Delete this List" /></a>
 				</div>
 			</div>
 			</Menu.Item>

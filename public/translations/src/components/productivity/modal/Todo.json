@@ -1,0 +1,22 @@
+[
+  {
+    "id": "card.todo.form.add",
+    "defaultMessage": "Add Todo"
+  },
+  {
+    "id": "form.cancel",
+    "defaultMessage": "Cancel"
+  },
+  {
+    "id": "card.todo.public.empty",
+    "defaultMessage": "No todo items has been added for this card yet."
+  },
+  {
+    "id": "card.todo.empty",
+    "defaultMessage": "You haven't added any items to todo list yet."
+  },
+  {
+    "id": "card.todo.form.add_item",
+    "defaultMessage": "Add new Item"
+  }
+]

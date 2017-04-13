@@ -1,0 +1,10 @@
+[
+  {
+    "id": "logout.title",
+    "defaultMessage": "Logging you out"
+  },
+  {
+    "id": "logout.subtitle",
+    "defaultMessage": "Please wait while we log you out., you will be automatically redirected to the login page after successful logout."
+  }
+]

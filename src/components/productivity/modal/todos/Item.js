@@ -2,6 +2,8 @@
 
 import React, { Component } from 'react';
 import { Checkbox, Input, Button, Spin, message, Modal } from 'antd';
+import { FormattedMessage } from 'react-intl';
+import translate from 'app/global/helper/translate';
 
 import { graphql } from 'react-apollo';
 import UpdateTodoMutation from 'app/graphql/mutations/cards/UpdateTodo';
@@ -44,11 +46,11 @@ class TodoItem extends Component {
 
 	update() {
 		if ( ! this.state.title && ! this.state.description ) {
-			return message.warning('Please make changes to the item first.');
+			return message.warning( translate('messages.card.todo.item.update.empty') );
 		}
 
 		this.setState({ processing: true });
-		const loading_message = message.loading('Updating todo item..', 0);
+		// const loading_message = message.loading('Updating todo item..', 0);
 
 		this.props.mutate({
 			variables: {
@@ -96,9 +98,9 @@ class TodoItem extends Component {
 			},
 		})
 		.then( res => {
-			loading_message();
+			// loading_message();
 			this.setState({ processing: false, edit: false, title: null, description: null });
-			message.success('Todo item has been successfully updated.');
+			message.success( translate('messages.card.todo.item.update.success') );
 		})
 		.catch( res => {
 			if ( res.graphQLErrors ) {
@@ -115,10 +117,10 @@ class TodoItem extends Component {
 	confirmDelete() {
 		const deleteItem = this.delete;
 		Modal.confirm({
-			title: 'Are you sure?',
-			content: 'This is a non reversible process, Once deleted you cannot recover this todo item again.',
-			okText: 'Yes',
-			cancelText: 'No',
+			title: translate('confirm.common.title'),
+			content: translate('confirm.todo.delete.description'),
+			okText: translate('confirm.yes'),
+			cancelText: translate('confirm.no'),
 			onOk() {
 				deleteItem();
 			},
@@ -134,7 +136,7 @@ class TodoItem extends Component {
 
 	delete() {
 		this.setState({ processing: true });
-		const loading_message = message.loading('Deleting todo item..', 0);
+		const loading_message = message.loading( translate('messages.card.todo.item.delete.loading') , 0);
 
 		this.props.deleteTodo({
 			variables: {
@@ -175,7 +177,7 @@ class TodoItem extends Component {
 		})
 		.then( res => {
 			loading_message();
-			message.success('Todo item has been successfully deleted.');
+			message.success( translate('messages.card.todo.item.delete.success') );
 		})
 		.catch( res => {
 			if ( res.graphQLErrors ) {
@@ -197,7 +199,7 @@ class TodoItem extends Component {
 
 	updateStatus( event ) {
 		this.setState({ processing_status: true });
-		const loading_message = message.loading('Updating todo status..', 0);
+		const loading_message = message.loading( translate('messages.card.todo.item.status.update') , 0);
 
 		this.props.mutate({
 			variables: {
@@ -244,7 +246,7 @@ class TodoItem extends Component {
 		.then( res => {
 			loading_message();
 			this.setState({ processing_status: false });
-			message.success('Todo item status has been successfully updated.');
+			message.success( translate('messages.card.todo.item.status.update.success') );
 		})
 		.catch( res => {
 			if ( res.graphQLErrors ) {
@@ -280,7 +282,7 @@ class TodoItem extends Component {
 
 		const showNormalTodo = (data) => {
 			return(
-				<Spin spinning={ data._id === 'loading' } tip="Adding item.." size="large">
+				<Spin spinning={ data._id === 'loading' } tip={ <FormattedMessage id="card.todo.form.processing" defaultMessage="Adding item.." /> } size="large">
 				<div className="item">
 					<div className="status">
 						<Spin spinning={ this.state.processing_status } size="small">
@@ -301,7 +303,7 @@ class TodoItem extends Component {
 
 		const showEditableTodo = (data) => {
 			return(
-				<Spin spinning={ this.state.processing } tip="Updating item.." size="large">
+				<Spin spinning={ this.state.processing } tip={ <FormattedMessage id="card.todo.form.processing_update" defaultMessage="Updating item.." /> } size="large">
 				<div className="item">
 					<div className="status">
 						<Spin spinning={ this.state.processing_status } size="small">
@@ -311,14 +313,14 @@ class TodoItem extends Component {
 					<div className="component__todo_list edit">
 						<div>
 							<Input
-								placeholder="Todo Title"
+								placeholder={ translate('card.todo.form.placeholder.title', 'Todo Title') }
 								autoFocus={true}
 								onChange={ (event) => { this.updateField(event, 'title' ) } }
 								defaultValue={ data.title }
 							/>
 							<Input
 								type="textarea"
-								placeholder="Please enter todo description here"
+								placeholder={ translate('card.todo.form.placeholder.description', 'Please enter todo description here') }
 								autosize={{ minRows: 3, maxRows: 5 }}
 								className="m-t-5"
 								onChange={ (event) => { this.updateField(event, 'description' ) } }
@@ -326,9 +328,9 @@ class TodoItem extends Component {
 							/>
 						</div>
 						<div className="m-t-10">
-							<Button type="primary" onClick={ this.update }>Update Todo</Button>
-							<Button type="ghost" className="m-l-5" onClick={ this.hide }>Cancel</Button>
-							<Button type="danger" className="float-right" onClick={ this.confirmDelete }>Delete Todo</Button>
+							<Button type="primary" onClick={ this.update }><FormattedMessage id="card.todo.form.update" defaultMessage="Update Todo" /></Button>
+							<Button type="ghost" className="m-l-5" onClick={ this.hide }><FormattedMessage id="form.cancel" defaultMessage="Cancel" /></Button>
+							<Button type="danger" className="float-right" onClick={ this.confirmDelete }><FormattedMessage id="card.todo.form.delete" defaultMessage="Delete Todo" /></Button>
 						</div>
 					</div>
 				</div>

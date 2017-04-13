@@ -1,0 +1,30 @@
+[
+  {
+    "id": "card.meta.image.title",
+    "defaultMessage": "Image"
+  },
+  {
+    "id": "card.meta.image.empty",
+    "defaultMessage": "Image not specified"
+  },
+  {
+    "id": "card.meta.image.update",
+    "defaultMessage": "Update Image URL"
+  },
+  {
+    "id": "card.meta.image.add",
+    "defaultMessage": "Add Image URL"
+  },
+  {
+    "id": "form.update",
+    "defaultMessage": "Update"
+  },
+  {
+    "id": "form.add",
+    "defaultMessage": "Add"
+  },
+  {
+    "id": "form.cancel",
+    "defaultMessage": "Cancel"
+  }
+]

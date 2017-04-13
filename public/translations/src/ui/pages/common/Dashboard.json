@@ -1,0 +1,10 @@
+[
+  {
+    "id": "dashboard.title",
+    "defaultMessage": "All of your Boards"
+  },
+  {
+    "id": "dashboard.subtitle",
+    "defaultMessage": "These are all the boards you have added till date, Any board you add will appear here."
+  }
+]

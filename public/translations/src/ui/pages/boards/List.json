@@ -1,0 +1,42 @@
+[
+  {
+    "id": "list.header.title",
+    "defaultMessage": "List"
+  },
+  {
+    "id": "list.header.subtitle",
+    "defaultMessage": "Enter the list details below and click on update."
+  },
+  {
+    "id": "list.form.label.title",
+    "defaultMessage": "List Title"
+  },
+  {
+    "id": "list.form.label.description",
+    "defaultMessage": "List Description"
+  },
+  {
+    "id": "list.form.label.background",
+    "defaultMessage": "List Background"
+  },
+  {
+    "id": "list.form.label.space_before",
+    "defaultMessage": "Space Before"
+  },
+  {
+    "id": "list.form.label.space_after",
+    "defaultMessage": "Space After"
+  },
+  {
+    "id": "list.form.update",
+    "defaultMessage": "Update Details"
+  },
+  {
+    "id": "form.reset",
+    "defaultMessage": "Reset"
+  },
+  {
+    "id": "list.form.reset_background",
+    "defaultMessage": "Reset Background"
+  }
+]

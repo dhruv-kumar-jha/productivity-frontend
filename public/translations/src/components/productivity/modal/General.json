@@ -1,0 +1,26 @@
+[
+  {
+    "id": "card.general.description.edit",
+    "defaultMessage": "Edit the description"
+  },
+  {
+    "id": "card.general.description.empty",
+    "defaultMessage": "No description has been added for this card yet."
+  },
+  {
+    "id": "card.general.heading",
+    "defaultMessage": "General Details"
+  },
+  {
+    "id": "card.general.form.update",
+    "defaultMessage": "Update Description"
+  },
+  {
+    "id": "card.general.form.save",
+    "defaultMessage": "Save Description"
+  },
+  {
+    "id": "form.cancel",
+    "defaultMessage": "Cancel"
+  }
+]

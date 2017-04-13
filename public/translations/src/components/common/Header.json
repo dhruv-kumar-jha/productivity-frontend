@@ -1,0 +1,22 @@
+[
+  {
+    "id": "app.name.main",
+    "defaultMessage": "Productivity"
+  },
+  {
+    "id": "app.name.sub",
+    "defaultMessage": "Application"
+  },
+  {
+    "id": "app.nav.dashboard",
+    "defaultMessage": "Dashboard"
+  },
+  {
+    "id": "app.nav.settings",
+    "defaultMessage": "Settings"
+  },
+  {
+    "id": "app.nav.logout",
+    "defaultMessage": "Logout"
+  }
+]

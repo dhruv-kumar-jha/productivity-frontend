@@ -1,0 +1,10 @@
+[
+  {
+    "id": "board.visibility.private",
+    "defaultMessage": "Make Private"
+  },
+  {
+    "id": "board.visibility.public",
+    "defaultMessage": "Make Public"
+  }
+]

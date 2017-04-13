@@ -3,14 +3,13 @@
 import React from 'react';
 
 import AuthHeader from 'app/components/common/AuthHeader';
+import { I18n } from './I18n';
 
-import { LocaleProvider } from 'antd';
-import enUS from 'antd/lib/locale-provider/en_US';
 
 const Default = (props) => {
 
 	return (
-		<LocaleProvider locale={enUS}>
+		<I18n fetch={ false }>
 		<div className="has-fh">
 
 			<AuthHeader />
@@ -20,7 +19,7 @@ const Default = (props) => {
 			</main>
 
 		</div>
-		</LocaleProvider>
+		</I18n>
 	)
 
 }

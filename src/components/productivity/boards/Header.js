@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import translate from 'app/global/helper/translate';
 
 import { browserHistory } from 'react-router';
 import { Button, Modal, message } from 'antd';
@@ -25,7 +26,7 @@ const ProductivityHeader = (props) => {
 
 	const handleBoardDelete = () => {
 
-		const loading_message = message.loading('Deleting board, please wait..', 0);
+		const loading_message = message.loading( translate('messages.board.delete.processing') , 0);
 		browserHistory.push(`/dashboard`);
 
 		props.mutate({
@@ -55,7 +56,7 @@ const ProductivityHeader = (props) => {
 			})
 			.then( () => {
 				loading_message();
-				message.success('Board has been successfully deleted.');
+				message.success( translate('messages.board.delete.success') );
 			});
 
 	}
@@ -63,10 +64,11 @@ const ProductivityHeader = (props) => {
 
 	const confirmBoardDeletion = () => {
 		Modal.confirm({
-			title: 'Are you sure?',
-			content: 'This is a non reversible process, Once deleted you cannot recover this board, its lists and cards again.',
-			okText: 'Yes',
-			cancelText: 'No',
+			title: translate('confirm.common.title'),
+			content: translate('confirm.board.delete.description'),
+			okText: translate('confirm.yes'),
+			cancelText: translate('confirm.no'),
+
 			onOk() {
 				handleBoardDelete();
 			},

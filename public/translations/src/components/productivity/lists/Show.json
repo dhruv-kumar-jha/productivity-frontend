@@ -1,0 +1,14 @@
+[
+  {
+    "id": "list.actions.title",
+    "defaultMessage": "List Actions"
+  },
+  {
+    "id": "list.actions.update",
+    "defaultMessage": "Update List"
+  },
+  {
+    "id": "list.actions.delete",
+    "defaultMessage": "Delete this List"
+  }
+]

@@ -3,6 +3,7 @@
 import { createNetworkInterface } from 'apollo-client';
 import config from 'app/global/config';
 import Auth from 'app/global/api/Auth';
+import translate from 'app/global/helper/translate';
 
 import { browserHistory } from 'react-router';
 import { message } from 'antd';
@@ -13,16 +14,20 @@ const errorHandler = {
 		response.clone().json()
 			.then( res => {
 				// console.log('applyAfterware res',res);
+				// else if ( res.data.publicBoard == null ) {
+				// 	next();
+				// }
+
 				if ( res.code === 401 || res.code === 403 ) {
 					// unauthorized, logout and redirect to login page
 					if ( window.location.pathname != '/auth/logout' ) {
-						message.info('Your token has expired/invalidated. Please login again to generate new token');
+						message.info( translate('global.token.expired') );
 						browserHistory.push('/auth/logout');
 					}
 				}
 				else if ( res.errors && res.errors.length > 0 ) {
 					if ( res.errors[0].path === '_id' ) {
-						message.warning("Record doesn't exist or you dont have permissions to access it");
+						message.warning( translate('global.record.empty') );
 						browserHistory.push('/dashboard');
 					}
 					else { next(); }

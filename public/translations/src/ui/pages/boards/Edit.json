@@ -1,0 +1,42 @@
+[
+  {
+    "id": "board.background.inspirations",
+    "defaultMessage": "Inspirations"
+  },
+  {
+    "id": "board.header.title",
+    "defaultMessage": "Board"
+  },
+  {
+    "id": "board.header.subtitle",
+    "defaultMessage": "Enter the board details below and click on update."
+  },
+  {
+    "id": "board.form.label.title",
+    "defaultMessage": "Board Title"
+  },
+  {
+    "id": "board.form.label.description",
+    "defaultMessage": "Board Description"
+  },
+  {
+    "id": "board.form.label.background",
+    "defaultMessage": "Board Background"
+  },
+  {
+    "id": "board.form.label.background_image",
+    "defaultMessage": "Board Background Image"
+  },
+  {
+    "id": "board.form.update",
+    "defaultMessage": "Update Details"
+  },
+  {
+    "id": "form.reset",
+    "defaultMessage": "Reset"
+  },
+  {
+    "id": "board.form.reset_background",
+    "defaultMessage": "Reset Background"
+  }
+]

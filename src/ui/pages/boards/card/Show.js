@@ -2,6 +2,8 @@
 
 import React, { Component } from 'react';
 import { Link, browserHistory } from 'react-router';
+import { FormattedMessage } from 'react-intl';
+import translate from 'app/global/helper/translate';
 
 import { graphql } from 'react-apollo';
 import updateCardMutation from 'app/graphql/mutations/cards/Update';
@@ -48,9 +50,9 @@ class ShowCard extends Component {
 
 
 	deleteCard( card ) {
-		this.setState({ processing: true, delete_card: true });
-		const loading_message = message.loading('Deleting card, please wait..', 0);
-		browserHistory.push(`/boards/${this.props.params.id}`);
+		// this.setState({ processing: true, delete_card: true });
+		const loading_message = message.loading( translate('messages.card.delete.loading'), 0);
+		// browserHistory.push(`/boards/${this.props.params.id}`);
 
 		this.props.deleteCard({
 			variables: {
@@ -107,7 +109,7 @@ class ShowCard extends Component {
 		})
 		.then( res => {
 			loading_message();
-			message.success('Card has been successfully deleted.');
+			message.success( translate('messages.card.delete.success') );
 		})
 		.catch( res => {
 			if ( res.graphQLErrors ) {
@@ -131,13 +133,17 @@ class ShowCard extends Component {
 
 	confirmDeletion(card) {
 		const deleteCard = this.deleteCard;
+		const props = this.props;
 		Modal.confirm({
-			title: 'Are you sure?',
-			content: 'This is a non reversible process, Once deleted you cannot recover this card again.',
-			okText: 'Yes',
-			cancelText: 'No',
+			title: translate('confirm.common.title'),
+			content: translate('confirm.card.delete.description'),
+			okText: translate('confirm.yes'),
+			cancelText: translate('confirm.no'),
 			onOk() {
-				deleteCard(card);
+				browserHistory.push(`/boards/${props.params.id}`);
+				setTimeout(function() {
+					deleteCard(card);
+				}, 10);
 			},
 			onCancel() {},
 		});
@@ -148,7 +154,7 @@ class ShowCard extends Component {
 	// components can call this method to update the details.
 	mutate( data ) {
 		this.setState({ processing: true });
-		const loading_message = message.loading('Updating card details..', 0);
+		// const loading_message = message.loading('Updating card details..', 0);
 
 		return this.props.mutate({
 			variables: data.variables,
@@ -164,6 +170,7 @@ class ShowCard extends Component {
 						duedate: data.variables.meta && data.variables.meta.duedate || data.card.meta.duedate,
 						link: data.variables.meta && data.variables.meta.link || data.card.meta.link,
 						image: data.variables.meta && data.variables.meta.image || data.card.meta.image,
+						background_color: data.variables.meta && data.variables.meta.background_color || data.card.meta.background_color,
 					},
 				},
 			},
@@ -189,8 +196,8 @@ class ShowCard extends Component {
 		})
 		.then( res => {
 			this.setState({ processing: false });
-			loading_message();
-			message.success('Card details have been successfully updated.');
+			// loading_message();
+			message.success( translate('messages.card.update.success') );
 			return res;
 		})
 		.catch( res => {
@@ -218,7 +225,7 @@ class ShowCard extends Component {
 
 		if ( ! list ) {
 			setTimeout( () => {
-				message.error("The card you're looking for doesn't exist or your dont have permissions to access it.");
+				message.error( translate('messages.card.delete.success') );
 				this.handleCancel();
 			}, 50);
 			return <div></div>;
@@ -235,11 +242,11 @@ class ShowCard extends Component {
 				onCancel={ this.handleCancel }
 				footer={[]}
 			>
-			<Spin spinning={ this.state.processing } size="large" tip={ this.state.delete_card ? 'Deleting card...' : 'Updating card details...' } >
+			<Spin spinning={ this.state.processing } size="large" tip={ this.state.delete_card ? translate('messages.card.processing.delete') : translate('messages.card.processing.update') } >
 
 				<ModalHeader
 					title={ card.title }
-					subtitle={ <div>In list <span>{ list.title }</span></div> }
+					subtitle={ <div><FormattedMessage id="card.show.heading.sub" defaultMessage="In list" /> <span className="underline">{ list.title }</span></div> }
 					editable={ true }
 					data={ card }
 					mutate={ this.mutate }
@@ -262,26 +269,26 @@ class ShowCard extends Component {
 								type="primary"
 								onClick={ () => { this.setActiveTab('default') } }
 								disabled={ this.state.tab === 'default' }
-								>General</Button>
+								><FormattedMessage id="card.show.tab.general" defaultMessage="General" /></Button>
 							<Button
 								size="small"
 								type="primary"
 								onClick={ () => { this.setActiveTab('todo') } }
 								disabled={ this.state.tab === 'todo' }
-								>Todo List</Button>
+								><FormattedMessage id="card.show.tab.todo" defaultMessage="Todo List" /></Button>
 							<Button
 								size="small"
 								type="primary"
 								onClick={ () => { this.setActiveTab('meta') } }
 								disabled={ this.state.tab === 'meta' }
-								>Meta Details</Button>
+								><FormattedMessage id="card.show.tab.meta" defaultMessage="Meta Details" /></Button>
 
 							<Button
 								size="small"
 								type="danger"
 								onClick={ () => { this.confirmDeletion(card) } }
 								className="m-t-10"
-								>Delete</Button>
+								><FormattedMessage id="card.show.tab.delete" defaultMessage="Delete" /></Button>
 
 						</div>
 

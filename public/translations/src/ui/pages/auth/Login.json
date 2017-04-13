@@ -1,0 +1,62 @@
+[
+  {
+    "id": "auth.form.placeholder.email",
+    "defaultMessage": "Ex: john.doe@gmail.com"
+  },
+  {
+    "id": "auth.form.placeholder.password",
+    "defaultMessage": "Password"
+  },
+  {
+    "id": "form.error",
+    "defaultMessage": "Error Occurred"
+  },
+  {
+    "id": "auth.form.validate.email",
+    "defaultMessage": "Please enter your Email Address"
+  },
+  {
+    "id": "auth.form.validate.password",
+    "defaultMessage": "Please enter your Password"
+  },
+  {
+    "id": "auth.form.processing.login",
+    "defaultMessage": "Logging you in..."
+  },
+  {
+    "id": "auth.login.title",
+    "defaultMessage": "Login to your Account"
+  },
+  {
+    "id": "auth.login.subtitle",
+    "defaultMessage": "Please enter your details to login."
+  },
+  {
+    "id": "form.email",
+    "defaultMessage": "Email Address"
+  },
+  {
+    "id": "form.password",
+    "defaultMessage": "Password"
+  },
+  {
+    "id": "auth.form.login",
+    "defaultMessage": "Login Now"
+  },
+  {
+    "id": "form.reset",
+    "defaultMessage": "Reset"
+  },
+  {
+    "id": "auth.form.demouser",
+    "defaultMessage": "Demo"
+  },
+  {
+    "id": "auth.form.no_account",
+    "defaultMessage": "Don't have an account?"
+  },
+  {
+    "id": "auth.form.signup",
+    "defaultMessage": "Signup Now"
+  }
+]

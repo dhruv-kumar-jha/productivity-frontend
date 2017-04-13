@@ -1,0 +1,66 @@
+[
+  {
+    "id": "auth.form.placeholder.name",
+    "defaultMessage": "Ex: John Doe"
+  },
+  {
+    "id": "auth.form.placeholder.email",
+    "defaultMessage": "Ex: john.doe@gmail.com"
+  },
+  {
+    "id": "auth.form.placeholder.password",
+    "defaultMessage": "Password"
+  },
+  {
+    "id": "auth.form.validate.name",
+    "defaultMessage": "Please enter your Full Name"
+  },
+  {
+    "id": "auth.form.validate.email",
+    "defaultMessage": "Please enter your Email Address"
+  },
+  {
+    "id": "auth.form.validate.invalid_email",
+    "defaultMessage": "Please enter a valid email address"
+  },
+  {
+    "id": "settings.form.processing",
+    "defaultMessage": "Updating details..."
+  },
+  {
+    "id": "settings.title",
+    "defaultMessage": "Manage your Settings"
+  },
+  {
+    "id": "settings.subtitle",
+    "defaultMessage": "Manage and update your personal information, login details from here."
+  },
+  {
+    "id": "form.name",
+    "defaultMessage": "Full Name"
+  },
+  {
+    "id": "form.email",
+    "defaultMessage": "Email Address"
+  },
+  {
+    "id": "form.password",
+    "defaultMessage": "Password"
+  },
+  {
+    "id": "settings.form.password_help",
+    "defaultMessage": "If you enter new password here, your existing password will be updated."
+  },
+  {
+    "id": "settings.form.language",
+    "defaultMessage": "Select Language"
+  },
+  {
+    "id": "settings.form.update_details",
+    "defaultMessage": "Update Details"
+  },
+  {
+    "id": "form.reset",
+    "defaultMessage": "Reset"
+  }
+]

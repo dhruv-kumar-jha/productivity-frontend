@@ -2,6 +2,8 @@
 
 import React, { Component } from 'react';
 import { Link, browserHistory } from 'react-router';
+import { defineMessages, injectIntl, FormattedMessage } from 'react-intl';
+import translate from 'app/global/helper/translate';
 
 import { graphql } from 'react-apollo';
 import LoginMutation from 'app/graphql/mutations/auth/Login';
@@ -23,6 +25,7 @@ class Login extends Component {
 		this.handleFormSubmit = this.handleFormSubmit.bind(this);
 		this.handleReset = this.handleReset.bind(this);
 		this.handleErrorsClose = this.handleErrorsClose.bind(this);
+		this.demoUserLogin = this.demoUserLogin.bind(this);
 	}
 
 	handleFormSubmit(e) {
@@ -40,7 +43,7 @@ class Login extends Component {
 					const token = res.data.login.token;
 					Auth.setAuthToken(token);
 					this.setState({ processing: false });
-					message.success('You have successfully logged in.');
+					message.success( translate('messages.auth.success') );
 					browserHistory.push('/dashboard');
 				})
 				.catch( res => {
@@ -63,8 +66,25 @@ class Login extends Component {
 		this.setState({ hide_errors: true });
 	}
 
+	demoUserLogin() {
+		this.props.form.setFieldsValue({
+			email: 'demo@demo.com',
+			password: 'P@sSw0rd@123'
+		});
+	}
+
 
 	render() {
+
+		const messages = defineMessages({
+			placeholderEmail: { id: "auth.form.placeholder.email", defaultMessage: "Ex: john.doe@gmail.com" },
+			placeholderPassword: { id: "auth.form.placeholder.password", defaultMessage: "Password" },
+			validateError: { id: "form.error", defaultMessage: "Error Occurred" },
+			validateEmail: { id: "auth.form.validate.email", defaultMessage: "Please enter your Email Address" },
+			validatePassword: { id: "auth.form.validate.password", defaultMessage: "Please enter your Password" },
+			processingLogin: { id: "auth.form.processing.login", defaultMessage: "Logging you in..." },
+		});
+		const { formatMessage } = this.props.intl;
 
 		const { getFieldDecorator } = this.props.form;
 		const formItemLayout = { wrapperCol: { span: 24 }, };
@@ -75,17 +95,17 @@ class Login extends Component {
 			<div className="component__login">
 
 				<div className="m-b-30">
-					<h1>Login to your Account</h1>
-					<p>Please enter your details to login.</p>
+					<h1><FormattedMessage id="auth.login.title" defaultMessage="Login to your Account" /></h1>
+					<p><FormattedMessage id="auth.login.subtitle" defaultMessage="Please enter your details to login." /></p>
 				</div>
 
 
-				<Spin spinning={ this.state.processing } size="large" tip="Logging you in...">
+				<Spin spinning={ this.state.processing } size="large" tip={formatMessage(messages.processingLogin)} >
 				<Form onSubmit={ this.handleFormSubmit } className="login-form">
 
 					{ this.state.errors.length > 0 && ! this.state.hide_errors &&
 						<Alert
-							message="Error Occoured"
+							message={ formatMessage(messages.validateError) }
 							description={ this.state.errors.map( (error, index) => <p key={index}>{ error }</p> ) }
 							type="error"
 							showIcon
@@ -95,25 +115,26 @@ class Login extends Component {
 						/>
 					}
 
-					<FormItem {...formItemLayout} label="Email Address">
+					<FormItem {...formItemLayout} label={<FormattedMessage id="form.email" defaultMessage="Email Address" />} >
 						{ getFieldDecorator('email', {
-							rules: [{ required: true, message: 'Please enter your Email Address' }],
+							rules: [{ required: true, message: formatMessage(messages.validateEmail) }],
 						})(
-							<Input addonBefore={<Icon type="mail" />} placeholder="Ex: john.doe@gmail.com" autoComplete="off" autoFocus />
+							<Input addonBefore={<Icon type="mail" />} placeholder={ formatMessage(messages.placeholderEmail, { email: 'john.doe@gmail.com' }) } autoComplete="off" autoFocus />
 						) }
 					</FormItem>
 
-					<FormItem {...formItemLayout} label="Password">
+					<FormItem {...formItemLayout} label={<FormattedMessage id="form.password" defaultMessage="Password" />} >
 						{ getFieldDecorator('password', {
-							rules: [{ required: true, message: 'Please enter your Password' }],
+							rules: [{ required: true, message: formatMessage(messages.validatePassword) }],
 						})(
-							<Input addonBefore={<Icon type="lock" />} type="password" placeholder="Password" />
+							<Input addonBefore={<Icon type="lock" />} type="password" placeholder={ formatMessage(messages.placeholderPassword) } />
 						) }
 					</FormItem>
 
 					<FormItem className="m-b-0" {...tailFormItemLayout}>
-						<Button type="primary" size="default" icon="lock" htmlType="submit">Login Now</Button>
-						<Button type="ghost" size="default" icon="reload" onClick={ this.handleReset } style={{ marginLeft: 10 }}>Reset</Button>
+						<Button type="primary" size="default" icon="lock" htmlType="submit"><FormattedMessage id="auth.form.login" defaultMessage="Login Now" /></Button>
+						<Button type="ghost" size="default" icon="reload" onClick={ this.handleReset } style={{ marginLeft: 10 }}><FormattedMessage id="form.reset" defaultMessage="Reset" /></Button>
+						<Button type="primary" size="default" icon="key" onClick={ this.demoUserLogin } className="float-right"><FormattedMessage id="auth.form.demouser" defaultMessage="Demo" /></Button>
 					</FormItem>
 
 				</Form>
@@ -122,7 +143,7 @@ class Login extends Component {
 			</div>
 
 			<div className="ta-center m-t-20">
-				Don't have an account? <Link to="/auth/signup">Signup Now</Link>
+				<FormattedMessage id="auth.form.no_account" defaultMessage="Don't have an account?" /> <Link to="/auth/signup"><FormattedMessage id="auth.form.signup" defaultMessage="Signup Now" /></Link>
 			</div>
 			</Row>
 		);
@@ -131,5 +152,6 @@ class Login extends Component {
 }
 
 Login = Form.create()(Login);
+Login = injectIntl(Login);
 
 export default graphql(LoginMutation)(Login);

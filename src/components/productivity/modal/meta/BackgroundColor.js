@@ -1,8 +1,10 @@
 'use strict';
 
 import React, { Component } from 'react';
-import { Input, Button, Tag, message } from 'antd';
+import { Button, Tag, message } from 'antd';
 import ColorPicker from 'app/components/common/ColorPicker';
+import { FormattedMessage } from 'react-intl';
+import translate from 'app/global/helper/translate';
 
 
 class BackgroundColor extends Component {
@@ -55,7 +57,7 @@ class BackgroundColor extends Component {
 
 	update() {
 		if ( this.state.background_color === null || this.state.background_color == this.props.data.meta.background_color ) {
-			return message.error('Please enter/update the background color first');
+			return message.error( translate('messages.card.background.error') );
 		}
 
 		this.props.mutate({
@@ -83,11 +85,11 @@ class BackgroundColor extends Component {
 		if ( this.props.public ) {
 			return (
 				<div className="component__key_val">
-					<div className="key">Background:</div>
+					<div className="key"><FormattedMessage id="card.meta.background.title" defaultMessage="Background" />:</div>
 					<div className="val">
 						{ this.props.data.meta.background_color ?
 							( <Tag color={this.props.data.meta.background_color}>{this.props.data.meta.background_color}</Tag> ) :
-							( <p>Background color not set</p> )
+							( <p><FormattedMessage id="card.meta.background.empty" defaultMessage="Background color not set" /></p> )
 						}
 					</div>
 				</div>
@@ -98,20 +100,20 @@ class BackgroundColor extends Component {
 
 		return (
 			<div className="component__key_val">
-				<div className="key">Background:</div>
+				<div className="key"><FormattedMessage id="card.meta.background.title" defaultMessage="Background" />:</div>
 				<div className="val">
 					{ ! this.state.edit && this.props.data.meta.background_color &&
 						<div className="full-width flex flex--sb">
 							<div className="flex">
 								<Tag color={this.props.data.meta.background_color}>{this.props.data.meta.background_color}</Tag>
-								<Button type="primary" ghost size="small" onClick={ this.resetBackgroundColor } className="m-l-10">Reset Background Color</Button>
+								<Button type="primary" ghost size="small" onClick={ this.resetBackgroundColor } className="m-l-10"><FormattedMessage id="card.meta.background.reset_color" defaultMessage="Reset Background Color" /></Button>
 							</div>
-							<Button type="primary" ghost size="small" onClick={ this.open } className="m-l-10">{ this.props.data.meta.background_color ? 'Update Background Color' : 'Set Background Color' }</Button>
+							<Button type="primary" ghost size="small" onClick={ this.open } className="m-l-10">{ this.props.data.meta.background_color ? <FormattedMessage id="card.meta.background.update_color" defaultMessage="Update Background Color" /> : <FormattedMessage id="card.meta.background.set_color" defaultMessage="Set Background Color" /> }</Button>
 						</div>
 					}
 
 					{ ! this.state.edit && ! this.props.data.meta.background_color &&
-						<Button type="primary" ghost size="small" onClick={ this.open }>Set Background Color</Button>
+						<Button type="primary" ghost size="small" onClick={ this.open }><FormattedMessage id="card.meta.background.set_color" defaultMessage="Set Background Color" /></Button>
 					}
 
 					{ this.state.edit &&
@@ -126,12 +128,12 @@ class BackgroundColor extends Component {
 								type="primary"
 								size="small"
 								className="m-l-10"
-								onClick={ this.update }>{ this.props.data.meta.background_color ? 'Update Background' : 'Set Background' }</Button>
+								onClick={ this.update }>{ this.props.data.meta.background_color ? <FormattedMessage id="card.meta.background.update" defaultMessage="Update Background" /> : <FormattedMessage id="card.meta.background.set" defaultMessage="Set Background" /> }</Button>
 							<Button
 								type="ghost"
 								size="small"
 								onClick={ this.close }
-								className="m-l-5">Cancel</Button>
+								className="m-l-5"><FormattedMessage id="form.cancel" defaultMessage="Cancel" /></Button>
 
 						</div>
 					}

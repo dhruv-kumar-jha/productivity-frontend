@@ -1,6 +1,8 @@
 'use strict';
 
 import React, { Component } from 'react';
+import { defineMessages, injectIntl, FormattedMessage } from 'react-intl';
+import translate from 'app/global/helper/translate';
 
 import { graphql } from 'react-apollo';
 import AddListMutation from 'app/graphql/mutations/lists/Add';
@@ -41,7 +43,7 @@ class NewList extends Component {
 			if ( ! err ) {
 				this.setState({ processing: true });
 
-				const loading_message = message.loading('Adding new list..', 0);
+				// const loading_message = message.loading('Adding new list..', 0);
 
 				this.props.mutate({
 					variables: {
@@ -78,8 +80,8 @@ class NewList extends Component {
 					},
 				})
 				.then( res => {
-					loading_message();
-					message.success('New list has been successfully added.');
+					// loading_message();
+					message.success( translate('messages.list.new.success') );
 				})
 				.catch( res => {
 					if ( res.graphQLErrors ) {
@@ -96,11 +98,18 @@ class NewList extends Component {
 
 	render() {
 
+		const messages = defineMessages({
+			placeholderTitle: { id: "list.card.form.placeholder.title", defaultMessage: "List Title" },
+			placeholderDescription: { id: "list.card.form.placeholder.description", defaultMessage: "List Description" },
+			validateTitle: { id: "list.card.form.validate.title", defaultMessage: "Please enter List Title" },
+		});
+		const { formatMessage } = this.props.intl;
+
 		const add_new_list_link = () => {
 			return (
 				<div className="list">
 					<div className="card" onClick={ this.addNewList }>
-						<div>Create New List...</div>
+						<div><FormattedMessage id="list.card.title" defaultMessage="Create New List..." /></div>
 					</div>
 				</div>
 			);
@@ -117,27 +126,33 @@ class NewList extends Component {
 
 					<Card
 						className="form-card"
-						title="Add New List"
+						title={ <FormattedMessage id="list.card.heading" defaultMessage="Add New List" /> }
 						extra={ <a className="cancel" onClick={ this.onCancel }><Icon type="close" /></a> }
 					>
 					<Spin spinning={ this.state.processing } size="large">
 
 						<FormItem hasFeedback>
 							{ getFieldDecorator('title', {
-								rules: [{ required: true, message: 'Please enter List Title' }],
+								rules: [{ required: true, message: formatMessage(messages.validateTitle) }],
 							})(
-								<Input placeholder="List Title" autoComplete="off" autoFocus />
+								<Input
+									placeholder={ formatMessage(messages.placeholderTitle) }
+									autoComplete="off"
+									autoFocus />
 							) }
 						</FormItem>
 
 						<FormItem hasFeedback >
 							{ getFieldDecorator('description')(
-								<Input type="textarea" placeholder="List description" autosize={{ minRows: 3, maxRows: 6 }} />
+								<Input
+									type="textarea"
+									placeholder={ formatMessage(messages.placeholderDescription) }
+									autosize={{ minRows: 3, maxRows: 6 }} />
 							) }
 						</FormItem>
 
 						<FormItem className="m-b-0">
-							<Button type="primary" size="default" icon="plus" htmlType="submit">Create</Button>
+							<Button type="primary" size="default" icon="plus" htmlType="submit"><FormattedMessage id="form.create" defaultMessage="Create" /></Button>
 						</FormItem>
 
 					</Spin>
@@ -165,5 +180,7 @@ class NewList extends Component {
 
 
 NewList = Form.create()(NewList);
+NewList = injectIntl(NewList);
+
 export default graphql(AddListMutation)(NewList);
 

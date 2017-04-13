@@ -2,6 +2,8 @@
 
 import React, { Component } from 'react';
 import { Link, browserHistory } from 'react-router';
+import { FormattedMessage } from 'react-intl';
+import translate from 'app/global/helper/translate';
 
 import { Modal, message, Button } from 'antd';
 import _ from 'lodash';
@@ -41,7 +43,7 @@ class PublicShowCard extends Component {
 
 		if ( ! list ) {
 			setTimeout( () => {
-				message.error("The card you're looking for doesn't exist or your dont have permissions to access it.");
+				message.error( translate('messages.card.show.error') );
 				this.handleCancel();
 			}, 50);
 			return <div></div>;
@@ -62,7 +64,7 @@ class PublicShowCard extends Component {
 
 				<ModalHeader
 					title={ card.title }
-					subtitle={ <div>In list <span>{ list.title }</span></div> }
+					subtitle={ <div><FormattedMessage id="card.show.heading.sub" defaultMessage="In list" /> <span className="underline">{ list.title }</span></div> }
 					editable={ true }
 					data={ card }
 					editable={ false }
@@ -83,19 +85,19 @@ class PublicShowCard extends Component {
 								type="primary"
 								onClick={ () => { this.setActiveTab('default') } }
 								disabled={ this.state.tab === 'default' }
-								>General</Button>
+								><FormattedMessage id="card.show.tab.general" defaultMessage="General" /></Button>
 							<Button
 								size="small"
 								type="primary"
 								onClick={ () => { this.setActiveTab('todo') } }
 								disabled={ this.state.tab === 'todo' }
-								>Todo List</Button>
+								><FormattedMessage id="card.show.tab.todo" defaultMessage="Todo List" /></Button>
 							<Button
 								size="small"
 								type="primary"
 								onClick={ () => { this.setActiveTab('meta') } }
 								disabled={ this.state.tab === 'meta' }
-								>Meta Details</Button>
+								><FormattedMessage id="card.show.tab.delete" defaultMessage="Delete" /></Button>
 						</div>
 					</div>
 
