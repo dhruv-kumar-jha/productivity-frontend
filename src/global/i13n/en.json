@@ -101,9 +101,16 @@
 	"card.meta.link.title": "Link",
 	"card.meta.image.title": "Image",
 	"card.meta.background.title": "Background",
+	"card.meta.position.title": "Position",
 
 	"card.meta.link.placeholder": "Link URL",
 	"card.meta.image.placeholder": "Image URL",
+	"card.meta.position.label.top": "Top",
+	"card.meta.position.label.bottom": "Bottom",
+
+	"card.meta.position.placeholder.top": "Ex: 1",
+	"card.meta.position.placeholder.bottom": "Ex: 1",
+
 
 	"card.meta.link.add": "Add Link",
 	"card.meta.link.update": "Update Link",
@@ -119,6 +126,10 @@
 	"card.meta.background.update_color": "Update Background Color",
 	"card.meta.background.set_color": "Set Background Color",
 	"card.meta.background.reset_color": "Reset Background Color",
+
+	"card.meta.position.add": "Add Position",
+	"card.meta.position.update": "Update Position",
+
 
 	"component.colorpicker.placeholder": "Color",
 	"card.header.title.placeholder": "Card Title",
@@ -213,6 +224,7 @@
 	"messages.card.image.error": "Please enter/update the image url first",
 	"messages.card.link.error": "Please enter/update the link first",
 	"messages.card.background.error": "Please enter/update the background color first",
+	"messages.card.position.error": "Please enter/update the top and/or bottom values.",
 
 
 	"messages.board.new.success": "New board has been successfully added.",
@@ -238,6 +250,7 @@
 	"messages.auth.success": "You have successfully logged in.",
 	"messages.logout.success": "You have been successfully logged out.",
 	"messages.signup.success": "Your account has been successfully created.",
+	"messages.component.loading": "Loading required javascript...",
 
 
 	"card.meta.background.empty": "Background color not set",

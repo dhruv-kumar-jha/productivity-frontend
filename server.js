@@ -5,6 +5,12 @@ const app = express();
 
 app.set( 'port', process.env.PORT || 1300 );
 
+app.use( (req, res, next) => {
+	setTimeout(function() {
+		next();
+	}, 500 );
+});
+
 // app.use( '/public', express.static('public') );
 app.use( express.static('public') );
 

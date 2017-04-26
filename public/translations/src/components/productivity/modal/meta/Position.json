@@ -1,0 +1,34 @@
+[
+  {
+    "id": "card.meta.position.title",
+    "defaultMessage": "Position"
+  },
+  {
+    "id": "card.meta.position.label.top",
+    "defaultMessage": "Top"
+  },
+  {
+    "id": "card.meta.position.label.bottom",
+    "defaultMessage": "Bottom"
+  },
+  {
+    "id": "card.meta.position.update",
+    "defaultMessage": "Update Position"
+  },
+  {
+    "id": "card.meta.position.add",
+    "defaultMessage": "Add Position"
+  },
+  {
+    "id": "form.update",
+    "defaultMessage": "Update"
+  },
+  {
+    "id": "form.add",
+    "defaultMessage": "Add"
+  },
+  {
+    "id": "form.cancel",
+    "defaultMessage": "Cancel"
+  }
+]

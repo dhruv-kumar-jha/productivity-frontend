@@ -2,6 +2,8 @@
 
 import Middleware from 'app/global/middleware';
 import AuthLayout from 'app/ui/layout/Auth';
+import DynamicImport from 'app/components/common/DynamicImport';
+
 
 
 function errorLoading(error) {
@@ -11,6 +13,7 @@ function errorLoading(error) {
 function loadRoute(cb) {
 	return module => cb( null, module.default );
 }
+
 
 
 const componentRoutes = {
@@ -24,15 +27,33 @@ const componentRoutes = {
 				{
 					path: 'login',
 					oEnter: Middleware.auth.notLoggedIn,
-					getComponent(location, cb) { import('app/ui/pages/auth/Login').then(loadRoute(cb)).catch(errorLoading); }
+					getComponent(location, cb) {
+						DynamicImport(
+							import(/* webpackChunkName: "auth-login" */'app/ui/pages/auth/Login'),
+							cb,
+							'auth-login'
+						);
+					}
 				},
 				{
 					path: 'signup',
-					getComponent(location, cb) { import('app/ui/pages/auth/Signup').then(loadRoute(cb)).catch(errorLoading); }
+					getComponent(location, cb) {
+						DynamicImport(
+							import(/* webpackChunkName: "auth-signup" */'app/ui/pages/auth/Signup'),
+							cb,
+							'auth-signup'
+						);
+					}
 				},
 				{
 					path: 'logout',
-					getComponent(location, cb) { import('app/ui/pages/auth/Logout').then(loadRoute(cb)).catch(errorLoading); }
+					getComponent(location, cb) {
+						DynamicImport(
+							import(/* webpackChunkName: "auth-logout" */'app/ui/pages/auth/Logout'),
+							cb,
+							'auth-logout'
+						);
+					}
 				},
 			]
 		},
@@ -41,18 +62,36 @@ const componentRoutes = {
 		// publicly accessible routes
 		{
 			path: 'public',
-			getComponent(location, cb) { import('app/ui/layout/Public').then(loadRoute(cb)).catch(errorLoading); },
+			getComponent(location, cb) {
+				DynamicImport(
+					import(/* webpackChunkName: "layout-public" */'app/ui/layout/Public'),
+					cb,
+					'layout-public'
+				);
+			},
 			childRoutes: [
 				{
 					path: 'boards',
 					childRoutes: [
 						{
 							path: ':id',
-							getComponent(location, cb) { import('app/ui/public/boards/Show').then(loadRoute(cb)).catch(errorLoading); },
+							getComponent(location, cb) {
+								DynamicImport(
+									import(/* webpackChunkName: "public-board-show" */'app/ui/public/boards/Show'),
+									cb,
+									'public-board-show'
+								);
+							},
 							childRoutes: [
 								{
 									path: 'cards/:card_id',
-									getComponent(location, cb) { import('app/ui/public/boards/Card').then(loadRoute(cb)).catch(errorLoading); }
+									getComponent(location, cb) {
+										DynamicImport(
+											import(/* webpackChunkName: "public-card-show" */'app/ui/public/boards/Card'),
+											cb,
+											'public-card-show'
+										);
+									}
 								},
 							]
 						},
@@ -66,18 +105,42 @@ const componentRoutes = {
 		{
 			path: '/',
 			onEnter: Middleware.auth.authenticatedUsersOnly,
-			getComponent(location, cb) { import('app/ui/layout/Default').then(loadRoute(cb)).catch(errorLoading); },
+			getComponent(location, cb) {
+				DynamicImport(
+					import(/* webpackChunkName: "layout-default" */'app/ui/layout/Default'),
+					cb,
+					'layout-default'
+				);
+			},
 			indexRoute: {
-				getComponent(location, cb) { import('app/ui/pages/common/Dashboard').then(loadRoute(cb)).catch(errorLoading); }
+				getComponent(location, cb) {
+					DynamicImport(
+						import(/* webpackChunkName: "dashboard" */'app/ui/pages/common/Dashboard'),
+						cb,
+						'dashboard'
+					);
+				}
 			},
 			childRoutes: [
 				{
 					path: 'dashboard',
-					getComponent(location, cb) { import('app/ui/pages/common/Dashboard').then(loadRoute(cb)).catch(errorLoading); }
+					getComponent(location, cb) {
+						DynamicImport(
+							import(/* webpackChunkName: "dashboard" */'app/ui/pages/common/Dashboard'),
+							cb,
+							'dashboard'
+						);
+					}
 				},
 				{
 					path: 'settings',
-					getComponent(location, cb) { import('app/ui/pages/common/Setting').then(loadRoute(cb)).catch(errorLoading); }
+					getComponent(location, cb) {
+						DynamicImport(
+							import(/* webpackChunkName: "setting" */'app/ui/pages/common/Setting'),
+							cb,
+							'setting'
+						);
+					}
 				},
 
 				{
@@ -85,19 +148,43 @@ const componentRoutes = {
 					childRoutes: [
 						{
 							path: ':id',
-							getComponent(location, cb) { import('app/ui/pages/boards/Show').then(loadRoute(cb)).catch(errorLoading); },
+							getComponent(location, cb) {
+								DynamicImport(
+									import(/* webpackChunkName: "board-show" */'app/ui/pages/boards/Show'),
+									cb,
+									'board-show'
+								);
+							},
 							childRoutes: [
 								{
 									path: 'edit',
-									getComponent(location, cb) { import('app/ui/pages/boards/Edit').then(loadRoute(cb)).catch(errorLoading); }
+									getComponent(location, cb) {
+										DynamicImport(
+											import(/* webpackChunkName: "board-edit" */'app/ui/pages/boards/Edit'),
+											cb,
+											'board-edit'
+										);
+									}
 								},
 								{
 									path: 'lists/:list_id',
-									getComponent(location, cb) { import('app/ui/pages/boards/List').then(loadRoute(cb)).catch(errorLoading); }
+									getComponent(location, cb) {
+										DynamicImport(
+											import(/* webpackChunkName: "list-show" */'app/ui/pages/boards/List'),
+											cb,
+											'list-show'
+										);
+									}
 								},
 								{
 									path: 'cards/:card_id',
-									getComponent(location, cb) { import('app/ui/pages/boards/card/Show').then(loadRoute(cb)).catch(errorLoading); }
+									getComponent(location, cb) {
+										DynamicImport(
+											import(/* webpackChunkName: "card-show" */'app/ui/pages/boards/card/Show'),
+											cb,
+											'card-show'
+										);
+									}
 								},
 							]
 						},
@@ -107,11 +194,23 @@ const componentRoutes = {
 				// invalid/404 routes
 				{
 					path: 'invalid',
-					getComponent(location, cb) { import('app/ui/common/Invalid').then(loadRoute(cb)).catch(errorLoading); }
+					getComponent(location, cb) {
+						DynamicImport(
+							import(/* webpackChunkName: "invalid" */'app/ui/common/Invalid'),
+							cb,
+							'invalid'
+						);
+					}
 				},
 				{
 					path: '*',
-					getComponent(location, cb) { import('app/ui/common/PageNotFound').then(loadRoute(cb)).catch(errorLoading); }
+					getComponent(location, cb) {
+						DynamicImport(
+							import(/* webpackChunkName: "page-not-found" */'app/ui/common/PageNotFound'),
+							cb,
+							'page-not-found'
+						);
+					}
 				},
 
 			]
@@ -120,12 +219,8 @@ const componentRoutes = {
 
 
 
-
-
-
 	]
 };
-
 
 
 export default componentRoutes;

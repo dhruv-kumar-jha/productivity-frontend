@@ -72,6 +72,8 @@ Status | Feature | Description
 :white_check_mark: | Lists Spacing | Now you can add spaces between lists, You can add space before and after a list. (might be useful to some of you)
 :white_check_mark: | Customizations | Now you have more control over specifying background colors, you can either select it using colorpicker or enter it manually, it can be `Color Names`, `HEX`, `RGB` or `RGBA`.
 :white_check_mark: | Multiple Languages | Added support for multiple languages, Current translation of **Chinese** langugae is done using Google Translate.
+:white_check_mark: | Card Positioning | Now you can top and bottom margin to any card, Giving your more flexibility and control over the UI.
+:white_check_mark: | Loading Indicator | Since the project makes use of Webpack code splitting, Sometimes it felt like clicks were unresponsive, Now you can see loading message whenever new script(s) is being loaded.
 
 
 ## Feature Requests

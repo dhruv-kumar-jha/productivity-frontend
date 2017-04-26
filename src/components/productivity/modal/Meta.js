@@ -7,6 +7,7 @@ import Duedate from './meta/Duedate';
 import LinkComponent from './meta/Link';
 import ImageComponent from './meta/Image';
 import BackgroundColorComponent from './meta/BackgroundColor';
+import PositionComponent from './meta/Position';
 
 
 class ModalMeta extends Component {
@@ -43,6 +44,12 @@ class ModalMeta extends Component {
 				/>
 
 				<BackgroundColorComponent
+					data={ this.props.data }
+					mutate={ this.props.mutate }
+					public={ this.props.public || false }
+				/>
+
+				<PositionComponent
 					data={ this.props.data }
 					mutate={ this.props.mutate }
 					public={ this.props.public || false }

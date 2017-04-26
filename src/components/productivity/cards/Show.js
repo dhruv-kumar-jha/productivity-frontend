@@ -23,10 +23,25 @@ const Card = (props) => {
 
 
 
+	const style = {};
+	const position = data.meta.position || {};
+
+	if ( position.top || position.bottom ) {
+		let _top = 0;
+		let _bottom = 0;
+		const HEIGHT = 20;
+
+		if ( position.top ) { _top = position.top; }
+		if ( position.bottom ) { _bottom = position.bottom; }
+
+		style.marginTop = _top * HEIGHT;
+		style.marginBottom = _bottom * HEIGHT;
+
+	}
 
 
 	return (
-		<div className="card" data-card-id={ data.id }>
+		<div className="card" data-card-id={ data.id } style={ style }>
 		<Spin spinning={ data.id === 'loading' } size="large">
 			<div className="card--content" onClick={ showCardModal } style={{ backgroundColor: data.meta.background_color || null }}>
 				{ data.meta.image &&

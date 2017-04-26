@@ -96,6 +96,7 @@
 			border-radius: 2px;
 			box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
 			padding: 4px 10px;
+			height: 28px;
 			&:last-child { margin-bottom: 0; }
 		}
 
@@ -295,6 +296,10 @@
 			button {
 				height: 24px;
 				margin-top: 2px;
+			}
+			.label {
+				line-height: 28px;
+				margin-right: 6px;
 			}
 		}
 

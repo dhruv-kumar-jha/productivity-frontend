@@ -12,7 +12,7 @@
     "defaultMessage": "Todo List"
   },
   {
-    "id": "card.show.tab.delete",
-    "defaultMessage": "Delete"
+    "id": "card.show.tab.meta",
+    "defaultMessage": "Meta Details"
   }
 ]

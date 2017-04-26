@@ -955,7 +955,8 @@ header.productivity {
     width: 100%;
     border-radius: 2px;
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-    padding: 4px 10px; }
+    padding: 4px 10px;
+    height: 28px; }
     .modal__primary .aside button:last-child {
       margin-bottom: 0; }
 
@@ -1079,6 +1080,9 @@ header.productivity {
       .component__key_val .val .data--edit--inline button {
         height: 24px;
         margin-top: 2px; }
+      .component__key_val .val .data--edit--inline .label {
+        line-height: 28px;
+        margin-right: 6px; }
 
 .component__heading {
   display: flex; }

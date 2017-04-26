@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import { Router, browserHistory } from 'react-router';
+import { Router, browserHistory } from 'react-router/es';
 
 import ApolloClient, { toIdValue } from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';

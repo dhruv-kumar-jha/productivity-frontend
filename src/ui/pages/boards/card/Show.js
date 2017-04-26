@@ -171,6 +171,7 @@ class ShowCard extends Component {
 						link: data.variables.meta && data.variables.meta.link || data.card.meta.link,
 						image: data.variables.meta && data.variables.meta.image || data.card.meta.image,
 						background_color: data.variables.meta && data.variables.meta.background_color || data.card.meta.background_color,
+						position: data.variables.meta && data.variables.meta.position || data.card.meta.position,
 					},
 				},
 			},

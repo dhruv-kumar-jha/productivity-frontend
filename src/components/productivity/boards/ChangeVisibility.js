@@ -19,6 +19,7 @@ class ChangeVisibility extends Component {
 			processing: false,
 		}
 		this.toggleBoardStatus = this.toggleBoardStatus.bind(this);
+		this.openPublicBoard = this.openPublicBoard.bind(this);
 	}
 
 	toggleBoardStatus() {
@@ -68,6 +69,11 @@ class ChangeVisibility extends Component {
 	}
 
 
+	openPublicBoard() {
+		window.open( `/public/boards/${this.props.data.id}`,'_blank');
+	}
+
+
 
 	render() {
 
@@ -99,11 +105,12 @@ class ChangeVisibility extends Component {
 					>
 						{ meta.public ? <FormattedMessage id="board.visibility.private" defaultMessage="Make Private" /> : <FormattedMessage id="board.visibility.public" defaultMessage="Make Public" /> }
 					</Button>
-					<a
-						href={`/public/boards/${this.props.data.id}`}
-						target="_blank" rel="nofollow"
-						className="ant-btn ant-btn-primary ant-btn-icon-only m-l-10 m-l-10"
-					><Icon type="global" /></a>
+					<Button
+						type="primary"
+						icon="global"
+						className="m-l-10"
+						onClick={ this.openPublicBoard }
+					/>
 				</div>
 			);
 		}

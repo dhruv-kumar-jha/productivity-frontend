@@ -331,6 +331,43 @@
   {
     "descriptors": [
       {
+        "defaultMessage": "Position",
+        "id": "card.meta.position.title"
+      },
+      {
+        "defaultMessage": "Top",
+        "id": "card.meta.position.label.top"
+      },
+      {
+        "defaultMessage": "Bottom",
+        "id": "card.meta.position.label.bottom"
+      },
+      {
+        "defaultMessage": "Update Position",
+        "id": "card.meta.position.update"
+      },
+      {
+        "defaultMessage": "Add Position",
+        "id": "card.meta.position.add"
+      },
+      {
+        "defaultMessage": "Update",
+        "id": "form.update"
+      },
+      {
+        "defaultMessage": "Add",
+        "id": "form.add"
+      },
+      {
+        "defaultMessage": "Cancel",
+        "id": "form.cancel"
+      }
+    ],
+    "path": "components/productivity/modal/meta/Position.json"
+  },
+  {
+    "descriptors": [
+      {
         "defaultMessage": "Add Todo",
         "id": "card.todo.form.add"
       },
@@ -399,6 +436,14 @@
       {
         "defaultMessage": "Enter your description here. (Markdown allowed)",
         "id": "card.general.form.placeholder"
+      },
+      {
+        "defaultMessage": "Ex: 1",
+        "id": "card.meta.position.placeholder.top"
+      },
+      {
+        "defaultMessage": "Ex: 1",
+        "id": "card.meta.position.placeholder.bottom"
       },
       {
         "defaultMessage": "Todo Title",
@@ -601,6 +646,10 @@
         "id": "confirm.board.delete.description"
       },
       {
+        "defaultMessage": "Please enter/update the top and/or bottom values.",
+        "id": "messages.card.position.error"
+      },
+      {
         "defaultMessage": "New board has been successfully added.",
         "id": "messages.board.new.success"
       },
@@ -699,6 +748,10 @@
       {
         "defaultMessage": "Record doesn't exist or you dont have permissions to access it",
         "id": "global.record.empty"
+      },
+      {
+        "defaultMessage": "Loading required javascript...",
+        "id": "messages.component.loading"
       }
     ],
     "path": "global/helper/translate.json"
@@ -1082,8 +1135,8 @@
         "id": "card.show.tab.todo"
       },
       {
-        "defaultMessage": "Delete",
-        "id": "card.show.tab.delete"
+        "defaultMessage": "Meta Details",
+        "id": "card.show.tab.meta"
       }
     ],
     "path": "ui/public/boards/Card.json"

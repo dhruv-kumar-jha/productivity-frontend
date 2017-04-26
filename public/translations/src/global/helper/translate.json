@@ -20,6 +20,14 @@
     "defaultMessage": "Enter your description here. (Markdown allowed)"
   },
   {
+    "id": "card.meta.position.placeholder.top",
+    "defaultMessage": "Ex: 1"
+  },
+  {
+    "id": "card.meta.position.placeholder.bottom",
+    "defaultMessage": "Ex: 1"
+  },
+  {
     "id": "card.todo.form.placeholder.title",
     "defaultMessage": "Todo Title"
   },
@@ -220,6 +228,10 @@
     "defaultMessage": "This is a non reversible process, Once deleted you cannot recover this board, its lists and cards again."
   },
   {
+    "id": "messages.card.position.error",
+    "defaultMessage": "Please enter/update the top and/or bottom values."
+  },
+  {
     "id": "messages.board.new.success",
     "defaultMessage": "New board has been successfully added."
   },
@@ -318,5 +330,9 @@
   {
     "id": "global.record.empty",
     "defaultMessage": "Record doesn't exist or you dont have permissions to access it"
+  },
+  {
+    "id": "messages.component.loading",
+    "defaultMessage": "Loading required javascript..."
   }
 ]

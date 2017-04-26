@@ -8,6 +8,10 @@ const messages = defineMessages({
 	card_header_title_placeholder: { id: "card.header.title.placeholder", defaultMessage: "Card Title" },
 	card_general_form_placeholder: { id: "card.general.form.placeholder", defaultMessage: "Enter your description here. (Markdown allowed)" },
 
+	cm_position_placeholder_top: { id: "card.meta.position.placeholder.top", defaultMessage: "Ex: 1" },
+	cm_position_placeholder_bottom: { id: "card.meta.position.placeholder.bottom", defaultMessage: "Ex: 1" },
+
+
 	card_todo_form_placeholder_title: { id: "card.todo.form.placeholder.title", defaultMessage: "Todo Title" },
 	card_todo_form_placeholder_description: { id: "card.todo.form.placeholder.description", defaultMessage: "Please enter todo description here" },
 	card_todo_form_processing: { id: "card.todo.form.processing", defaultMessage: "Adding item.." },
@@ -71,6 +75,7 @@ const messages = defineMessages({
 	messages_109: { id: "messages.card.background.error", defaultMessage: "Please enter/update the background color first" },
 	messages_110: { id: "confirm.todo.delete.description", defaultMessage: "This is a non reversible process, Once deleted you cannot recover this todo item again." },
 	messages_111: { id: "confirm.board.delete.description", defaultMessage: "This is a non reversible process, Once deleted you cannot recover this board, its lists and cards again." },
+	messages_108: { id: "messages.card.position.error", defaultMessage: "Please enter/update the top and/or bottom values." },
 
 
 	messages_112: { id: "messages.board.new.success", defaultMessage: "New board has been successfully added." },
@@ -100,6 +105,7 @@ const messages = defineMessages({
 	messages_135: { id: "global.token.expired", defaultMessage: "Your token has expired/invalidated. Please login again to generate new token" },
 	messages_136: { id: "global.record.empty", defaultMessage: "Record doesn't exist or you dont have permissions to access it" },
 
+	messages_137: { id: "messages.component.loading", defaultMessage: "Loading required javascript..." },
 
 
 

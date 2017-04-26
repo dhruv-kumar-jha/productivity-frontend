@@ -97,7 +97,7 @@ class PublicShowCard extends Component {
 								type="primary"
 								onClick={ () => { this.setActiveTab('meta') } }
 								disabled={ this.state.tab === 'meta' }
-								><FormattedMessage id="card.show.tab.delete" defaultMessage="Delete" /></Button>
+								><FormattedMessage id="card.show.tab.meta" defaultMessage="Meta Details" /></Button>
 						</div>
 					</div>
 

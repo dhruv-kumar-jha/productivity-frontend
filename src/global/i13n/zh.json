@@ -100,9 +100,15 @@
 	"card.meta.link.title": "链接",
 	"card.meta.image.title": "图片",
 	"card.meta.background.title": "背景",
+	"card.meta.position.title": "位置",
 
 	"card.meta.link.placeholder": "链接网址",
 	"card.meta.image.placeholder": "图片网址",
+	"card.meta.position.label.top": "最佳",
+	"card.meta.position.label.bottom": "底部",
+
+	"card.meta.position.placeholder.top": "例如：1",
+	"card.meta.position.placeholder.bottom": "例如：1",
 
 	"card.meta.link.add": "添加链接",
 	"card.meta.link.update": "更新链接",
@@ -119,6 +125,10 @@
 	"card.meta.background.update_color": "更新背景颜色",
 	"card.meta.background.set_color": "设置背景颜色",
 	"card.meta.background.reset_color": "重置背景颜色",
+
+	"card.meta.position.add": "添加位置",
+	"card.meta.position.update": "更新位置",
+
 
 	"component.colorpicker.placeholder": "颜色",
 	"card.header.title.placeholder": "卡片标题",
@@ -213,6 +223,8 @@
 	"messages.card.image.error": "请先输入/更新图像网址",
 	"messages.card.link.error": "请先输入/更新链接",
 	"messages.card.background.error": "请先输入/更新背景颜色",
+	"messages.card.position.error": "請輸入/更新頂部和/或底部值。",
+
 
 	"messages.board.new.success": "新板已成功添加。",
 	"messages.board.delete.processing": "删除板，请稍候..",
@@ -237,6 +249,8 @@
 	"messages.auth.success": "您已成功登录。",
 	"messages.logout.success": "您已成功注销。",
 	"messages.signup.success": "您的帐户已经创建成功。",
+	"messages.component.loading": "載入需要的JavaScript ...",
+
 
 	"card.meta.background.empty": "背景颜色未设定",
 	"card.meta.duedate.empty": "到期日未指定",
