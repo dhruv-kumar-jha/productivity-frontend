@@ -136,15 +136,72 @@ const componentRoutes = {
 					path: 'settings',
 					getComponent(location, cb) {
 						DynamicImport(
-							import(/* webpackChunkName: "setting" */'app/ui/pages/common/Setting'),
+							import(/* webpackChunkName: "setting" */'app/ui/pages/common/settings'),
 							cb,
 							'setting'
 						);
-					}
+					},
+					childRoutes: [
+						{
+							path: 'general',
+							indexRoute: {
+								getComponent(location, cb) {
+									DynamicImport(
+										import(/* webpackChunkName: "setting-general" */'app/ui/pages/common/settings/General'),
+										cb,
+										'setting-general'
+									);
+								}
+							},
+						},
+						{
+							path: 'groups',
+							getComponent(location, cb) {
+								DynamicImport(
+									import(/* webpackChunkName: "setting-groups" */'app/ui/pages/common/settings/Groups'),
+									cb,
+									'setting-groups'
+								);
+							},
+							childRoutes: [
+								{
+									path: 'create',
+									getComponent(location, cb) {
+										DynamicImport(
+											import(/* webpackChunkName: "setting-groups-create" */'app/components/groups/Create'),
+											cb,
+											'setting-groups-create'
+										);
+									}
+								},
+								{
+									path: ':id/edit',
+									getComponent(location, cb) {
+										DynamicImport(
+											import(/* webpackChunkName: "setting-groups-update" */'app/components/groups/Edit'),
+											cb,
+											'setting-groups-update'
+										);
+									}
+								},
+
+
+							],
+						},
+					],
 				},
 
 				{
 					path: 'boards',
+					indexRoute: {
+						getComponent(location, cb) {
+							DynamicImport(
+								import(/* webpackChunkName: "boards" */'app/ui/pages/common/Boards'),
+								cb,
+								'boards'
+							);
+						}
+					},
 					childRoutes: [
 						{
 							path: ':id',

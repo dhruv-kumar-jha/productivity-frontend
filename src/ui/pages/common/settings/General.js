@@ -2,7 +2,6 @@
 
 import React, { Component } from 'react';
 import Heading from 'app/components/common/Heading';
-import CommonLayout from 'app/components/layout/Common';
 import { defineMessages, injectIntl, FormattedMessage } from 'react-intl';
 import translate from 'app/global/helper/translate';
 
@@ -19,7 +18,7 @@ const FormItem = Form.Item;
 const Option = Select.Option;
 
 
-class Setting extends Component {
+class GeneralSettings extends Component {
 
 	constructor(props) {
 		super(props);
@@ -137,15 +136,7 @@ class Setting extends Component {
 
 
 		return (
-			<CommonLayout>
-
-				<Heading
-					title={<FormattedMessage id="settings.title" defaultMessage="Manage your Settings" />}
-					subtitle={<FormattedMessage id="settings.subtitle" defaultMessage="Manage and update your personal information, login details from here." />}
-					icon="setting" />
-
-				<div className="m-t-30 m-b-50">
-				<Col xs={24} sm={{ span: 22, offset: 1 }} md={{ span: 20, offset: 1 }} lg={{ span: 16, offset: 1 }}>
+			<Col xs={24} sm={{ span: 22, offset: 0 }} md={{ span: 20, offset: 0 }} lg={{ span: 16, offset: 0 }}>
 
 
 					<Form layout="vertical" onSubmit={ this.handleFormSubmit }>
@@ -199,10 +190,7 @@ class Setting extends Component {
 					</Spin>
 					</Form>
 
-				</Col>
-				</div>
-
-			</CommonLayout>
+			</Col>
 		);
 
 	}
@@ -210,9 +198,9 @@ class Setting extends Component {
 }
 
 
-Setting = Form.create()(Setting);
-Setting = injectIntl(Setting);
+GeneralSettings = Form.create()(GeneralSettings);
+GeneralSettings = injectIntl(GeneralSettings);
 
 export default graphql(GetCurrentUserQuery)(
-	graphql(UpdateUserMutation, { name: 'updateUser' })(Setting)
+	graphql(UpdateUserMutation, { name: 'updateUser' })(GeneralSettings)
 );

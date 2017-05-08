@@ -1049,6 +1049,19 @@
         "id": "dashboard.subtitle"
       }
     ],
+    "path": "ui/pages/common/Boards.json"
+  },
+  {
+    "descriptors": [
+      {
+        "defaultMessage": "All of your Boards",
+        "id": "dashboard.title"
+      },
+      {
+        "defaultMessage": "These are all the boards you have added till date, Any board you add will appear here.",
+        "id": "dashboard.subtitle"
+      }
+    ],
     "path": "ui/pages/common/Dashboard.json"
   },
   {
@@ -1119,6 +1132,80 @@
       }
     ],
     "path": "ui/pages/common/Setting.json"
+  },
+  {
+    "descriptors": [
+      {
+        "defaultMessage": "Ex: John Doe",
+        "id": "auth.form.placeholder.name"
+      },
+      {
+        "defaultMessage": "Ex: john.doe@gmail.com",
+        "id": "auth.form.placeholder.email"
+      },
+      {
+        "defaultMessage": "Password",
+        "id": "auth.form.placeholder.password"
+      },
+      {
+        "defaultMessage": "Please enter your Full Name",
+        "id": "auth.form.validate.name"
+      },
+      {
+        "defaultMessage": "Please enter your Email Address",
+        "id": "auth.form.validate.email"
+      },
+      {
+        "defaultMessage": "Please enter a valid email address",
+        "id": "auth.form.validate.invalid_email"
+      },
+      {
+        "defaultMessage": "Updating details...",
+        "id": "settings.form.processing"
+      },
+      {
+        "defaultMessage": "Full Name",
+        "id": "form.name"
+      },
+      {
+        "defaultMessage": "Email Address",
+        "id": "form.email"
+      },
+      {
+        "defaultMessage": "Password",
+        "id": "form.password"
+      },
+      {
+        "defaultMessage": "If you enter new password here, your existing password will be updated.",
+        "id": "settings.form.password_help"
+      },
+      {
+        "defaultMessage": "Select Language",
+        "id": "settings.form.language"
+      },
+      {
+        "defaultMessage": "Update Details",
+        "id": "settings.form.update_details"
+      },
+      {
+        "defaultMessage": "Reset",
+        "id": "form.reset"
+      }
+    ],
+    "path": "ui/pages/common/settings/General.json"
+  },
+  {
+    "descriptors": [
+      {
+        "defaultMessage": "Manage your Settings",
+        "id": "settings.title"
+      },
+      {
+        "defaultMessage": "Manage and update your personal information, login details from here.",
+        "id": "settings.subtitle"
+      }
+    ],
+    "path": "ui/pages/common/settings/index.json"
   },
   {
     "descriptors": [

@@ -6,11 +6,14 @@ import translate from 'app/global/helper/translate';
 
 import { graphql } from 'react-apollo';
 import AddBoardMutation from 'app/graphql/mutations/boards/Add';
+import GetAllGroupsQuery from 'app/graphql/queries/groups/All';
 
 import update from 'immutability-helper';
+import Loading from 'app/components/common/Loading';
 
-import { Col, Icon, Form, Input, Button, Spin, Card, message } from 'antd';
+import { Col, Icon, Form, Input, Button, Spin, Select, Card, message } from 'antd';
 const FormItem = Form.Item;
+const Option = Select.Option;
 
 
 class NewBoard extends Component {
@@ -34,12 +37,14 @@ class NewBoard extends Component {
 	handleFormSubmit(e) {
 		e.preventDefault();
 		this.props.form.validateFields( (err, fields) => {
+
 			if ( ! err ) {
 				this.setState({ processing: true });
 				this.props.mutate({
 					variables: {
 						title: fields.title,
 						description: fields.description,
+						group: fields.group,
 					},
 					optimisticResponse: {
 						__typename: 'Mutation',
@@ -48,6 +53,7 @@ class NewBoard extends Component {
 							id: 'loading',
 							title: fields.title,
 							description: fields.description || '',
+							group: fields.group,
 							meta: {},
 							lists: [],
 							positions: [],
@@ -87,6 +93,15 @@ class NewBoard extends Component {
 
 	render() {
 
+
+		if ( this.props.data.loading ) {
+			return <Loading />
+		}
+
+
+		const groups = this.props.data.groups;
+
+
 		const messages = defineMessages({
 			placeholderTitle: { id: "board.card.form.placeholder.title", defaultMessage: "Board Title" },
 			placeholderDescription: { id: "board.card.form.placeholder.description", defaultMessage: "Board Description" },
@@ -109,7 +124,7 @@ class NewBoard extends Component {
 			const { getFieldDecorator } = this.props.form;
 
 			return (
-				<div className="board create create-form card__form">
+				<div className="board create create-form card__form" style={{ zIndex: 10 }}>
 				<Form layout="vertical" onSubmit={ this.handleFormSubmit }>
 
 					<Card
@@ -132,6 +147,21 @@ class NewBoard extends Component {
 								<Input type="textarea" placeholder={formatMessage(messages.placeholderDescription)} autosize={{ minRows: 3, maxRows: 6 }} />
 							) }
 						</FormItem>
+
+						{ groups.length > 0 &&
+						<FormItem hasFeedback >
+							{ getFieldDecorator('group')(
+								<Select
+									placeholder="Select Group"
+									allowClear={true}
+									showSearch
+									filterOption={ (input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0 }
+								>
+									{ groups.map( group => <Option key={group.id} value={group.id}>{group.name}</Option> ) }
+								</Select>
+							) }
+						</FormItem>
+						}
 
 						<FormItem className="m-b-0">
 							<Button type="primary" size="default" icon="plus" htmlType="submit"><FormattedMessage id="form.create" defaultMessage="Create" /></Button>
@@ -162,6 +192,8 @@ class NewBoard extends Component {
 NewBoard = Form.create()(NewBoard);
 NewBoard = injectIntl(NewBoard);
 
-export default graphql(AddBoardMutation)(NewBoard);
-
+// export default graphql(AddBoardMutation)(NewBoard);
+export default graphql(GetAllGroupsQuery)(
+	graphql(AddBoardMutation, { name: 'mutate' })(NewBoard)
+);
 

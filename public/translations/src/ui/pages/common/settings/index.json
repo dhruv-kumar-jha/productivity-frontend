@@ -1,0 +1,10 @@
+[
+  {
+    "id": "settings.title",
+    "defaultMessage": "Manage your Settings"
+  },
+  {
+    "id": "settings.subtitle",
+    "defaultMessage": "Manage and update your personal information, login details from here."
+  }
+]

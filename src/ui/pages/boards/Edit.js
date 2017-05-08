@@ -8,9 +8,12 @@ import translate from 'app/global/helper/translate';
 import { graphql } from 'react-apollo';
 import UpdateBoardMutation from 'app/graphql/mutations/boards/Update';
 import update from 'immutability-helper';
+import GetAllGroupsQuery from 'app/graphql/queries/groups/All';
+import Loading from 'app/components/common/Loading';
 
-import { Modal, Icon, Col, Form, Input, Button, Spin, message } from 'antd';
+import { Modal, Icon, Col, Form, Input, Button, Spin, Select, message } from 'antd';
 const FormItem = Form.Item;
+const Option = Select.Option;
 import ColorPicker from 'app/components/common/ColorPicker';
 
 import ModalHeader from 'app/components/productivity/modal/Header';
@@ -71,6 +74,7 @@ class BoardEdit extends Component {
 				if (
 						fields.description === this.props.data.board.description &&
 						fields.title === this.props.data.board.title &&
+						fields.group === this.props.data.board.group &&
 						( this.props.data.board.meta && fields.meta.background == this.props.data.board.meta.background ) &&
 						( this.props.data.board.meta && fields.meta.background_image == this.props.data.board.meta.background_image )
 					) {
@@ -85,6 +89,7 @@ class BoardEdit extends Component {
 						id: this.props.data.board.id,
 						title: fields.title,
 						description: fields.description,
+						group: fields.group,
 						meta: {
 							background: fields.meta.background,
 							background_image: fields.meta.background_image,
@@ -97,6 +102,7 @@ class BoardEdit extends Component {
 							id: this.props.data.board.id,
 							title: fields.title,
 							description: fields.description,
+							group: fields.group,
 							meta: {
 								background: fields.meta.background,
 								background_image: fields.meta.background_image,
@@ -110,6 +116,7 @@ class BoardEdit extends Component {
 								board: {
 									title: { $set: updatedBoard.title },
 									description: { $set: updatedBoard.description },
+									group: { $set: updatedBoard.group },
 									meta: { $set: updatedBoard.meta },
 								},
 							});
@@ -139,6 +146,12 @@ class BoardEdit extends Component {
 
 		const { board } = this.props.data;
 		const { getFieldDecorator } = this.props.form;
+
+		if ( this.props.groups.loading ) {
+			return <Loading />
+		}
+
+		const groups = this.props.groups.groups;
 
 		const BackgroundImageLinks = () => {
 			return (
@@ -191,6 +204,23 @@ class BoardEdit extends Component {
 								) }
 							</FormItem>
 
+							{ groups.length > 0 &&
+							<FormItem label="Select Board Group" hasFeedback >
+								{ getFieldDecorator('group', {
+									initialValue: board.group || null,
+								})(
+									<Select
+										placeholder="Select Group"
+										allowClear={true}
+										showSearch
+										filterOption={ (input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0 }
+									>
+										{ groups.map( group => <Option key={group.id} value={group.id}>{group.name}</Option> ) }
+									</Select>
+								) }
+							</FormItem>
+							}
+
 							<Input.Group style={{ marginBottom: 24 }}>
 								<Col span="8">
 									<FormItem label={ <FormattedMessage id="board.form.label.background" defaultMessage="Board Background" /> } >
@@ -236,4 +266,9 @@ class BoardEdit extends Component {
 
 
 BoardEdit = Form.create()(BoardEdit);
-export default graphql(UpdateBoardMutation)(BoardEdit);
+// export default graphql(UpdateBoardMutation)(BoardEdit);
+
+export default graphql(UpdateBoardMutation, { name: 'mutate' })(
+	graphql(GetAllGroupsQuery,{ name: 'groups' })(BoardEdit)
+);
+

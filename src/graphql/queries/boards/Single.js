@@ -2,35 +2,18 @@
 
 import gql from 'graphql-tag';
 
+import Common from './fragments/Common';
+import Single from './fragments/Single';
+
+
 export default gql`
 	query BoardQuery($id: ID!) {
 		board(id: $id) {
-			id
-			title
-			description
-			meta
-			positions
-			lists {
-				id
-				title
-				description
-				positions
-				meta
-				cards {
-					id
-					title
-					description
-					_list
-					meta
-					todos
-				}
-				created_at
-				updated_at
-			}
-			status
-			created_at
-			updated_at
+			...CommonBoardFields
+			...SingleBoardFields
 		}
 	}
+	${ Common.board }
+	${ Single.board }
 `;
 

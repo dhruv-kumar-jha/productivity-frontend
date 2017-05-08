@@ -55,7 +55,7 @@ class ShowBoard extends Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		if ( nextProps.data.board.meta.background || nextProps.data.board.meta.background_image ) {
+		if ( nextProps.data.board && ( nextProps.data.board.meta.background || nextProps.data.board.meta.background_image ) ) {
 			this.setBackground(nextProps.data.board.meta.background, nextProps.data.board.meta.background_image);
 		}
 	}

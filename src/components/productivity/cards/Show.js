@@ -31,11 +31,14 @@ const Card = (props) => {
 		let _bottom = 0;
 		const HEIGHT = 20;
 
-		if ( position.top ) { _top = position.top; }
-		if ( position.bottom ) { _bottom = position.bottom; }
-
-		style.marginTop = _top * HEIGHT;
-		style.marginBottom = _bottom * HEIGHT;
+		if ( position.top ) {
+			_top = position.top;
+			style.marginTop = _top * HEIGHT;
+		}
+		if ( position.bottom ) {
+			_bottom = position.bottom;
+			style.marginBottom = _bottom * HEIGHT;
+		}
 
 	}
 

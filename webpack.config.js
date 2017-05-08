@@ -9,6 +9,7 @@ const APP_DIR = path.resolve(__dirname, 'src');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin');
+const CompressionPlugin = require("compression-webpack-plugin");
 
 
 const VENDOR_LIBS = [
@@ -106,6 +107,13 @@ const WebpackConfig = {
 				screw_ie8: true
 			},
 			comments: false
+		}),
+		process.env.NODE_ENV !== 'production' ? () => {} : new CompressionPlugin({
+			asset: "[path].gz[query]",
+			algorithm: "gzip",
+			test: /\.(js|html)$/,
+			threshold: 10240,
+			minRatio: 0.8
 		}),
 	],
 

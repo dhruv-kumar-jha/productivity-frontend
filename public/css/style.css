@@ -1468,4 +1468,81 @@ header.productivity {
   padding: 20px;
   border-radius: 4px; }
 
+.component__info__header {
+  background: #fffacf;
+  font-size: 16px;
+  line-height: 16px;
+  border: 1px solid #ffe503;
+  padding: 10px  40px;
+  font-family: "Lucida Grande", Tahoma;
+  color: #000;
+  border-bottom-width: 3px; }
+
+.component__groups .item {
+  border: 1px solid #CCC;
+  padding: 10px  30px;
+  font-family: "Lucida Grande", Tahoma; }
+.component__groups .name {
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: 700;
+  color: #000; }
+.component__groups .description {
+  font-size: 14px;
+  line-height: 14px;
+  color: #333;
+  margin-top: 5px; }
+.component__groups .actions {
+  margin-top: 6px; }
+  .component__groups .actions a {
+    font-size: 12px;
+    line-height: 12px;
+    margin-right: 15px;
+    background: #2196f3;
+    padding: 2px 10px;
+    border-radius: 2px;
+    color: #FFF;
+    border: 1px solid #0c7cd5;
+    display: inline-block;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease; }
+    .component__groups .actions a:hover {
+      background: #000; }
+    .component__groups .actions a:last-child {
+      margin-right: 0; }
+
+.component__groups.empty {
+  background: #d1f1ff;
+  border: 1px solid #6bd2ff;
+  padding: 40px;
+  border-radius: 3px;
+  font-family: "Lucida Grande", Tahoma; }
+  .component__groups.empty p {
+    font-size: 17px;
+    line-height: 17px;
+    margin-bottom: 5px;
+    color: #333; }
+
+.component__board__groups {
+  margin-top: 80px;
+  margin-bottom: 40px; }
+  .component__board__groups .item_group {
+    margin-bottom: 80px; }
+  .component__board__groups .empty {
+    background: #d3ecff;
+    margin-top: 30px;
+    padding: 20px 40px;
+    border-radius: 3px;
+    max-width: 500px;
+    border: 2px solid #b4dbf9;
+    font-family: "Lucida Grande", Tahoma; }
+    .component__board__groups .empty p {
+      font-size: 16px;
+      line-height: 16px;
+      margin-bottom: 10px;
+      color: #333; }
+      .component__board__groups .empty p:last-child {
+        margin-bottom: 0; }
+
 /*# sourceMappingURL=style.css.map */

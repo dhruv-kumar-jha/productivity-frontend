@@ -2,35 +2,15 @@
 
 import gql from 'graphql-tag';
 
+import Common from './fragments/Common';
+
+
 export default gql`
 	query AllBoards {
 		boards {
-			id
-			title
-			description
-			meta
-			positions
-			lists {
-				id
-				title
-				description
-				positions
-				meta
-				cards {
-					id
-					title
-					description
-					_list
-					meta
-					todos
-				}
-				created_at
-				updated_at
-			}
-			status
-			created_at
-			updated_at
+			...CommonBoardFields
 		}
 	}
+	${ Common.board }
 `;
 

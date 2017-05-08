@@ -16,8 +16,8 @@ const Board = (props) => {
 		browserHistory.push(`/boards/${ data.id }`);
 	}
 
-	const styles = {};
-	if ( data.meta.background ) { styles.backgroundColor = data.meta.background };
+	// const styles = {};
+	// if ( data.meta.background ) { styles.backgroundColor = data.meta.background };
 
 
 	return (

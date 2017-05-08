@@ -27,7 +27,9 @@ const AuthHeader = (props) => {
 			<nav>
 				<Link to="/dashboard" activeClassName="active"><FormattedMessage id="app.nav.dashboard" defaultMessage="Dashboard" /></Link>
 				<span className="separator"></span>
-				<Link to="/settings" activeClassName="active"><FormattedMessage id="app.nav.settings" defaultMessage="Settings" /></Link>
+				<Link to="/boards" activeClassName="active">All Boards</Link>
+				<span className="separator"></span>
+				<Link to="/settings/general" activeClassName="active"><FormattedMessage id="app.nav.settings" defaultMessage="Settings" /></Link>
 				<span className="separator"></span>
 				<Link to="/auth/logout" activeClassName="active"><FormattedMessage id="app.nav.logout" defaultMessage="Logout" /></Link>
 			</nav>

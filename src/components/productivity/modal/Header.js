@@ -67,7 +67,7 @@ class ModalHeader extends Component {
 	showNormalTitle() {
 		return(
 			<header>
-				<Icon type="laptop" />
+				<Icon type={ this.props.icon || 'laptop' } />
 				<div className="info">
 					<div className="title">{ this.props.title }</div>
 					<div className="list">{ this.props.subtitle }</div>
@@ -88,7 +88,7 @@ class ModalHeader extends Component {
 		return (
 			<header>
 
-				<Icon type="laptop" />
+				<Icon type={ this.props.icon || 'laptop' } />
 				<div className="info">
 					<div className="title editable">
 						{ this.state.edit ?

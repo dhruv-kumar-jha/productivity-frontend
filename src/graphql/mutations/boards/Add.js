@@ -3,13 +3,14 @@
 import gql from 'graphql-tag';
 
 export default gql`
-	mutation AddBoard( $title: String!, $description: String ) {
-	  addBoard( title: $title, description: $description ) {
+	mutation AddBoard( $title: String!, $description: String, $group: ID ) {
+	  addBoard( title: $title, description: $description, group: $group ) {
 	  	id
 	  	title
 	  	description
 	  	positions
 		meta
+		group
 		lists {
 			id
 			title
