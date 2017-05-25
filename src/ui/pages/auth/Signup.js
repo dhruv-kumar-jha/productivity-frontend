@@ -134,16 +134,18 @@ class Signup extends Component {
 		const { formatMessage } = this.props.intl;
 
 		const { getFieldDecorator } = this.props.form;
-		const formItemLayout = { labelCol: { span: 8 }, wrapperCol: { span: 16 }, };
-		const tailFormItemLayout = { wrapperCol: { span: 16, offset: 8 }, };
+		// const formItemLayout = { labelCol: { span: 8 }, wrapperCol: { span: 16 }, };
+		const formItemLayout = { labelCol: { xs: { span: 24 }, lg: { span: 8 } }, wrapperCol: { xs: { span: 24 }, lg: { span: 16 } }, };
+		// const tailFormItemLayout = { wrapperCol: { span: 16, offset: 8 }, };
+		const tailFormItemLayout = { labelCol: { xs: { span: 24 }, lg: { span: 8 } }, wrapperCol: { xs: { span: 24 }, lg: { span: 16, offset: 8 } }, };
 
 		return (
 			<div className="component__signup">
 
 				<Row className="m-b-30">
-				<Col span="16" offset="8">
-					<h1><FormattedMessage id="auth.signup.title" defaultMessage="Create New Account" /></h1>
-					<p><FormattedMessage id="auth.signup.subtitle" defaultMessage="Please enter your details below to create new account." /></p>
+				<Col xs={{ span: 24 }} lg={{ span: 16, offset: 8 }}>
+					<h1 className="heading--title"><FormattedMessage id="auth.signup.title" defaultMessage="Create New Account" /></h1>
+					<p className="heading--subtitle"><FormattedMessage id="auth.signup.subtitle" defaultMessage="Please enter your details below to create new account." /></p>
 				</Col>
 				</Row>
 
@@ -221,8 +223,8 @@ class Signup extends Component {
 
 
 					<FormItem className="m-b-0" {...tailFormItemLayout}>
-						<Button type="primary" size="default" icon="check-circle-o" htmlType="submit"><FormattedMessage id="auth.form.signup" defaultMessage="Signup" /></Button>
-						<Button type="ghost" size="default" icon="reload" onClick={ this.handleReset } style={{ marginLeft: 10 }}><FormattedMessage id="form.reset" defaultMessage="Reset" /></Button>
+						<Button type="primary" size="default" icon="check-circle-o" htmlType="submit" className="auth--button--signup"><FormattedMessage id="auth.form.signup" defaultMessage="Signup" /></Button>
+						<Button type="ghost" size="default" icon="reload" onClick={ this.handleReset } className="auth--button--reset" style={{ marginLeft: 10 }}><FormattedMessage id="form.reset" defaultMessage="Reset" /></Button>
 					</FormItem>
 
 				</Form>

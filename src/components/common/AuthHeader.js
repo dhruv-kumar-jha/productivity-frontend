@@ -6,6 +6,7 @@ import { FormattedMessage } from 'react-intl';
 
 import { Icon } from 'antd';
 import Auth from 'app/global/api/Auth';
+import MobileNav from './MobileNav';
 
 const AuthHeader = (props) => {
 
@@ -24,7 +25,7 @@ const AuthHeader = (props) => {
 			</div>
 
 			{ loggedIn &&
-			<nav>
+			<nav className="hidden-xs-down">
 				<Link to="/dashboard" activeClassName="active"><FormattedMessage id="app.nav.dashboard" defaultMessage="Dashboard" /></Link>
 				<span className="separator"></span>
 				<Link to="/boards" activeClassName="active">All Boards</Link>
@@ -36,12 +37,14 @@ const AuthHeader = (props) => {
 			}
 
 			{ ! loggedIn &&
-			<nav>
+			<nav className="hidden-xs-down">
 				<Link to="/auth/login" activeClassName="active"><FormattedMessage id="app.nav.login" defaultMessage="Login Now" /></Link>
 				<span className="separator"></span>
 				<Link to="/auth/signup" activeClassName="active"><FormattedMessage id="app.nav.create_account" defaultMessage="Create New Account" /></Link>
 			</nav>
 			}
+
+			<MobileNav />
 
 		</header>
 	)

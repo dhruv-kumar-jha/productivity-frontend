@@ -222,7 +222,7 @@ class BoardEdit extends Component {
 							}
 
 							<Input.Group style={{ marginBottom: 24 }}>
-								<Col span="8">
+								<Col xs={24} lg={{ span: 8 }}>
 									<FormItem label={ <FormattedMessage id="board.form.label.background" defaultMessage="Board Background" /> } >
 										{ getFieldDecorator('meta.background', {
 											initialValue: board.meta.background || null,
@@ -231,7 +231,7 @@ class BoardEdit extends Component {
 										) }
 									</FormItem>
 								</Col>
-								<Col span="15" offset="1">
+								<Col xs={24} lg={{ span: 15, offset: 1 }}>
 									<FormItem label={ <FormattedMessage id="board.form.label.background_image" defaultMessage="Board Background Image" /> } help={ <BackgroundImageLinks /> } hasFeedback>
 										{ getFieldDecorator('meta.background_image', {
 											initialValue: board.meta.background_image || null,
@@ -243,10 +243,10 @@ class BoardEdit extends Component {
 							</Input.Group>
 
 							<FormItem className="m-b-0">
-								<Button type="primary" size="default" icon="check" htmlType="submit"><FormattedMessage id="board.form.update" defaultMessage="Update Details" /></Button>
-								<Button type="ghost" size="default" icon="reload" onClick={ this.resetForm } className="m-l-10"><FormattedMessage id="form.reset" defaultMessage="Reset" /></Button>
+								<Button type="primary" size="default" icon="check" className="button--submit" htmlType="submit"><FormattedMessage id="board.form.update" defaultMessage="Update Details" /></Button>
+								<Button type="ghost" size="default" icon="reload" className="button--reset m-l-10" onClick={ this.resetForm }><FormattedMessage id="form.reset" defaultMessage="Reset" /></Button>
 								{ board.meta.background &&
-									<Button type="ghost" size="default" icon="reload" onClick={ this.resetBackground } className="float-right"><FormattedMessage id="board.form.reset_background" defaultMessage="Reset Background" /></Button>
+									<Button type="ghost" size="default" icon="reload" onClick={ this.resetBackground } className="button--reset-background float-right"><FormattedMessage id="board.form.reset_background" defaultMessage="Reset Background" /></Button>
 								}
 							</FormItem>
 						</Spin>

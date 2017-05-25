@@ -20,7 +20,8 @@
 	margin-right: -30px;
 
 	.board-lists {
-		touch-action: none;
+		// touch-action: none;
+		// background: red;
 	}
 
 
@@ -87,7 +88,7 @@
 			flex: 0 0 auto;
 			padding: 8px 10px;
 			color: #4d4d4d;
-			cursor: pointer;
+			// cursor: pointer;
 			@include disable_text_selection();
 
 			.title {
@@ -95,6 +96,7 @@
 				font-size: 14px;
 				line-height: 18px;
 				font-weight: 700;
+				cursor: move;
 			}
 
 			i { font-size: 18px; color: #999; }
@@ -431,7 +433,7 @@
 	}
 	::-webkit-scrollbar-thumb:horizontal,
 	::-webkit-scrollbar-thumb:vertical {
-		background: #C4C9CC;
+		background: rgba(0,0,0,0.3); // #C4C9CC;
 		border-radius: 5px;
 		display: block;
 		height: 50px

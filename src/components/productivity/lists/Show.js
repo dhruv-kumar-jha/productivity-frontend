@@ -201,7 +201,7 @@ class List extends Component {
 
 				<header>
 					<div className="title">{ data.title }</div>
-					<div className="ignore">
+					<div className="xxignore">
 						<Dropdown overlay={ this.listActions(data.id) } trigger={['click']}>
 							<Link><Icon type="ellipsis" /></Link>
 						</Dropdown>

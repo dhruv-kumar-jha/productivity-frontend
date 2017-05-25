@@ -1,0 +1,22 @@
+[
+  {
+    "id": "app.nav.dashboard",
+    "defaultMessage": "Dashboard"
+  },
+  {
+    "id": "app.nav.settings",
+    "defaultMessage": "Settings"
+  },
+  {
+    "id": "app.nav.logout",
+    "defaultMessage": "Logout"
+  },
+  {
+    "id": "app.nav.login",
+    "defaultMessage": "Login Now"
+  },
+  {
+    "id": "app.nav.create_account",
+    "defaultMessage": "Create New Account"
+  }
+]

@@ -1,9 +1,12 @@
 # Productivity Application
 
-Kanban style, Trello inspired Productivity application built using the awesome React, Ant Design, Apollo Client and other fantastic libraries.
-
+Be More Productive!
 
 ![ScreenShot](public/images/screenshot.jpg)
+
+This application was inspired by the awesome Trello and Kanban style of managing things. You can use this to manage anything and everything., This has lot of customizations available per board, list and card to make it your own.
+
+I built this application using Progressive Enhancements in mind, Although not perfect the app works well in desktop, mobile and tablet devices., You can easily add this app to your mobile device (just open the url from mobile device) and use it directly without opening the browser.
 
 
 ## Demo
@@ -11,8 +14,8 @@ Kanban style, Trello inspired Productivity application built using the awesome R
 
 Host | URL
 ------------ | -------------
-**Amazon S3** | http://proapp.s3-website.ap-south-1.amazonaws.com
 **Netlify** | https://productivity.netlify.com
+**Amazon S3** | http://proapp.s3-website.ap-south-1.amazonaws.com
 **Public Board Demo** | http://proapp.s3-website.ap-south-1.amazonaws.com/public/boards/58d383b20f4a2800178ef63e <br /> https://productivity.netlify.com/public/boards/58d383b20f4a2800178ef63e
 
 
@@ -76,6 +79,10 @@ Status | Feature | Description
 :white_check_mark: | Loading Indicator | Since the project makes use of Webpack code splitting, Sometimes it felt like clicks were unresponsive, Now you can see loading message whenever new script(s) is being loaded.
 :white_check_mark: | GraphQL Fragments | Have started using fragments wherever necessary, This will help with app performance when you have lots of Boards.
 :white_check_mark: | Board Groups | This will help you with Grouping different boards together and I personally think this will benefit us a lot, You can Add groups by going to the settings page.
+:white_check_mark: | Responsive | The app is responsive in mobile devices (although not perfect), More mobile specific enhancements will be made in future.
+:white_check_mark: | Service Worker | Now all the assets will be cached locally so you can use this app with slow internet connections (all the data still loads from server).
+:white_check_mark: | Add To Device | The app is responsive in mobile devices (although not perfect), More mobile specific enhancements will be made in future.
+[ ] | Offline Support | Make the app work without internet (coming soon).
 
 
 ## Feature Requests

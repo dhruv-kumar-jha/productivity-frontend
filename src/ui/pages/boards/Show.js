@@ -145,13 +145,15 @@ class ShowBoard extends Component {
 				put: true
 			},
 			sort: true,
-			handle: 'header',
+			handle: '.title',
 			filter: '.ignore',
 			dataIdAttr: 'data-list-id',
 			ghostClass: 'list-sortable-ghost',
 			dragClass: 'list-sortable-drag',
 			chosenClass: 'list-sortable-chosen',
 			scrollSensitivity: 40,
+			// delay: 2,
+			// forceFallback: true,
 			// animation: 150,
 		};
 

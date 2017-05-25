@@ -4,7 +4,7 @@ import React from 'react';
 import translate from 'app/global/helper/translate';
 
 import { browserHistory } from 'react-router';
-import { Button, Modal, message } from 'antd';
+import { Button, Modal, message, Menu, Dropdown, Icon } from 'antd';
 
 import Helper from 'app/global/helper';
 import _ from 'lodash';
@@ -87,20 +87,40 @@ const ProductivityHeader = (props) => {
 	if ( board_background === 'default' ) { header_class = 'default'; }
 
 
+	const menu = (
+		<Menu className="component--actions--dropdown">
+			<Menu.Item key="1"><BoardVisibilityChange data={props.board} /></Menu.Item>
+			<Menu.Item key="2"><Button type="primary" icon="edit" onClick={ gotoBoardEdit } /></Menu.Item>
+			<Menu.Item key="3"><Button type="danger" icon="delete" onClick={ confirmBoardDeletion } /></Menu.Item>
+		</Menu>
+	);
+
+
+
+
+
 	return (
 		<header className={`productivity ${ header_class } `}>
 			<div className="title">
 				{ props.title }
 				{ props.description &&
-					<span className="description">{ props.description }</span>
+					<span className="description hidden-xs-down">{ props.description }</span>
 				}
 			</div>
 
 			{ ! props.public &&
-			<div className="flex">
+			<div className="board--actions flex hidden-xs-down">
 				<BoardVisibilityChange data={props.board} />
 				<Button type="primary" icon="edit" className="m-l-10" onClick={ gotoBoardEdit } />
 				<Button type="danger" icon="delete" className="m-l-10" onClick={ confirmBoardDeletion } />
+			</div>
+			}
+
+			{ ! props.public &&
+			<div className="hidden-sm-up">
+				<Dropdown trigger={['click']} overlay={menu}>
+					<Button type="primary" ghost>Actions <Icon type="down" /></Button>
+				</Dropdown>
 			</div>
 			}
 

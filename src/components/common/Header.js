@@ -5,6 +5,7 @@ import { Link } from 'react-router';
 import { FormattedMessage } from 'react-intl';
 
 import { Icon } from 'antd';
+import MobileNav from './MobileNav';
 
 const Header = (props) => {
 
@@ -20,7 +21,7 @@ const Header = (props) => {
 				</div>
 			</div>
 
-			<nav>
+			<nav className="hidden-xs-down">
 				<Link to="/dashboard" activeClassName="active"><FormattedMessage id="app.nav.dashboard" defaultMessage="Dashboard" /></Link>
 				<span className="separator"></span>
 				<Link to="/boards" activeClassName="active">All Boards</Link>
@@ -29,6 +30,8 @@ const Header = (props) => {
 				<span className="separator"></span>
 				<Link to="/auth/logout" activeClassName="active"><FormattedMessage id="app.nav.logout" defaultMessage="Logout" /></Link>
 			</nav>
+
+			<MobileNav />
 
 		</header>
 	)

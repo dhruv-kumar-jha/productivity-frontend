@@ -3,6 +3,7 @@
 const webpack = require('webpack');
 const path = require('path');
 
+const PUBLIC_DIR = path.resolve(__dirname, 'public');
 const BUILD_DIR = path.resolve(__dirname, 'public/scripts');
 const APP_DIR = path.resolve(__dirname, 'src');
 
@@ -10,6 +11,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin');
 const CompressionPlugin = require("compression-webpack-plugin");
+const OfflinePlugin = require('offline-plugin');
 
 
 const VENDOR_LIBS = [
@@ -111,15 +113,36 @@ const WebpackConfig = {
 		process.env.NODE_ENV !== 'production' ? () => {} : new CompressionPlugin({
 			asset: "[path].gz[query]",
 			algorithm: "gzip",
-			test: /\.(js|html)$/,
+			test: /\.(js|html|css)$/,
 			threshold: 10240,
 			minRatio: 0.8
+		}),
+		new OfflinePlugin({
+			caches: 'all',
+			relativePaths: false,
+			publicPath: '/scripts/',
+			ServiceWorker: {
+				events: true,
+				output: '../sw.js',
+				publicPath: '/sw.js',
+				navigateFallbackURL: '/'
+			},
+			AppCache: {
+				output: '../appcache',
+				publicPath: '/appcache'
+			},
+			externals: [
+				'/',
+				'https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two',
+				'https://at.alicdn.com/t/font_0qcp222wvwijm7vi.woff',
+			],
 		}),
 	],
 
 	resolve: {
 		alias: {
-			app: APP_DIR
+			app: APP_DIR,
+			public: PUBLIC_DIR,
 		},
 		extensions: [ '.js', '.json' ]
 	},

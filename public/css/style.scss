@@ -29,6 +29,7 @@ body {
 @import "./common/utils.scss";
 @import "./common/flex.scss";
 @import "./common/browserFirefox.scss";
+@import "./common/responsive.scss";
 
 
 // import the application styles
@@ -55,5 +56,6 @@ body {
 
 @import "./components/all.scss";
 
+@import "./components/component--mobile-nav.scss";
 
 

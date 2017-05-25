@@ -2,19 +2,14 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1, initial-scale=1, shrink-to-fit=no">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Productivity Application</title>
 	<meta name="description" content="Productivity application built using React, Ant Design, React Router, GraphQL and more.">
 	<meta name="author" content="Dhruv Kumar Jha">
 	<link rel="icon" href="/images/favicon.png">
-
-	<!-- place all the generated css files here -->
-	<% for (var css in htmlWebpackPlugin.files.css) { %>
-		<link href="<%= htmlWebpackPlugin.files.css[css] %>" rel="stylesheet">
-	<% } %>
-
-	<link rel="stylesheet" href="/css/style.css" />
+	<link rel="manifest" href="/manifest.json">
+	<meta name="theme-color" content="#2c539e">
 </head>
 <body>
 
@@ -33,6 +28,11 @@
 		window.__API__ENDPOINT__ = "<%= htmlWebpackPlugin.options.api_endpoint || 'https://pro-app-api.herokuapp.com' %>/graphql";
 	</script>
 
+
+	<!-- place all the generated css files here -->
+	<% for (var css in htmlWebpackPlugin.files.css) { %>
+		<link href="<%= htmlWebpackPlugin.files.css[css] %>" rel="stylesheet">
+	<% } %>
 
 	<!-- place the generated manifest file here, inline. -->
 	<%= htmlWebpackPlugin.files.webpackManifest %>

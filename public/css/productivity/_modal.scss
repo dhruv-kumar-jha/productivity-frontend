@@ -222,6 +222,59 @@
 			font-size: 13px;
 		}
 
+		hr {
+			margin: 20px 0;
+			border: 0;
+			display: block;
+			height: 1px;
+			border-top: 1px solid rgba(204, 204, 204, 0.46);
+		}
+
+		table {
+			border-collapse: collapse;
+			width: 100%;
+			border: 1px solid rgba(0,0,0,0.1); // #CCC
+			margin: 20px 0;
+			font-family: $font_family_lg;
+
+			thead {
+				tr {
+					background: #FFF;
+					background: linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
+					filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 );
+				}
+				th {
+					padding: 6px 10px;
+					text-align: left;
+					font-weight: 700;
+					color: #000;
+					font-size: 13px;
+					line-height: 20px;
+					// font-family: $font_family_lg;
+				}
+			}
+
+			tbody {
+				tr {
+					&:nth-child(odd) {
+						background: #eaf9ff;
+					}
+					&:nth-child(even) {
+						background: #FFF;
+					}
+				}
+				td {
+					padding: 6px 10px;
+					color: #333;
+					font-size: 13px;
+					line-height: 13px;
+					border-right: 1px solid rgba(0,0,0,0.1);
+					&:last-child { border-right: 0; }
+				}
+
+			}
+		}
+
 
 	}
 

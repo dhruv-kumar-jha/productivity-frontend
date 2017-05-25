@@ -95,8 +95,8 @@ class Login extends Component {
 			<div className="component__login">
 
 				<div className="m-b-30">
-					<h1><FormattedMessage id="auth.login.title" defaultMessage="Login to your Account" /></h1>
-					<p><FormattedMessage id="auth.login.subtitle" defaultMessage="Please enter your details to login." /></p>
+					<h1 className="heading--title"><FormattedMessage id="auth.login.title" defaultMessage="Login to your Account" /></h1>
+					<p className="heading--subtitle"><FormattedMessage id="auth.login.subtitle" defaultMessage="Please enter your details to login." /></p>
 				</div>
 
 
@@ -132,9 +132,9 @@ class Login extends Component {
 					</FormItem>
 
 					<FormItem className="m-b-0" {...tailFormItemLayout}>
-						<Button type="primary" size="default" icon="lock" htmlType="submit"><FormattedMessage id="auth.form.login" defaultMessage="Login Now" /></Button>
-						<Button type="ghost" size="default" icon="reload" onClick={ this.handleReset } style={{ marginLeft: 10 }}><FormattedMessage id="form.reset" defaultMessage="Reset" /></Button>
-						<Button type="primary" size="default" icon="key" onClick={ this.demoUserLogin } className="float-right"><FormattedMessage id="auth.form.demouser" defaultMessage="Demo" /></Button>
+						<Button type="primary" size="default" icon="lock" className="auth--button--login" htmlType="submit"><FormattedMessage id="auth.form.login" defaultMessage="Login Now" /></Button>
+						<Button type="ghost" size="default" icon="reload" onClick={ this.handleReset } className="auth--button--reset" style={{ marginLeft: 10 }}><FormattedMessage id="form.reset" defaultMessage="Reset" /></Button>
+						<Button type="primary" size="default" icon="key" onClick={ this.demoUserLogin } className="auth--button--demo float-right"><FormattedMessage id="auth.form.demouser" defaultMessage="Demo" /></Button>
 					</FormItem>
 
 				</Form>

@@ -60,6 +60,31 @@
   {
     "descriptors": [
       {
+        "defaultMessage": "Dashboard",
+        "id": "app.nav.dashboard"
+      },
+      {
+        "defaultMessage": "Settings",
+        "id": "app.nav.settings"
+      },
+      {
+        "defaultMessage": "Logout",
+        "id": "app.nav.logout"
+      },
+      {
+        "defaultMessage": "Login Now",
+        "id": "app.nav.login"
+      },
+      {
+        "defaultMessage": "Create New Account",
+        "id": "app.nav.create_account"
+      }
+    ],
+    "path": "components/common/MobileNav.json"
+  },
+  {
+    "descriptors": [
+      {
         "defaultMessage": "Make Private",
         "id": "board.visibility.private"
       },

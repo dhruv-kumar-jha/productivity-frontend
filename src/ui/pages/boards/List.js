@@ -188,7 +188,7 @@ class List extends Component {
 							<Input.Group>
 							<Row>
 
-								<Col span="12">
+								<Col xs={24} lg={{ span: 12 }}>
 									<FormItem label={ <FormattedMessage id="list.form.label.background" defaultMessage="List Background" /> } >
 										{ getFieldDecorator('meta.background_color', {
 											initialValue: list.meta.background_color || null,
@@ -198,7 +198,7 @@ class List extends Component {
 									</FormItem>
 								</Col>
 
-								<Col span="5" offset="1">
+								<Col xs={24} lg={{ span: 5, offset: 1 }}>
 									<FormItem label={ <FormattedMessage id="list.form.label.space_before" defaultMessage="Space Before" /> } >
 										{ getFieldDecorator('meta.space_before', {
 											initialValue: list.meta.space_before || null,
@@ -208,7 +208,7 @@ class List extends Component {
 									</FormItem>
 								</Col>
 
-								<Col span="5" offset="1">
+								<Col xs={24} lg={{ span: 5, offset: 1 }}>
 									<FormItem label={ <FormattedMessage id="list.form.label.space_after" defaultMessage="Space After" /> } >
 										{ getFieldDecorator('meta.space_after', {
 											initialValue: list.meta.space_after || null,
@@ -222,10 +222,10 @@ class List extends Component {
 							</Input.Group>
 
 							<FormItem className="m-b-0">
-								<Button type="primary" size="default" icon="check" htmlType="submit"><FormattedMessage id="list.form.update" defaultMessage="Update Details" /></Button>
-								<Button type="ghost" size="default" icon="reload" onClick={ this.resetForm } className="m-l-10"><FormattedMessage id="form.reset" defaultMessage="Reset" /></Button>
+								<Button type="primary" size="default" icon="check" className="button--submit" htmlType="submit"><FormattedMessage id="list.form.update" defaultMessage="Update Details" /></Button>
+								<Button type="ghost" size="default" icon="reload" className="button--reset m-l-10" onClick={ this.resetForm } ><FormattedMessage id="form.reset" defaultMessage="Reset" /></Button>
 								{ list.meta.background_color &&
-									<Button type="ghost" size="default" icon="reload" onClick={ (e) => { this.resetBackground(e, list, board ) } } className="float-right"><FormattedMessage id="list.form.reset_background" defaultMessage="Reset Background" /></Button>
+									<Button type="ghost" size="default" icon="reload" onClick={ (e) => { this.resetBackground(e, list, board ) } } className="button--reset-background float-right"><FormattedMessage id="list.form.reset_background" defaultMessage="Reset Background" /></Button>
 								}
 							</FormItem>
 						</Spin>

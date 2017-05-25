@@ -102,7 +102,7 @@ class GroupsSettings extends Component {
 
 
 				{ groups.length > 0 &&
-				<div className="m-t-30 m-l-50">
+				<div className="settings-groups-container m-t-30 m-l-50">
 
 					<div className="component__info__header">
 						Given below is list of all the groups you have added
@@ -128,7 +128,7 @@ class GroupsSettings extends Component {
 					</div>
 
 					<div className="m-t-30">
-						<Button type="primary" onClick={ this.gotoAddNewGroup }>Add New Group</Button>
+						<Button type="primary" onClick={ this.gotoAddNewGroup } className="mobile--block">Add New Group</Button>
 					</div>
 
 				</div>
@@ -140,7 +140,7 @@ class GroupsSettings extends Component {
 						<p>No groups has been added yet.</p>
 						<p>As soon as you add a group it will appear here.</p>
 						<div className="m-t-20">
-							<Button type="primary" onClick={ this.gotoAddNewGroup }>Add New Group</Button>
+							<Button type="primary" onClick={ this.gotoAddNewGroup }  className="mobile--block">Add New Group</Button>
 						</div>
 					</div>
 				}

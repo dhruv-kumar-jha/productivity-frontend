@@ -12,6 +12,11 @@ import initialState from 'app/global/middleware/initialState';
 
 import ApplicationRoutes from './routes';
 
+import { install } from 'offline-plugin/runtime';
+
+import 'public/css/style.css';
+
+
 
 const dataIdFromObject = o => o.id;
 const client = new ApolloClient({
@@ -38,4 +43,8 @@ render(
 	),
 	document.getElementById('application__core')
 );
+
+
+// install the service worker.
+install();
 
