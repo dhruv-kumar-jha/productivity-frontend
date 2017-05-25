@@ -61,28 +61,28 @@ Now you can access the application by running `yarn start:production` or `npm ru
 
 Status | Feature | Description
 ------------ | ------------ | -------------
-:white_check_mark: | Static Application | You can host the app on any Static Host/CDN instead of a server
-:white_check_mark: | Boards | Boards are the gateway to your lists, You can have as many boards as you want
-:white_check_mark: | Lists | Each list can easily be re-arranged and updated, You can add multiple cards to a list
-:white_check_mark: | Cards | Cards are the meat of this app, you can add as many cards as you like, re-arrange them, drag them from one list to another, etc
-:white_check_mark: | Todo List | Each card has Todo List tab, There you can add your todo list items, update them, mark them as completed and so on.
-:white_check_mark: | Card Meta | Each card has meta section where you can specify Duedate, Link, Image and the appropriate icons will appear below card in the list view., If image URL is specified, Image will appear above the card title.
-:white_check_mark: | Custom Background | Each board, list and card can have different Background color, Boards can have background images as well. To change the background color of board just edit the board by clicking the Edit icon below the header and there you can update board details along with background color.
-:white_check_mark: | Settings | You can update your details, password and preferred language in the settings page
-:white_check_mark: | Deploy to Netlify | Added 1 click deploy to Netlify button.
-:white_check_mark: | Public Boards | Now you can make boards public, Public boards are accessible to all the users with the board URL., By default all boards are private.
-:white_check_mark: | Code Splitting | Split the code into different files and only load those files when necessary., Enable tree shaking so we only include the code we're actually using in the app.
-:white_check_mark: | Lists Spacing | Now you can add spaces between lists, You can add space before and after a list. (might be useful to some of you)
-:white_check_mark: | Customizations | Now you have more control over specifying background colors, you can either select it using colorpicker or enter it manually, it can be `Color Names`, `HEX`, `RGB` or `RGBA`.
-:white_check_mark: | Multiple Languages | Added support for multiple languages, Current translation of **Chinese** langugae is done using Google Translate.
-:white_check_mark: | Card Positioning | Now you can top and bottom margin to any card, Giving your more flexibility and control over the UI.
-:white_check_mark: | Loading Indicator | Since the project makes use of Webpack code splitting, Sometimes it felt like clicks were unresponsive, Now you can see loading message whenever new script(s) is being loaded.
-:white_check_mark: | GraphQL Fragments | Have started using fragments wherever necessary, This will help with app performance when you have lots of Boards.
-:white_check_mark: | Board Groups | This will help you with Grouping different boards together and I personally think this will benefit us a lot, You can Add groups by going to the settings page.
-:white_check_mark: | Responsive | The app is responsive in mobile devices (although not perfect), More mobile specific enhancements will be made in future.
-:white_check_mark: | Service Worker | Now all the assets will be cached locally so you can use this app with slow internet connections (all the data still loads from server).
-:white_check_mark: | Add To Device | The app is responsive in mobile devices (although not perfect), More mobile specific enhancements will be made in future.
-[ ] | Offline Support | Make the app work without internet (coming soon).
+:heavy_check_mark: | Static Application | You can host the app on any Static Host/CDN instead of a server
+:heavy_check_mark: | Boards | Boards are the gateway to your lists, You can have as many boards as you want
+:heavy_check_mark: | Lists | Each list can easily be re-arranged and updated, You can add multiple cards to a list
+:heavy_check_mark: | Cards | Cards are the meat of this app, you can add as many cards as you like, re-arrange them, drag them from one list to another, etc
+:heavy_check_mark: | Todo List | Each card has Todo List tab, There you can add your todo list items, update them, mark them as completed and so on.
+:heavy_check_mark: | Card Meta | Each card has meta section where you can specify Duedate, Link, Image and the appropriate icons will appear below card in the list view., If image URL is specified, Image will appear above the card title.
+:heavy_check_mark: | Custom Background | Each board, list and card can have different Background color, Boards can have background images as well. To change the background color of board just edit the board by clicking the Edit icon below the header and there you can update board details along with background color.
+:heavy_check_mark: | Settings | You can update your details, password and preferred language in the settings page
+:heavy_check_mark: | Deploy to Netlify | Added 1 click deploy to Netlify button.
+:heavy_check_mark: | Public Boards | Now you can make boards public, Public boards are accessible to all the users with the board URL., By default all boards are private.
+:heavy_check_mark: | Code Splitting | Split the code into different files and only load those files when necessary., Enable tree shaking so we only include the code we're actually using in the app.
+:heavy_check_mark: | Lists Spacing | Now you can add spaces between lists, You can add space before and after a list. (might be useful to some of you)
+:heavy_check_mark: | Customizations | Now you have more control over specifying background colors, you can either select it using colorpicker or enter it manually, it can be `Color Names`, `HEX`, `RGB` or `RGBA`.
+:heavy_check_mark: | Multiple Languages | Added support for multiple languages, Current translation of **Chinese** langugae is done using Google Translate.
+:heavy_check_mark: | Card Positioning | Now you can top and bottom margin to any card, Giving your more flexibility and control over the UI.
+:heavy_check_mark: | Loading Indicator | Since the project makes use of Webpack code splitting, Sometimes it felt like clicks were unresponsive, Now you can see loading message whenever new script(s) is being loaded.
+:heavy_check_mark: | GraphQL Fragments | Have started using fragments wherever necessary, This will help with app performance when you have lots of Boards.
+:heavy_check_mark: | Board Groups | This will help you with Grouping different boards together and I personally think this will benefit us a lot, You can Add groups by going to the settings page.
+:heavy_check_mark: | Responsive | The app is responsive in mobile devices (although not perfect), More mobile specific enhancements will be made in future.
+:heavy_check_mark: | Service Worker | Now all the assets will be cached locally so you can use this app with slow internet connections (all the data still loads from server).
+:heavy_check_mark: | Add To Device | The app is responsive in mobile devices (although not perfect), More mobile specific enhancements will be made in future.
+:white_square_button: | Offline Support | Make the app work without internet (coming soon).
 
 
 ## Feature Requests
