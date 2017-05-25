@@ -128,8 +128,9 @@ const WebpackConfig = {
 				navigateFallbackURL: '/'
 			},
 			AppCache: {
+				events: true,
 				output: '../appcache',
-				publicPath: '/appcache'
+				publicPath: '/appcache/'
 			},
 			externals: [
 				'/',
